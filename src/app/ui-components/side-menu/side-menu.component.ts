@@ -139,11 +139,11 @@ export class SideMenuComponent {
       "icon": "fa-solid fa-truck",
       "url": "logistics/package",
       "submenus": [
-        {
-          "name": "Cargos",
-          "icon": "fa-solid fa-calendar-alt",
-          "url": "logistics/cargos"
-        },
+        // {
+        //   "name": "Cargos",
+        //   "icon": "fa-solid fa-calendar-alt",
+        //   "url": "logistics/cargos"
+        // },
         {
           "name": "Packages",
           "icon": "fa-solid fa-box",
