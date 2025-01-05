@@ -1,0 +1,21 @@
+<section class="side-menu">
+    <div class="logo">
+        <a routerLink="/">
+            <img src="../../../assets/Logos/logo_short.png" alt="">
+        </a>
+    </div>
+    <div class="cor-menus">
+        <div *ngFor="let a of menus;let i = index" class="menu" (mouseenter)="onHover($event, i)">
+            <a [routerLink]="a.url">
+                <div>
+                    <i [class]="a.icon"></i>
+                </div>
+                <div>{{a.name}}</div>
+            </a>
+            <div *ngIf="a.submenus" class="content" [id]="'content-' + i">
+                <div *ngFor="let k of a.submenus" class="content-item" [routerLink]="k.url"><i [class]="k.icon"></i>
+                    {{k.name}}</div>
+            </div>
+        </div>
+    </div>
+</section>

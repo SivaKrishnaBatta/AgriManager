@@ -1,0 +1,48 @@
+<section>
+  <div class="container" [ngClass]="{ 'active': isActive }" id="container">
+    <!-- Sign-Up Form -->
+    <div class="form-container sign-up">
+      <form>
+        <div>
+          <img src="../../../assets/Logos/cortracker.png" alt="Logo">
+        </div>
+        <h1>Create Account</h1>
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button (click)="login()">Sign Up</button>
+      </form>
+    </div>
+
+    <!-- Sign-In Form -->
+    <div class="form-container sign-in ">
+      <form>
+        <div>
+          <img src="../../../assets/Logos/cortracker.png" alt="Logo">
+        </div>
+        <h1>Sign In</h1>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <a href="#">Forgot Your Password?</a>
+        <button (click)="login()">Sign In</button>
+      </form>
+    </div>
+
+    <!-- Toggle Container -->
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>Welcome Back!</h1>
+          <p>Enter your personal details to use all site features</p>
+          <button (click)="showLogin()">Sign In</button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>Hello, Friend!</h1>
+          <p>Register with your personal details to use all site features</p>
+          <button (click)="showRegister()">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

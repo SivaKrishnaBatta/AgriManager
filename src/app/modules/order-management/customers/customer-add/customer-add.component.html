@@ -1,0 +1,206 @@
+<div class="card-wrapper">
+    <h1 class="title">New Customer</h1>
+    <hr>
+    <div class="content">
+        <form>
+            <div class="cor-form">
+                <div class="input-box">
+                    <span class="details">Customer First Name</span>
+                    <input formControlName="userName" type="text" placeholder="Enter your First Name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Customer Last Name</span>
+                    <input formControlName="teamSize" type="number" placeholder="Enter your Last name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Company Name</span>
+                    <input formControlName="teamSize" type="number" placeholder="Enter your Company name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Customer Email</span>
+                    <input formControlName="clientEmail" type="email" placeholder="Enter your Customer Email">
+                </div>
+                <div class="input-box">
+                    <span class="details">Customer phone</span>
+                    <input formControlName="clientContact" type="number" placeholder="Enter your cutomer phone">
+                </div>
+
+                <div class="select-dropdown gender-details">
+                    <span class="details">user Status :</span>
+                    <select formControlName="userStatus">
+                        <option value="">--Select --</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">PAN</span>
+                    <input formControlName="clientContact" type="number" placeholder="Enter your PAN">
+                </div>
+                <div class="select-dropdown gender-details">
+                    <span class="details">Currency :</span>
+                    <select formControlName="userStatus">
+                        <option value="">--Select --</option>
+                        <option value="AED-UAE Dirham">AED-UAE Dirham</option>
+                        <option value="CAD-Canadian Dollar">CAD-Canadian Dollar</option>
+                        <option value="INR-Indian Rupee">CAD-Canadian Dollar</option>
+                        <option value="EUR-Euro">EUR-Euro</option>
+                    </select>
+                </div>
+                <div class="select-dropdown gender-details">
+                    <span class="details">Payment Terms :</span>
+                    <select formControlName="userStatus">
+                        <option value="1">--Due-on-reciept--</option>
+                        <option value="2">Due-15</option>
+                        <option value="3">Due-30</option>
+                        <option value="4">Due-40</option>
+                        <option value="5">EUR-60</option>
+                        <option value="5">Due end of the month</option>
+                        <option value="5">Due end of the next month</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Customer Type</span>
+                    <div class="radio-group">
+                        <label for="male">
+                            <input type="radio" id="male" name="gender" value="male">
+                            Business
+                        </label>
+                        <label for="female">
+                            <input type="radio" id="female" name="gender" value="female">
+                            Individual
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cor-form">
+                <div class="input-box textarea-box">
+                    <span class="details">Description</span>
+                    <textarea formControlName="description" rows="5"></textarea>
+                </div>
+                <div class="input-box textarea-box">
+                    <span class="details">Comments</span>
+                    <textarea formControlName="description" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="m-3">
+                <div class="nav nav-tabs">
+                    <div *ngFor="let tab of tabs;let i = index" class="nav-link"
+                        [ngClass]="{'active': selectedTab === i}" (click)="selectTab(i)">
+                        {{ tab }}
+                </div>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div *ngIf="selectedTab === 0" class="tab-pane fade show active">
+                    <div class="cor-form">
+                        <div class="input-box">
+                            <span class="details">Attention</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+                        <div class="select-dropdown gender-details">
+                            <span class="details">Country/Region :</span>
+                            <select formControlName="userStatus">
+                                <option value="">--Select --</option>
+                                <option value="India">India</option>
+                                <option value="American Samoa">American Samoa</option>
+                                <option value="Cocus Island">Cocus Island</option>
+                                <option value="Benin">Benin</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Address</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">City</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">State</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Pin Code</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Phone</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Fax Number</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="selectedTab === 1" class="tab-pane fade show active">
+                    <div class="cor-form">
+                        <div class="input-box">
+                            <span class="details">Attention</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+                        <div class="select-dropdown gender-details">
+                            <span class="details">Country/Region :</span>
+                            <select formControlName="userStatus">
+                                <option value="">--Select --</option>
+                                <option value="India">India</option>
+                                <option value="American Samoa">American Samoa</option>
+                                <option value="Cocus Island">Cocus Island</option>
+                                <option value="Benin">Benin</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Address</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">City</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">State</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Pin Code</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Phone</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Fax Number</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <button routerLink="/scm/order/customers/customer-view" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button routerLink="/scm/order/customers/listing" class="close-button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+<!-- <button routerLink="/scm/order/customers/listing">cutomer listing</button>
+<button routerLink="/scm/order/customers/add-customer">Add Cutomer</button>
+<button  routerLink="/scm/order/customers/customer-view">Cutomer view</button> -->

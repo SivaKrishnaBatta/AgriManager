@@ -1,0 +1,115 @@
+.card-wrapper {
+    max-width: 100%;
+    background: #fff;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+.table {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: #e9ecef;
+    font-weight: 600;
+    color: #495057;
+}
+
+.table th,
+.table td {
+    padding: 16px;
+    border-top: none;
+    vertical-align: middle;
+}
+
+.table tbody tr {
+    transition: background-color 0.3s;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f3f5;
+}
+
+.table .highlighted-row {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.table .highlighted-row:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.card-heading {
+    color: #007bff !important;
+    text-decoration: none;
+    font-size: 18 !important;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #007bff !important;
+    font-weight: 700 !important;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.no-border td {
+    border: none !important;
+}
+
+
+.signature {
+    margin-top: 20px;
+}
+.cor-print{
+    width: 800px;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    margin: 20 0 0 50px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+.w-33{
+    width: 33.33% !important;
+}
+.w-20{
+    width: 20% !important;
+}
+.w-30{
+    width: 30% !important;
+}
+.w-40{
+    width: 40% !important;
+}
+.w-45{
+    width: 45% !important;
+}
+.w-60{
+    width: 60% !important;
+}
+.w-70{
+    width: 70% !important;
+}
+.w-80{
+    width: 80% !important;
+}
+.cor-h-350{
+    height: 350px !important;
+}
+
+.cor-h-450{
+    height: 450px !important;
+}
+
+.validate-message{
+    font-size: 12px !important;
+    color: red !important;
+}

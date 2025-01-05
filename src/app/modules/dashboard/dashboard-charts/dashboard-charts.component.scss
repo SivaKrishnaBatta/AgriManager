@@ -1,0 +1,9 @@
+.gauge-charts-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  #chart-processing, #chart-fulfillment {
+    width: 45%;
+  }

@@ -1,0 +1,67 @@
+<div class="card-wrapper">
+    <div class="d-flex justify-content-between">
+        <h1>Quality Control</h1>
+        <div>
+            <button routerLink="/scm/manufacturing/qc/add-qc" class="btn mb-3 mr-3 btn-primary">+ Add QC Inspection</button>
+        </div>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>QC Inspection ID</th>
+                <th>Product</th>
+                <th>Work Order</th>
+                <th>Inspection Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td class="highlighted-row" routerLink="/scm/manufacturing/qc/qc-view" >QC12345</td>
+                <td>Product A</td>
+                <td>WO001</td>
+                <td>2024-09-10</td>
+                <td>Pending</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="highlighted-row" routerLink="/scm/manufacturing/qc/qc-view" >QC12346</td>
+                <td>Product B</td>
+                <td>WO002</td>
+                <td>2024-09-11</td>
+                <td>In Progress</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="highlighted-row" routerLink="/scm/manufacturing/qc/qc-view" >QC12347</td>
+                <td>Product C</td>
+                <td>WO003</td>
+                <td>2024-09-12</td>
+                <td>Completed</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="highlighted-row" routerLink="/scm/manufacturing/qc/qc-view" >QC12348</td>
+                <td>Product D</td>
+                <td>WO004</td>
+                <td>2024-09-13</td>
+                <td>Pending</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td class="highlighted-row" routerLink="/scm/manufacturing/qc/qc-view" >QC12349</td>
+                <td>Product E</td>
+                <td>WO005</td>
+                <td>2024-09-14</td>
+                <td>In Progress</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <button routerLink="/scm/manufacturing/qc/listing">qc listing</button>
+<button routerLink="/scm/manufacturing/qc/add-qc">Add qc</button>
+<button  routerLink="/scm/manufacturing/qc/qc-view">qc view</button> -->

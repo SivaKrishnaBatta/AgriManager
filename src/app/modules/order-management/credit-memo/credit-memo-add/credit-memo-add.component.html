@@ -1,0 +1,142 @@
+<div class="card-wrapper">
+    <h1 class="title">Credit Memo</h1>
+    <hr>
+    <div class="content">
+        <form>
+            <div class="cor-form">
+                <div class="select-dropdown">
+                    <span class="details">Customer Name</span>
+                    <select>
+                        <option value="">--Select--</option>
+                        <option value="Saikumar">Saikumar</option>
+                        <option value="Ahmed">Ahmed</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Credit Note#<span style="color: red;">*</span></span>
+                    <input type="number" placeholder="Credit Note">
+                </div>
+                <div class="input-box">
+                    <span class="details">Reference#</span>
+                    <input type="date" placeholder="Sales Order Date">
+                </div>
+                <div class="input-box">
+                    <span class="details">Credit Note Date<span style="color: red;">*</span></span>
+                    <input type="date" placeholder="Expected Shipment Date">
+                </div>
+                <div class="select-dropdown">
+                    <span class="details">Sales Person</span>
+                    <select>
+                        <option value="">--Select or Add Salesperson--</option>
+                        <option value="Person 1">Person 1</option>
+                        <option value="Person 2">Person 2</option>
+                        <option value="Person 3">Person 3</option>
+                        <option value="Person 4">Person 4</option>
+                        <option value="Person 5">Person 5</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+                <span style="font-weight:bolder;">Item Table</span>
+                <div class="btn btn-primary mb-3" (click)="addbom()">+ Row</div>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Item Details</th>
+                        <th>Account</th>
+                        <th>Quantity</th>
+                        <th>Rate</th>
+                        <th>Discount</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let a of myList; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>
+                            <select>
+                                <option value="">--Select--</option>
+                                <option value="1">Laptop</option>
+                                <option value="2">Mobile</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="">--Select--</option>
+                                <option value="1">ACC 1</option>
+                                <option value="2">Acc 2</option>
+                            </select>
+                        </td>
+                        <td><input class="w-50" type="text"></td>
+                        <td><input class="w-50" type="text"></td>
+                        <td><input class="w-50" type="text"></td>
+                        <td><input class="w-50" type="text"></td>
+                        <td><i class="fa-solid fa-trash-can" (click)="_delete(i)"></i></td>
+                    </tr>
+                    <tr class="no-border">
+                        <td colspan="6" style="text-align: right;"><strong>Subtotal</strong></td>
+                        <td>$405.50</td>
+                        <td></td>
+                    </tr>
+                    <tr class="no-border">
+                        <td colspan="6" style="text-align: right">
+                            <strong class="pr-3">Total Discount</strong>
+                            <select style="width: 150px;" formControlName="userStatus">
+                                <option value="">--Select --</option>
+                                <option value="1">Quantity Discount</option>
+                                <option value="2">Seasonal Discount</option>
+                                <option value="3">Cash Discount</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="w-50" type="text" />
+                        </td>
+                    </tr>
+                    <tr class="no-border">
+                        <td colspan="6" style="text-align: right">
+                            <strong class="pr-3">Taxs</strong>
+                            <select style="width: 150px;" formControlName="userStatus">
+                                <option value="">--Select --</option>
+                                <option value="1">Income Tax</option>
+                                <option value="2">Sales Tax</option>
+                                <option value="3">Value Added Tax (VAT)</option>
+                                <option value="4">Goods And Service Tax (GST)</option>
+                                <option value="5">Gift Tax</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="w-50" type="text" />
+                        </td>
+                    </tr>
+                    <tr class="no-border">
+                        <td colspan="6" style="text-align: right;"><strong>Additional Charges (Shipping, Taxes,
+                                etc.)</strong></td>
+                        <td>
+                            <div class="input-box w-50">
+                                <input formControlName="additionalCharges" type="text">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="no-border">
+                        <td colspan="6" style="text-align: right;"><strong>Grand total</strong></td>
+                        <td>$455.50</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex">
+                <div>
+                    <button routerLink="/scm/order/credit-memo/credit-memo-view" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button routerLink="/scm/order/credit-memo/listing" class="close-button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

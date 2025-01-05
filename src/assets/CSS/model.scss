@@ -1,0 +1,54 @@
+
+.cor-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.cor-modal-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999; /* Background overlay has a lower z-index */
+}
+
+.cor-modal-content {
+    position: relative;
+    z-index: 999999999999; /* Content has a higher z-index */
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.cor-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cor-close:hover,
+.cor-close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.cor-show {
+    display: block;
+}
+.cor-content{
+    padding-left: 50px;
+    .cor-form{
+        max-width: 600px;
+        margin-bottom: 20px;
+    }
+}

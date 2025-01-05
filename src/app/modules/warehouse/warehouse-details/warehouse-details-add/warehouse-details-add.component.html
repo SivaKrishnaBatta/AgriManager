@@ -1,0 +1,60 @@
+<div class="card-wrapper">
+    <h1 class="title">Add Warehouse</h1>
+    <hr>
+    <div class="content">
+        <form>
+            <div class="cor-form">
+                <div class="select-dropdown company-name">
+                    <span class="details">Company Name</span>
+                    <select formControlName="company-name">
+                        <option value="Active">--Select--</option>
+                        <option value="">Company 1</option>
+                        <option value="">Company 2</option>
+                        <option value="">Company 3</option>
+                        <option value="">Company 4</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Warehouse Code<span style="color: red;">*</span></span>
+                    <input formControlName="Warehouse_Code" type="text" placeholder="Warehouse Code">
+                </div>
+                <div class="input-box">
+                    <span class="details">Warehouse Name<span style="color: red;">*</span></span>
+                    <input formControlName="Warehouse_Name" type="text" placeholder="Warehouse Name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Warehouse Address<span style="color: red;">*</span></span>
+                    <input formControlName="Warehouse_Address" type="text" placeholder="Warehouse Address">
+                </div>
+                <div class="input-box">
+                    <span class="details">Address1<span style="color: red;">*</span></span>
+                    <input formControlName="address1" type="text" placeholder="Address 1">
+                </div>
+                <div class="input-box">
+                    <span class="details">Address 2</span>
+                    <input formControlName="address2" type="text" placeholder="Address 2">
+                </div>
+                
+                <div class="select-dropdown Warehouse-Keeper">
+                    <span class="details">Warehouse Keeper</span>
+                    <select formControlName="Warehouse-Keeper">
+                        <option value="Active">--Select--</option>
+                        <option value="">Staff1</option>
+                        
+                    </select>
+                </div>
+
+            </div>
+           
+            <div class="d-flex mt-3">
+                <div>
+                    <button  routerLink="/scm/warehouse/warehouse-details/warehouse-details-view" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button  routerLink="/scm/warehouse/warehouse-details/listing" class="close-button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

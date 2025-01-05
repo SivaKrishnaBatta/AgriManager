@@ -1,0 +1,108 @@
+<div *ngIf="!addNew">
+    <div class="d-flex justify-content-between">
+        <h2>Shipping Method</h2>
+        <div>
+            <button class="btn mb-3 mr-3 btn-primary" (click)="addNew = true">+ Add New</button>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Shipping Method</th>
+                <th>Charges</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of allShippingMethod;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{a.shipmentMethod}}</td>
+                <td>${{a.charges}}</td>
+                <td>{{a.description}}</td>
+                <td>
+                    <i (click)="updateShipMethod(a)" class="fa-regular fa-pen-to-square"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="addNew">
+    <h2 class="title">New Shipping Method</h2>
+    <hr>
+    <div class="content">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+             <div class="cor-form">
+                <div class="input-box">
+                    <span class="details">Shipping Method</span>
+                    <input formControlName="shipmentMethod" type="text" placeholder="Enter your shipmentMethod">
+                    <div  class="validate-message" *ngIf="registerForm.controls['shipmentMethod'].invalid && registerForm.controls['shipmentMethod'].touched">
+                        ShipmentMethod  required 
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Charges</span>
+                    <input formControlName="charges" type="number" placeholder="Enter your Charges">
+                    <div  class="validate-message" *ngIf="registerForm.controls['charges'].invalid && registerForm.controls['charges'].touched">
+                        Charges  required 
+                    </div>
+                </div>
+            </div>
+            <div class="cor-form">
+                <div class="input-box textarea-box">
+                    <span class="details">Description</span>
+                    <textarea formControlName="description" rows="5"></textarea>
+                    <div class="validate-message" *ngIf="registerForm.controls['description'].invalid && registerForm.controls['description'].touched">
+                        Description  required 
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button type="button" class="close-button" (click)="close()">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

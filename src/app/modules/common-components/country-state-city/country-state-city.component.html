@@ -1,0 +1,34 @@
+<form [formGroup]="address" class="cor-form">
+    <div class="select-dropdown gender-details">
+        <label class="details" for="country">Country<span class="cor-required">*</span></label>
+        <select id="country" (change)="onCountryChange($event)" formControlName="country">
+            <option value="">--- Select Country ---</option>
+            <option *ngFor="let country of countries" [value]="country.isoCode">{{country.name}}</option>
+        </select>
+        <div class="validate-message" *ngIf="address.controls['country'].invalid && address.controls['country'].touched">
+            Country Required.
+        </div>
+    </div>
+
+    <div class="select-dropdown gender-details">
+        <label class="details" for="state">State<span class="cor-required">*</span></label>
+        <select id="state" [disabled]="!states.length" (change)="onStateChange($event)" formControlName="state">
+            <option value="">--- Select State ---</option>
+            <option *ngFor="let state of states" [value]="state.isoCode">{{state.name}}</option>
+        </select>
+        <div class="validate-message" *ngIf="address.controls['state'].invalid && address.controls['state'].touched">
+            state Required.
+        </div>
+    </div>
+
+    <div class="select-dropdown gender-details">
+        <label class="details" for="city">City<span class="cor-required">*</span></label>
+        <select id="city" [disabled]="!cities.length" (change)="onCityChange($event)" formControlName="city">
+            <option value="">--- Select City ---</option>
+            <option *ngFor="let city of cities" [value]="city.name">{{city.name}}</option>
+        </select>
+        <div class="validate-message" *ngIf="address.controls['city'].invalid && address.controls['city'].touched">
+            city Required.
+        </div>
+    </div>
+</form>

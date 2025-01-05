@@ -1,0 +1,84 @@
+<div class="card-wrapper">
+  <div class="container-fluid">
+    <div>
+      <h1>Bom View</h1>
+    </div>
+    <div class="d-flex justify-content-between align-items-center py-2 ">
+      <div>
+        <strong>BOM-ID# : BOM-00001</strong>
+        <div>Status : Draft</div>
+      </div>
+      <div class="d-flex align-items-center">
+        <button class="btn btn-light btn-sm me-2">
+          <i class="bi bi-pencil"></i> Edit
+        </button>
+        <button class="btn btn-light btn-sm me-2">
+          <i class="fa-regular fa-circle-check"></i> Approve
+        </button>
+        <button routerLink="/scm/manufacturing/production/add-production" class="btn btn-light btn-sm me-2">
+          <i class="fa-solid fa-project-diagram me-2"></i>Create Production Planning
+        </button>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h2 class="pl-3">BOM Details</h2>
+  <div class="d-flex gap-5 pl-3 pr-3">
+    <div class="w-50">
+      <p class="d-flex justify-content-between"><strong>Product No.</strong> 55858</p>
+      <p class="d-flex justify-content-between"><strong>Product Description</strong>manufacturing</p>
+      <p class="d-flex justify-content-between"><strong>BOM Type</strong>Standart</p>
+      <p class="d-flex justify-content-between"><strong>Quantity</strong> 10</p>
+      <p class="d-flex justify-content-between"><strong>X Quality</strong>Tata</p>
+    </div>
+    <div class="w-50">
+      <p class="d-flex justify-content-between"><strong>Warehouse</strong> WH-1</p>
+      <p class="d-flex justify-content-between"><strong>Price List</strong>Basic Price List</p>
+      <p class="d-flex justify-content-between"><strong>Dist Rule</strong> -</p>
+      <p class="d-flex justify-content-between"><strong>Project</strong>My Project</p>
+      <p class="d-flex justify-content-between"><strong>BOM Date</strong>14/10/2024</p>
+    </div>
+
+  </div>
+</div>
+<div class="card-wrapper">
+  <div>
+    <h1>Raw Material</h1>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Quantity Required</th>
+        <th>Unit of Measure</th>
+        <th>Stock Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Steel Rod</td>
+        <td>500</td>
+        <td>kg</td>
+        <td>400</td>
+      </tr>
+      <tr>
+        <td>Plastic Sheet</td>
+        <td>200</td>
+        <td>pieces</td>
+        <td>250</td>
+      </tr>
+      <tr>
+        <td>Glass Panel</td>
+        <td>100</td>
+        <td>units</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td>Aluminum Frame</td>
+        <td>150</td>
+        <td>units</td>
+        <td>160</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

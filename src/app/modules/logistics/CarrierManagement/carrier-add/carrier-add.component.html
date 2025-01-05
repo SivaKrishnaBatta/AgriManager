@@ -1,0 +1,129 @@
+<div class="card-wrapper">
+    <h1 class="title">Add New Carrier</h1>
+    <hr>
+    <div class="content">
+        <form [formGroup]="carrierForm" (ngSubmit)="submitForm()">
+            <div class="cor-form">
+                <div class="input-box">
+                    <span class="details">Carrier Code#<span style="color: red;">*</span></span>
+                    <input formControlName="carrierCode" type="text" placeholder="Carrier Code">
+                    <div class="validate-message"
+                        *ngIf="carrierForm.get('carrierCode').invalid && carrierForm.get('carrierCode').touched">
+                        Carrier Code required
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Carrier Name<span style="color: red;">*</span></span>
+                    <input formControlName="carrierName" type="text" placeholder="Carrier Name">
+                    <div class="validate-message"
+                        *ngIf="carrierForm.get('carrierName').invalid && carrierForm.get('carrierName').touched">
+                        Carrier Name required.
+                    </div>
+                </div>
+
+                <div class="select-dropdown serviceType">
+                    <label for="serviceType"><span style="color: red;">*</span>Service Type</label>
+                    <select formControlName="serviceType" id="serviceType">
+                        <option value="">--Select Service Type--</option>
+                        <option value="Express">Express</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Overnight">Overnight</option>
+                        <option value="Two-Day">Two-Day</option>
+                    </select>
+                    <div class="validate-message"
+                        *ngIf="carrierForm.get('serviceType').invalid && carrierForm.get('serviceType').touched">
+                        Service Type required.
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Contact Number<span style="color: red;">*</span></span>
+                    <input formControlName="contactNumber" type="text" placeholder="Contact Number">
+                    <div class="validate-message"
+                        *ngIf="carrierForm.get('contactNumber').invalid && carrierForm.get('contactNumber').touched">
+                        Contact Number required
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input formControlName="email" type="email" placeholder="abc@gmail.com">
+                    <div class="validate-message"
+                        *ngIf="carrierForm.get('email').invalid && carrierForm.get('email').touched">
+                        Enter email.
+                    </div>
+                </div>
+
+                <div class="select-dropdown status">
+                    <span class="status">Status</span>
+                    <select formControlName="status">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                    <div class="validate-message"
+                        *ngIf="carrierForm.get('status').invalid && carrierForm.get('status').touched">
+                        Status required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Address-I<span class="cor-required">*</span></span>
+                    <input formControlName="Address1" type="text" placeholder="Address I">
+                    <div  class="validate-message" *ngIf="carrierForm.controls['Address1'].invalid && carrierForm.controls['Address1'].touched">
+                        Address-I required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Address-II</span>
+                    <input formControlName="Address2" type="text" placeholder="Address II">
+                    <div  class="validate-message" *ngIf="carrierForm.controls['Address2'].invalid && carrierForm.controls['Address2'].touched">
+                        Address-II required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">City <span class="cor-required">*</span></span>
+                    <input formControlName="City" type="text" placeholder=" City">
+                    <div  class="validate-message" *ngIf="carrierForm.controls['City'].invalid && carrierForm.controls['City'].touched">
+                        City required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">State <span class="cor-required">*</span></span>
+                    <input formControlName="State" type="text" placeholder= "State">
+                    <div  class="validate-message" *ngIf="carrierForm.controls['State'].invalid && carrierForm.controls['State'].touched">
+                        State required.
+                    </div>
+                </div>
+                
+                <div class="select-dropdown Country">
+                    <span class="details">Country <span class="cor-required">*</span></span>
+                    <select formControlName="Country">
+                        <option value="">--Select --</option>
+                        <option value="Active">India</option>
+                        <option value="Inactive">USA</option>
+                        <option value="Inactive">China</option>
+                        <option value="Inactive">Japan</option>
+                    </select>
+                    <div  class="validate-message" *ngIf="carrierForm.controls['Country'].invalid && carrierForm.controls['Country'].touched">
+                        Country required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Post Code <span class="cor-required">*</span></span>
+                    <input formControlName="Postcode" type="text" placeholder="Postcode">
+                    <div  class="validate-message" *ngIf="carrierForm.controls['Postcode'].invalid && carrierForm.controls['Postcode'].touched">
+                         Postcode required.
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button routerLink="/scm/logistics/carrier/listing" class="close-button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

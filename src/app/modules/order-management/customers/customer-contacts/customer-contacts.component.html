@@ -1,0 +1,117 @@
+<div *ngIf="!newContact">
+    <div class="d-flex justify-content-between ">
+        <h1>Contacts</h1>
+        <div>
+            <button class="btn mb-3 mr-3 btn-primary" (click)="newContact = true">Add Contact</button>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th scope="col">Contact Name</th>
+                <th scope="col">Job Title</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Department </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>John Doe</td>
+                <td>Project Manager</td>
+                <td>john.doe.example.com</td>
+                <td>+1 555-123-4567</td>
+                <td>Operations</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jane Smith</td>
+                <td>Software Engineer</td>
+                <td>jane.smith.example.com</td>
+                <td>+1 555-987-6543</td>
+                <td>IT</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Michael Brown</td>
+                <td>HR Manager</td>
+                <td>michael.brown.example.com</td>
+                <td>+1 555-654-3210</td>
+                <td>Human Resources</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Emily Davis</td>
+                <td>Sales Executive</td>
+                <td>emily.davis.example.com</td>
+                <td>+1 555-456-7890</td>
+                <td>Sales</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>David Wilson</td>
+                <td>Marketing Manager</td>
+                <td>david.wilson.example.com</td>
+                <td>+1 555-321-0987</td>
+                <td>Marketing</td>
+            </tr>            
+        </tbody>
+    </table>
+</div>
+<div  *ngIf="newContact">
+    <h1 class="title">New Contact</h1>
+    <hr>
+    <div class="content">
+        <form>
+            <div class="cor-form">
+                <div class="input-box">
+                    <span class="details">Contact Name </span>
+                    <input formControlName="userName" type="text" placeholder="Enter your user Name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Email Address</span>
+                    <input formControlName="teamSize" type="number" placeholder="Enter your Team Size">
+                </div>
+                <div class="select-dropdown">
+                    <span class="details">Contacts Type</span>
+                    <select formControlName="contact_type">
+                        <option value="">--Select --</option>
+                        <option value="Active">Manager</option>
+                        <option value="Inactive">Sales Representative</option>
+                        <option value="Inactive">Team Lead</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Phone Number</span>
+                    <input formControlName="clientName" type="text" placeholder="Enter your Client Name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Job Title</span>
+                    <input formControlName="clientEmail" type="email" placeholder="Enter your Client Email">
+                </div>
+                <div class="input-box">
+                    <span class="details">Department </span>
+                    <input formControlName="clientContact" type="number" placeholder="Enter your Client Contact">
+                </div>
+            </div>
+            <div class="cor-form">
+                <div class="input-box textarea-box">
+                    <span class="details">Description</span>
+                    <textarea formControlName="description" rows="5"></textarea>
+                </div>
+            </div>
+
+
+            <div class="d-flex">
+                <div>
+                    <button  (click)="newContact = false" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button (click)="newContact = false" class="close-button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

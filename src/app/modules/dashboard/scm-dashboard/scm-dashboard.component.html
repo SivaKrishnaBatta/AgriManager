@@ -1,0 +1,68 @@
+<div class="container-fluid p-4">
+  <!-- Top Action Buttons -->
+  <div class="card-wrapper">
+    <div class="row mb-4">
+      <div class="col-md-5 text-center card2 mr-3">
+        <h4>Add Stock into Warehouse</h4>
+        <apx-chart [series]="addStockSeries" [chart]="lineChart" [xaxis]="addStockXaxis"></apx-chart>
+      </div>
+      <div class="col-md-5 text-center card2">
+        <h4>Product Delivery Details</h4>
+        <apx-chart [series]="deliveryDetailsSeries" [chart]="lineChart" [xaxis]="deliveryDetailsXaxis"></apx-chart>
+      </div>
+    </div>
+  </div>
+
+  <!-- Warehouse Stock Levels and Stats -->
+  <div class="card-wrapper">
+
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <div class="card2 mr-2">
+          <h6>Warehouse Stock Levels</h6>
+          <apx-chart [series]="warehouseSeries" [chart]="warehouseChart" [xaxis]="warehouseXaxis"
+            [colors]="['#008FFB']"></apx-chart>
+        </div>
+      </div>
+      <div class="col-md-4 text-center card2 mr-2">
+        <h4>Product Requests</h4>
+        <apx-chart [series]="productRequestSeries" [chart]="lineChart" [xaxis]="productRequestXaxis"></apx-chart>
+      </div>
+      <div class="col-md-4 text-center card2 ">
+        <h4>Stock Adjustment Requests</h4>
+        <apx-chart [series]="stockAdjustmentSeries" [chart]="lineChart" [xaxis]="stockAdjustmentXaxis"></apx-chart>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Inbound and Outbound Stats -->
+  <div class="card-wrapper">
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card2 p-3">
+          <h6>Products Inbound (Last 7 Days)</h6>
+          <apx-chart [series]="inboundSeries" [chart]="lineChart" [xaxis]="inboundXaxis"
+            [colors]="['#00E396']"></apx-chart>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card2 p-3">
+          <h6>Products Outbound Today</h6>
+          <apx-chart [series]="outboundSeries" [chart]="lineChart" [xaxis]="outboundXaxis"
+            [colors]="['#FEB019']"></apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Real-Time Shipment Tracking (Graph Placeholder) -->
+  <div class="card-wrapper">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card2 p-3">
+          <h6>Real-Time Shipment Tracking</h6>
+          <apx-chart [series]="shipmentSeries" [chart]="lineChart" [xaxis]="shipmentXaxis"
+            [colors]="['#FF4560']"></apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>

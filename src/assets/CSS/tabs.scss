@@ -1,0 +1,27 @@
+  .nav-tabs .nav-link {
+      color: #495057;
+      transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .nav-tabs .nav-link:hover {
+      color: #007bff;
+      background-color: #e9ecef;
+      border-color: #dee2e6 #dee2e6 #fff;
+  }
+
+  .nav-tabs .nav-link.active {
+      color: #495057;
+      background-color: #fff;
+      border-color: #dee2e6 #dee2e6 #fff;
+  }
+
+  .nav-tabs .nav-link.disabled {
+      color: #6c757d;
+      background-color: transparent;
+      border-color: transparent;
+      cursor: not-allowed;
+  }
+
+  .nav-tabs .nav-link {
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  }

@@ -1,0 +1,29 @@
+<div class="card-wrapper">
+                <h1 class="sales-title">
+                    <i class="fa-solid fa-box-open"></i> Manufacturing reports
+                </h1>
+                <hr>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class=" ">
+                <ul class="list-unstyled">
+                    <li [ngClass]="{ 'active': currentReport==1}"><a (click)="selectedReport(1)"><i class="bi bi-star"></i>  BOM Inventory</a></li>
+                    <li [ngClass]="{ 'active': currentReport==2}"><a (click)="selectedReport(2)"><i class="bi bi-star"></i> Production Schedule </a></li>
+                    <li [ngClass]="{ 'active': currentReport==3}"><a (click)="selectedReport(3)"><i class="bi bi-star"></i> Work Order Status </a></li>
+                    <li [ngClass]="{ 'active': currentReport==4}"><a (click)="selectedReport(4)"><i class="bi bi-star"></i> Inspection Results </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 border-start border-2 pl-4">
+            <!-- Main Content -->
+             <app-bom-inv-report *ngIf="currentReport==1"></app-bom-inv-report>
+             <app-production-schedule-report *ngIf="currentReport==2"></app-production-schedule-report>
+             <app-work-order-status-report *ngIf="currentReport==3"></app-work-order-status-report>
+             <app-inspection-results-reports *ngIf="currentReport==4"></app-inspection-results-reports>
+
+             <!-- <app-manufacturing-reports-main *ngIf="currentReport==1"></app-manufacturing-reports-main>
+             <app-manufacturing-reports-main *ngIf="currentReport==2"></app-manufacturing-reports-main>
+             <app-manufacturing-reports-main *ngIf="currentReport==3"></app-manufacturing-reports-main>
+             <app-manufacturing-reports-main *ngIf="currentReport==4"></app-manufacturing-reports-main> -->
+    </div>
+<div>

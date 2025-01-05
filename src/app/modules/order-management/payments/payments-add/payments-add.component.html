@@ -1,0 +1,167 @@
+<div class="card-wrapper">
+    <h1 class="title">Record Payments</h1>
+    <hr>
+    <div class="content">
+        <form>
+            <div class="cor-form">
+                <div class="select-dropdown">
+                    <span class="details">Customer Name</span>
+                    <select formControlName="Customer_name">
+                        <option value="">--Select--</option>
+                        <option value="">Customer 1</option>
+                        <option value="">Customer 2</option>
+                        <option value="">Customer 3</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Amount Received</span>
+                    <input formControlName="amount_received" type="number" placeholder="Amount Received">
+                    <span class="mt-1" style="font-weight: bolder;"><input type="checkbox">Received Full Amount</span>
+                </div>
+                <div class="input-box">
+                    <span class="details">Bank Charges (if any)</span>
+                    <input formControlName="bank_charges" type="number" placeholder=" Bank Charges">
+                </div>
+                <div class="input-box">
+                    <span class="details">Payment Date</span>
+                    <input formControlName="payment_date" type="date">
+                </div>
+                <div class="input-box">
+                    <span class="details">Payment #</span>
+                    <input formControlName="payment_no" type="number" placeholder="Payment Number">
+                </div>
+                <div class="select-dropdown">
+                    <span class="details">Payment Mode</span>
+                    <select formControlName="payment_mode">
+                        <option value="">Cash</option>
+                        <option value="">Bank Remittance</option>
+                        <option value="">Bank Transfer</option>
+                        <option value="">Check</option>
+                        <option value="">Credit Card</option>
+                        <option value="">UPI</option>
+                    </select>
+                </div>
+                <div class="select-dropdown">
+                    <span class="details">Deposit To</span>
+                    <select formControlName="deposit_to">
+                        <option value="Active">--Select--</option>
+                        <option value="">Account Payable</option>
+                        <option value="">Account Received</option>
+                        <option value="">Stock</option>
+                        <option value="">Fixed Assets</option>
+                        <option value="">Cash</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Reference#</span>
+                    <input formControlName="reference" type="number" placeholder="Reference Number">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Tax deducted?</span>
+                    <div class="radio-group">
+                        <label for="male">
+                            <input type="radio" id="male" name="gender" value="male">
+                            Yes
+                        </label>
+                        <label for="female">
+                            <input type="radio" id="female" name="gender" value="female">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="d-flex justify-content-end mt-4">
+                    <div (click)="addbom()" class="btn mb-3 mr-3 btn-primary"><i class="fa-solid fa-plus"></i> Row</div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Invoice</th>
+                            <th scope="col">Invoice Amount</th>
+                            <th scope="col">Amount Due</th>
+                            <th scope="col">Payment</th>
+                            <th scope="col">Total Price</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <tr *ngFor="let a of myList; let i = index">
+                            <td>{{i+1}}</td>
+
+                            <td><input class="w-75" formControlName="date" type="date"></td>
+                            <td><input class="w-50" formControlName="invoice" type="text"></td>
+                            <td><input class="w-50" formControlName="Invoice_Amount" type="number"></td>
+                            <td><input class="w-50" formControlName="Amount_Due" type="number"></td>
+                            <td><input class="w-50" formControlName="Payment" type="number"></td>
+                            <td><input class="w-50" formControlName="Payment" type="number"></td>
+                            <td><i class="fa-solid fa-trash-can" (click)="_delete(i)"></i></td>
+                        </tr>
+                        <tr class="no-border">
+                            <td colspan="6" style="text-align: right;"><strong>Subtotal</strong></td>
+                            <td>$405.50</td>
+                            <td></td>
+                        </tr>
+                        <tr class="no-border">
+                            <td colspan="6" style="text-align: right">
+                                <strong class="pr-3">Total Discount</strong>
+                                <select style="width: 150px;" formControlName="userStatus">
+                                    <option value="">--Select --</option>
+                                    <option value="1">Quantity Discount</option>
+                                    <option value="2">Seasonal Discount</option>
+                                    <option value="3">Cash Discount</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="w-50" type="text" />
+                            </td>
+                        </tr>
+                        <tr class="no-border">
+                            <td colspan="6" style="text-align: right">
+                                <strong class="pr-3">Taxs</strong>
+                                <select style="width: 150px;" formControlName="userStatus">
+                                    <option value="">--Select --</option>
+                                    <option value="1">Income Tax</option>
+                                    <option value="2">Sales Tax</option>
+                                    <option value="3">Value Added Tax (VAT)</option>
+                                    <option value="4">Goods And Service Tax (GST)</option>
+                                    <option value="5">Gift Tax</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="w-50" type="text" />
+                            </td>
+                        </tr>
+                        <tr class="no-border">
+                            <td colspan="6" style="text-align: right;"><strong>Additional Charges (Shipping, Taxes,
+                                    etc.)</strong></td>
+                            <td>
+                                <div class="input-box w-50">
+                                    <input formControlName="additionalCharges" type="text">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="no-border">
+                            <td colspan="6" style="text-align: right;"><strong>Grand total</strong></td>
+                            <td>$455.50</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <button routerLink="/scm/order/payments/payments-view" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button routerLink="/scm/order/payments/listing" class="close-button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

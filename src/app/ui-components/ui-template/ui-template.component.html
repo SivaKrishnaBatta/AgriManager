@@ -1,0 +1,271 @@
+<div class="card-wrapper">
+    <div class="">
+        <h1>Card DETAILS</h1>
+    </div>
+</div>
+<div class="card-wrapper">
+    <div class="d-flex justify-content-between ">
+        <h1>All Customers</h1>
+        <div>
+            <button class="btn mb-3 mr-3 btn-primary">Add Customer</button>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Work Phone</th>
+                <th scope="col">Receivables</th>
+                <th scope="col">Unused Credits</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="highlighted-row">John Smith Customer</td>
+                <td data-label="Company Name">possimus</td>
+                <td data-label="Email"></td>
+                <td data-label="Work Phone"></td>
+                <td data-label="Receivables">Rs.820</td>
+                <td data-label="Unused Credits">Rs.35</td>
+            </tr>
+            <tr>
+                <td class="highlighted-row">Emily Johnson Customer</td>
+                <td data-label="Company Name">nostrum</td>
+                <td data-label="Email"></td>
+                <td data-label="Work Phone"></td>
+                <td data-label="Receivables">Rs.811</td>
+                <td data-label="Unused Credits">Rs.39</td>
+            </tr>
+            <tr>
+                <td class="highlighted-row">John Smith Customer</td>
+                <td data-label="Company Name">possimus</td>
+                <td data-label="Email"></td>
+                <td data-label="Work Phone"></td>
+                <td data-label="Receivables">Rs.820</td>
+                <td data-label="Unused Credits">Rs.35</td>
+            </tr>
+            <tr>
+                <td class="highlighted-row">Emily Johnson Customer</td>
+                <td data-label="Company Name">nostrum</td>
+                <td data-label="Email"></td>
+                <td data-label="Work Phone"></td>
+                <td data-label="Receivables">Rs.811</td>
+                <td data-label="Unused Credits">Rs.39</td>
+            </tr>
+            <tr>
+                <td class="highlighted-row">John Smith Customer</td>
+                <td data-label="Company Name">possimus</td>
+                <td data-label="Email"></td>
+                <td data-label="Work Phone"></td>
+                <td data-label="Receivables">Rs.820</td>
+                <td data-label="Unused Credits">Rs.35</td>
+            </tr>
+            <tr>
+                <td class="highlighted-row">Emily Johnson Customer</td>
+                <td data-label="Company Name">nostrum</td>
+                <td data-label="Email"></td>
+                <td data-label="Work Phone"></td>
+                <td data-label="Receivables">Rs.811</td>
+                <td data-label="Unused Credits">Rs.39</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card-wrapper">
+    <h1>All Inputs</h1>
+    <hr>
+    <div class="content">
+        <form>
+            <div class="cor-form">
+                <!-- input text -->
+                <div class="input-box">
+                    <span class="details">Text Input</span>
+                    <input formControlName="userName" type="text" placeholder="Enter your user Name">
+                </div>
+                <!-- input text -->
+
+
+                <!-- Date input  -->
+                <div class="input-box">
+                    <span class="details">Date Input</span>
+                    <input formControlName="userName" type="date" placeholder="Enter your user Name">
+                </div>
+                <!-- Date input  -->
+
+
+                <!-- Number input  -->
+                <div class="input-box">
+                    <span class="details">Number Input</span>
+                    <input formControlName="userName" type="number" placeholder="Enter your user Name">
+                </div>
+                <!-- Number input  -->
+
+
+                <!-- Select Dropdown   -->
+                <div class="select-dropdown gender-details">
+                    <span class="details">user Status :</span>
+                    <select formControlName="userStatus">
+                        <option value="">--Select --</option>
+                        <option value="1">option 1</option>
+                        <option value="2">option 2</option>
+                    </select>
+                </div>
+                <!-- Select Dropdown   -->
+
+                <!-- Radio Button Group -->
+                <div class="input-box">
+                    <span class="details">Gender</span>
+                    <div class="radio-group">
+                        <label for="male">
+                            <input type="radio" id="male" name="gender" value="male">
+                            Male
+                        </label>
+                        <label for="female">
+                            <input type="radio" id="female" name="gender" value="female">
+                            Female
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Checkbox Group -->
+                <div class="input-box">
+                    <span class="details">Select Hobbies</span>
+                    <div class="checkbox-group">
+                        <label for="reading">
+                            <input type="checkbox" id="reading" name="hobbies" value="reading">
+                            Reading
+                        </label>
+                        <label for="travelling">
+                            <input type="checkbox" id="travelling" name="hobbies" value="travelling">
+                            Travelling
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="card-wrapper">
+    <h1 class="title">New Customer</h1>
+    <hr>
+    <div class="content">
+        <form>
+            <div class="cor-form">
+                <div class="input-box">
+                    <span class="details">user Name</span>
+                    <input formControlName="userName" type="text" placeholder="Enter your user Name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Team Size</span>
+                    <input formControlName="teamSize" type="number" placeholder="Enter your Team Size">
+                </div>
+                <div class="input-box">
+                    <span class="details">Client Name</span>
+                    <input formControlName="clientName" type="text" placeholder="Enter your Client Name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Client Email</span>
+                    <input formControlName="clientEmail" type="email" placeholder="Enter your Client Email">
+                </div>
+                <div class="input-box">
+                    <span class="details">Client Contact</span>
+                    <input formControlName="clientContact" type="number" placeholder="Enter your Client Contact">
+                </div>
+                <div class="select-dropdown gender-details">
+                    <span class="details">user Status :</span>
+                    <select formControlName="userStatus">
+                        <option value="">--Select --</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cor-form">
+                <div class="input-box textarea-box">
+                    <span class="details">Description</span>
+                    <textarea formControlName="description" rows="5"></textarea>
+                </div>
+                <div class="input-box textarea-box">
+                    <span class="details">Comments</span>
+                    <textarea formControlName="description" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <button class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button class="close-button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<div class="card-wrapper">
+    <div class="">
+        <h1>Tabs</h1>
+        <div class="m-3">
+            <div class="nav nav-tabs">
+                <button *ngFor="let tab of tabs;let i = index" class="nav-link"
+                    [ngClass]="{'active': selectedTab === i}" (click)="selectTab(i)">
+                    {{ tab }}
+                </button>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div *ngIf="selectedTab === 0" class="tab-pane fade show active">
+                Overview Content
+            </div>
+            <div *ngIf="selectedTab === 1" class="tab-pane fade show active">
+                Comments Content
+            </div>
+            <div *ngIf="selectedTab === 2" class="tab-pane fade show active">
+                Transactions Content
+            </div>
+            <div *ngIf="selectedTab === 3" class="tab-pane fade show active">
+                Mails Content
+            </div>
+            <div *ngIf="selectedTab === 4" class="tab-pane fade show active">
+                Statements Content
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="card m-3 p-1">
+    <div class="card-header">
+        Buttoms
+    </div>
+    <div class="card-body">
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <div>
+            <button class="btn mb-3 mr-3 btn-primary">Primary</button>
+        </div>
+        <div>
+            <button class="btn mb-3 mr-3 btn-secondary">Secondary</button>
+        </div>
+        <div>
+            <button class="btn mb-3 mr-3 btn-success">Success</button>
+        </div>
+    </div>
+</div>
+<div class="card-wrapper">
+    <!-- Button to open the modal -->
+    <button (click)="openModal()">Open Modal</button>
+
+    <!-- The Modal -->
+</div>
+
+
+
+<div id="myModal" class="cor-modal" [ngClass]="{'cor-show': isModalOpen}">
+    <div class="cor-modal-background" (click)="closeModal()"></div>
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="cor-modal-content">
+            <app-qu-inspection></app-qu-inspection>
+        </div>
+    </div>
+</div>

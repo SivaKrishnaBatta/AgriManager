@@ -1,0 +1,125 @@
+<div class="card-wrapper">
+    <h1 class="title">Add User</h1>
+    <hr>
+    <div class="content">
+        <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="cor-form">
+                <div class="input-box">
+                    <span class="details">First Name :</span>
+                    <input formControlName="FirstName" type="text" placeholder="First Name">
+                    <div  class="alert-message" *ngIf="registerForm.controls['FirstName'].invalid && registerForm.controls['FirstName'].touched">
+                        First Name Required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Last name</span>
+                    <input formControlName="Last_name" type="text" placeholder="Last name">
+                    <div  class="alert-message" *ngIf="registerForm.controls['Last_name'].invalid && registerForm.controls['Last_name'].touched">
+                        Last <Nav></Nav>Name Required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email :</span>
+                    <input formControlName="email" type="email" placeholder="email">
+                    <div  class="alert-message" *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
+                        Email Required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Password :</span>
+                    <input formControlName="Password" type="text" placeholder="Password">
+                    <div  class="alert-message" *ngIf="registerForm.controls['Password'].invalid && registerForm.controls['Password'].touched">
+                        Password Required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Title :</span>
+                    <input formControlName="Title" type="text" placeholder="Title">
+                    <div  class="alert-message" *ngIf="registerForm.controls['Title'].invalid && registerForm.controls['Title'].touched">
+                        Title Required.
+                    </div>
+                </div>
+
+
+                <div class="input-box">
+                    <span class="details">Username :</span>
+                    <input formControlName="Username" type="text " placeholder="User name">
+                    <div  class="alert-message" *ngIf="registerForm.controls['Username'].invalid && registerForm.controls['Username'].touched">
+                        Username Required.
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Mobile number</span>
+                    <input formControlName="Mobilenumber" type="number" placeholder="Mobile number">
+                    <div  class="alert-message" *ngIf="registerForm.controls['Mobilenumber'].invalid && registerForm.controls['Mobilenumber'].touched">
+                        Mobile Number Required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Address1<span class="cor-required">*</span></span>
+                    <input formControlName="Address1" type="text" placeholder="Address 1">
+                    <div  class="validate-message" *ngIf="registerForm.controls['Address1'].invalid && registerForm.controls['Address1'].touched">
+                        Address Required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Address2</span>
+                    <input formControlName="Address2" type="text" placeholder="Address2">
+                    <div  class="validate-message" *ngIf="registerForm.controls['Address2'].invalid && registerForm.controls['Address2'].touched">
+                        Address 2 Required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">City <span class="cor-required">*</span></span>
+                    <input formControlName="City" type="text" placeholder=" City">
+                    <div  class="validate-message" *ngIf="registerForm.controls['City'].invalid && registerForm.controls['City'].touched">
+                        City Required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">State <span class="cor-required">*</span></span>
+                    <input formControlName="State" type="text" placeholder= "State">
+                    <div  class="validate-message" *ngIf="registerForm.controls['State'].invalid && registerForm.controls['State'].touched">
+                        State Required.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Post Code <span class="cor-required">*</span></span>
+                    <input formControlName="Postcode" type="text" placeholder="Postcode">
+                    <div  class="validate-message" *ngIf="registerForm.controls['Postcode'].invalid && registerForm.controls['Postcode'].touched">
+                         Postcode Required.
+                    </div>
+                </div>
+                <div class="select-dropdown Country">
+                    <span class="details">Country <span class="cor-required">*</span></span>
+                    <select formControlName="Country">
+                        <option value="">--Select --</option>
+                        <option value="Active">India</option>
+                        <option value="Inactive">USA</option>
+                        <option value="Inactive">China</option>
+                        <option value="Inactive">Japan</option>
+                    </select>
+                    <div  class="validate-message" *ngIf="registerForm.controls['Country'].invalid && registerForm.controls['Country'].touched">
+                        Country Required.
+                    </div>
+                </div>
+
+            </div>
+            <div class="d-flex m-3">
+                <div>
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button routerLink="/scm/setting/users/listing" class="close-button">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<!-- <button routerLink="/scm/setting/users/listing">user listing</button>
+<button routerLink="/scm/setting/users/add-user">Add listing</button> -->

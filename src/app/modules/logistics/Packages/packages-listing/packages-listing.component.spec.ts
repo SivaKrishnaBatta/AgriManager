@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { PackagesListingComponent } from './packages-listing.component';
+
+describe('PackagesListingComponent', () => {
+  let component: PackagesListingComponent;
+  let fixture: ComponentFixture<PackagesListingComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [PackagesListingComponent]
+    });
+    fixture = TestBed.createComponent(PackagesListingComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

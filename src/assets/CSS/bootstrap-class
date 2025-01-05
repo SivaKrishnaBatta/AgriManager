@@ -1,0 +1,83 @@
+
+
+ 1. Display
+- `d-flex`: Applies `display: flex`.
+- `d-inline-flex`: Applies `display: inline-flex`.
+
+ 2. Flex Direction
+- `flex-row`: Applies `flex-direction: row`.
+- `flex-row-reverse`: Applies `flex-direction: row-reverse`.
+- `flex-column`: Applies `flex-direction: column`.
+- `flex-column-reverse`: Applies `flex-direction: column-reverse`.
+
+ 3. Flex Wrap
+- `flex-wrap`: Applies `flex-wrap: wrap`.
+- `flex-nowrap`: Applies `flex-wrap: nowrap`.
+- `flex-wrap-reverse`: Applies `flex-wrap: wrap-reverse`.
+
+ 4. Justify Content
+- `justify-content-start`: Aligns items to the start of the flex container.
+- `justify-content-end`: Aligns items to the end of the flex container.
+- `justify-content-center`: Centers items in the flex container.
+- `justify-content-between`: Distributes items with space between.
+- `justify-content-around`: Distributes items with space around.
+- `justify-content-evenly`: Distributes items evenly with equal space.
+
+ 5. Align Items (Cross-Axis Alignment)
+- `align-items-start`: Aligns items to the start of the container.
+- `align-items-end`: Aligns items to the end of the container.
+- `align-items-center`: Aligns items in the center of the container.
+- `align-items-baseline`: Aligns items along the baseline.
+- `align-items-stretch`: Stretches items to fill the container.
+
+ 6. Align Self (Item-Level Alignment)
+- `align-self-auto`: Default alignment for a specific item.
+- `align-self-start`: Aligns the item to the start of the container.
+- `align-self-end`: Aligns the item to the end of the container.
+- `align-self-center`: Aligns the item to the center of the container.
+- `align-self-baseline`: Aligns the item along the baseline.
+- `align-self-stretch`: Stretches the item to fill the container.
+
+ 7. Align Content (When Items Wrap)
+- `align-content-start`: Aligns wrapped rows to the start.
+- `align-content-end`: Aligns wrapped rows to the end.
+- `align-content-center`: Aligns wrapped rows in the center.
+- `align-content-between`: Distributes wrapped rows with space between.
+- `align-content-around`: Distributes wrapped rows with space around.
+- `align-content-stretch`: Stretches wrapped rows to fill the container.
+
+ 8. Flex Grow & Shrink
+- `flex-grow-0`: Prevents the item from growing.
+- `flex-grow-1`: Allows the item to grow to fill available space.
+- `flex-shrink-0`: Prevents the item from shrinking.
+- `flex-shrink-1`: Allows the item to shrink if necessary.
+
+ 9. Flex Basis
+- `flex-fill`: Makes an item take up the remaining space.
+- `flex-sm-fill`: Small screen sizes.
+- `flex-md-fill`: Medium screen sizes.
+- `flex-lg-fill`: Large screen sizes.
+- `flex-xl-fill`: Extra-large screen sizes.
+
+ 10. Flex Auto
+- `flex-sm-auto`, `flex-md-auto`, `flex-lg-auto`, `flex-xl-auto`: Responsive flex auto settings for different breakpoints.
+
+ 11. Order
+- `order-0`: Default order.
+- `order-1`, `order-2`, ..., `order-12`: Changes the order of items.
+- `order-first`: Moves an item to the first position.
+- `order-last`: Moves an item to the last position.
+
+ 12. Gap
+- `gap-0`, `gap-1`, ..., `gap-5`: Sets the gap between flex items for both rows and columns.
+
+ 13. Responsive Flexbox Classes
+These classes are responsive versions of the above properties for various screen sizes:
+
+- `d-{sm | md | lg | xl}-flex`: Flex display for different screen sizes.
+- `flex-{sm | md | lg | xl}-row`: Flex direction for different breakpoints.
+- `flex-{sm | md | lg | xl}-column`: Column direction for different breakpoints.
+- `justify-content-{sm | md | lg | xl}-start`: Different justify-content alignment for various screen sizes.
+- `align-items-{sm | md | lg | xl}-center`: Item alignment for different screen sizes.
+
+You can combine these classes to create responsive and flexible layouts for your application.

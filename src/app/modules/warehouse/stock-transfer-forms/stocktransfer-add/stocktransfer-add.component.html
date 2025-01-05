@@ -1,0 +1,73 @@
+<div class="card-wrapper">
+    <div class="d-flex justify-content-between">
+      <h1>Stock Transfer Form</h1>
+      <!-- <div>
+              <button routerLink="/scm/order/sale-order/add-so" class="btn mb-3 mr-3 btn-primary">+ Add Sales Order</button>
+          </div> -->
+    </div>
+  
+    <form class="mb-4">
+      <div class="cor-form"></div>
+      <div class="cor-form">
+        <div class="select-dropdown Transfer-to">
+          <span class="details">Transfer To<span style="color: red">*</span></span>
+          <select formControlName="transfer-to">
+            <option value="Active">--Select --</option>
+            <option value="">1111</option>
+            <option value="">222222</option>
+          </select>
+        </div>
+        <div class="select-dropdown Transfer-from">
+            <span class="details">Transfer From<span style="color: red">*</span></span>
+            <select formControlName="transfer-to">
+              <option value="Active">--Select --</option>
+              <option value="">1111</option>
+              <option value="">222222</option>
+            </select>
+          </div>
+      </div>
+    </form>
+  
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col"><span style="color: red">*</span>Product</th>
+          <th scope="col"><span style="color: red">*</span>Quantity</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of myList;let i = index">
+          <td data-label="Transfer-to">
+            <div class="select-dropdown Transfer-to">
+              <select formControlName="transfer-to">
+                <option value="Active">--Select --</option>
+                <option value="">1111</option>
+                <option value="">222222</option>
+              </select>
+            </div>
+          </td>
+          <td>
+            <div class="input-box">
+              <input type="text" placeholder="######" />
+            </div>
+          </td>
+          
+          <td><i class="fa-solid fa-trash-can" (click)="_delete(i)"></i></td>
+        </tr>
+      </tbody>
+    </table>
+    <div (click)="addnew()" class="m-3" style="color: blue; font-weight: bold;">
+        + Add Row
+    </div>
+    <div class="d-flex">
+      <div>
+          <button routerLink="/scm/warehouse/stock-transfer-forms/stock-transfer-listing" class="submit-button">Submit</button>
+      </div>
+      <div>
+          <button routerLink="/scm/warehouse/stock-transfer-forms/stock-transfer-listing" class="close-button">Close</button>
+      </div>
+  </div>
+  
+</div>
+  

@@ -1,0 +1,100 @@
+.side-menu {
+    position: fixed;
+    z-index: 99999;
+    width: 99px;
+    height: 100vh;
+    color: #F0F0F0;
+    background: linear-gradient(-180deg, #365AEB 0, #000 100%);
+    background: linear-gradient(-180deg, #365AEB 0, #000 100%);
+    background: linear-gradient(-180deg,#365AEB 0,#CC002A 100%);        
+    // background: linear-gradient(-180deg,#000 0,#CC002A 100%);        
+
+    // background: linear-gradient(-180deg, #000000 -20%, #CC002A 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.cor-menus {
+    position: relative;
+    padding: 30px 0 0 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 30px;
+    // overflow: auto;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding-bottom: 100px;
+
+    .menu {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        font-weight: 400;
+        font-size: 12px;
+        gap: 5px;
+        position: relative;
+        z-index: 999999;
+        display: inline-block;
+
+        i {
+            font-size: 26px;
+        }
+    }
+
+    .content {
+        display: none;
+        position: fixed;
+        left: 100%;
+        left: 95px !important;
+        top: 0;
+        z-index: 9999999;
+        padding: 5px;
+        background-color: #fff;
+        box-shadow: 0 1px 0 #e0e1e7;
+        color: #000;
+        border-radius: 4px;
+        text-align: start;
+        white-space: nowrap;
+        font-size: 14px;
+        width: 270px;
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+
+        .content-item {
+            padding: 5px 5px;
+            margin: 2px 0;
+        }
+
+        .content-item:hover {
+            // background: #F4F5FF;
+            // color: #365AEB;
+            background: #E9ECEF;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+    }
+
+    .menu:hover .content {
+        display: block;
+    }
+}
+
+.cor-menus::-webkit-scrollbar {
+    display: none;
+}
+
+.content-item {
+    color: #5F6981;
+
+    i {
+        font-size: 18px !important;
+        padding-right: 5px;
+        width: 30px;
+    }
+}

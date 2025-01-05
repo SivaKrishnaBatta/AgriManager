@@ -1,0 +1,204 @@
+<div class="card-wrapper">
+    <h1 class="title">New Supplier</h1>
+    <hr>
+    <div class="content">
+        <form>
+            <div class="cor-form">
+                <div class="input-box">
+                    <span class="details">Supplier First Name</span>
+                    <input formControlName="first_name" type="text" placeholder="First Name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Supplier Last Name</span>
+                    <input formControlName="last_name" type="text" placeholder="Last name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Company Name</span>
+                    <input formControlName="company_name" type="text" placeholder="Company name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Supplier Email</span>
+                    <input formControlName="clientEmail" type="email" placeholder="Supplier Email">
+                </div>
+                <div class="input-box">
+                    <span class="details">Supplier phone</span>
+                    <input formControlName="clientContact" type="number" placeholder="supplier phone">
+                </div>
+
+                <div class="select-dropdown">
+                    <span class="details">user Status :</span>
+                    <select formControlName="userStatus">
+                        <option value="">--Select --</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">PAN</span>
+                    <input formControlName="clientContact" type="text" placeholder="PAN">
+                </div>
+                <div class="select-dropdown">
+                    <span class="details">Currency :</span>
+                    <select formControlName="currency">
+                        <option value="">--Select --</option>
+                        <option value="AED-UAE Dirham">AED-UAE Dirham</option>
+                        <option value="CAD-Canadian Dollar">CAD-Canadian Dollar</option>
+                        <option value="INR-Indian Rupee">CAD-Canadian Dollar</option>
+                        <option value="EUR-Euro">EUR-Euro</option>
+                    </select>
+                </div>
+                <div class="select-dropdown">
+                    <span class="details">Payment Terms :</span>
+                    <select formControlName="payment_terms">
+                        <option value="1">--Due-on-reciept--</option>
+                        <option value="2">Due-15</option>
+                        <option value="3">Due-30</option>
+                        <option value="4">Due-40</option>
+                        <option value="5">EUR-60</option>
+                        <option value="5">Due end of the month</option>
+                        <option value="5">Due end of the next month</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Customer Type</span>
+                    <div class="radio-group">
+                        <label for="business">
+                            <input type="radio" id="business" name="gender" value="business">
+                            Business
+                        </label>
+                        <label for="individual">
+                            <input type="radio" id="individual" name="gender" value="individual">
+                            Individual
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cor-form">
+                <div class="input-box textarea-box">
+                    <span class="details">Description</span>
+                    <textarea formControlName="description" rows="5"></textarea>
+                </div>
+                <div class="input-box textarea-box">
+                    <span class="details">Comments</span>
+                    <textarea formControlName="comments" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="m-3">
+                <div class="nav nav-tabs">
+                    <div *ngFor="let tab of tabs;let i = index" class="nav-link"
+                        [ngClass]="{'active': selectedTab === i}" (click)="selectTab(i)">
+                        {{ tab }}
+                </div>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div *ngIf="selectedTab === 0" class="tab-pane fade show active">
+                    <div class="cor-form">
+                        <div class="input-box">
+                            <span class="details">Attention</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+                        <div class="select-dropdown">
+                            <span class="details">Country/Region :</span>
+                            <select formControlName="country/region">
+                                <option value="">--Select --</option>
+                                <option value="India">India</option>
+                                <option value="American Samoa">American Samoa</option>
+                                <option value="Cocus Island">Cocus Island</option>
+                                <option value="Benin">Benin</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Address</span>
+                            <input formControlName="address" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">City</span>
+                            <input formControlName="city" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">State</span>
+                            <input formControlName="state" type="text" placeholder="">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Pin Code</span>
+                            <input formControlName="pincode" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Phone</span>
+                            <input formControlName="phone" type="number" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Fax Number</span>
+                            <input formControlName="fax_number" type="number" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="selectedTab === 1" class="tab-pane fade show active">
+                    <div class="cor-form">
+                        <div class="input-box">
+                            <span class="details">Attention</span>
+                            <input formControlName="Attention" type="text" placeholder="">
+                        </div>
+                        <div class="select-dropdown">
+                            <span class="details">Country/Region :</span>
+                            <select formControlName="country/regions">
+                                <option value="">--Select --</option>
+                                <option value="India">India</option>
+                                <option value="American Samoa">American Samoa</option>
+                                <option value="Cocus Island">Cocus Island</option>
+                                <option value="Benin">Benin</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Address</span>
+                            <input formControlName="address" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">City</span>
+                            <input formControlName="city" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">State</span>
+                            <input formControlName="state" type="text" placeholder="">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Pin Code</span>
+                            <input formControlName="pincode" type="text" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Phone</span>
+                            <input formControlName="phone" type="number" placeholder="">
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Fax Number</span>
+                            <input formControlName="fax_number" type="number" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <button   routerLink="/scm/procurement/suppliers/suppliers-view" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button routerLink="/scm/procurement/suppliers/listing" class="close-button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- <button routerLink="/scm/procurement/suppliers/listing">suppliers listing</button>
+<button routerLink="/scm/procurement/suppliers/add-suppliers">Add suppliers</button>
+<button  routerLink="/scm/procurement/suppliers/suppliers-view">suppliers view</button> -->

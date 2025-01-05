@@ -1,0 +1,57 @@
+<div class="card-wrapper">
+    <h1 class="sales-title">
+        <i class="fa-solid fa-sliders"></i> Administration
+    </h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <div class=" ">
+                <ul class="list-unstyled">
+                    <li [ngClass]="{ 'active': currentReport==1}"><a (click)="selectedReport(1)"><i
+                                class="bi bi-star"></i>
+                            Payment Terms </a></li>
+                    <li [ngClass]="{ 'active': currentReport==2}"><a (click)="selectedReport(2)"><i
+                                class="bi bi-star"></i>
+                            Payment Mode </a></li>
+                    <li [ngClass]="{ 'active': currentReport==3 }"><a (click)="selectedReport(3)"><i
+                                class="bi bi-star"></i>
+                            Taxs </a></li>
+                    <li [ngClass]="{ 'active': currentReport==4}"><a (click)="selectedReport(4)"><i
+                                class="bi bi-star"></i>
+                            Unit of Measure</a></li>
+                    <li [ngClass]="{ 'active': currentReport==5}"><a (click)="selectedReport(5)"><i
+                                class="bi bi-star"></i>
+                            Production Priority
+                        </a></li>
+                    <li [ngClass]="{ 'active': currentReport==6}"><a (click)="selectedReport(6)"><i
+                                class="bi bi-star"></i>
+                            Discount</a></li>
+                    <li [ngClass]="{ 'active': currentReport==7}"><a (click)="selectedReport(7)"><i
+                                class="bi bi-star"></i>
+                            Contact Types</a></li>
+                    <!-- 
+                    <li [ngClass]="{ 'active': currentReport==8 }"><a (click)="selectedReport(8)"><i
+                                class="bi bi-star"></i>
+                            Customize 08 </a></li>
+                    <li [ngClass]="{ 'active': currentReport==9}"><a (click)="selectedReport(9)"><i
+                                class="bi bi-star"></i>
+                            Customize 09</a></li>
+                    <li [ngClass]="{ 'active': currentReport==10}"><a (click)="selectedReport(10)"><i
+                                class="bi bi-star"></i> Customize 10</a></li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 border-start border-2 pl-4">
+            <!-- Main Content -->
+            <app-admin-payment-terms *ngIf="currentReport==1"></app-admin-payment-terms>
+            <app-admin-payment-mode *ngIf="currentReport==2"></app-admin-payment-mode>
+            <app-admin-taxs *ngIf="currentReport==3"></app-admin-taxs>
+            <app-admin-unit-of-measure *ngIf="currentReport==4"></app-admin-unit-of-measure>
+            <app-admin-production-priority *ngIf="currentReport==5"></app-admin-production-priority>
+            <app-admin-discount *ngIf="currentReport==6"></app-admin-discount>
+            <app-admin-contact-types *ngIf="currentReport==7"></app-admin-contact-types>
+        </div>
+    </div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->

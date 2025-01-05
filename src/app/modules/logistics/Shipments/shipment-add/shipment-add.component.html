@@ -1,0 +1,97 @@
+
+
+<div class="card-wrapper">
+    <h1 class="title">Shipment</h1>
+    <hr>
+    <div class="content">
+        <form [formGroup]="contactForm" (ngSubmit)="sendMail()">
+            <div class="cor-form">
+                <div class="select-dropdown Sales Order">
+                    <span class="details">CargoId </span>
+                    <select formControlName="CargoId ">
+                        <option value="">--Select --</option>
+                        <option value="1">Cargo ID-1</option>
+                        <option value="2">Cargo ID-02</option>
+                        <option value="2">Cargo ID-03</option>
+                    </select>
+                    <div class="validate-message"  *ngIf="contactForm.get('CargoId').invalid && contactForm.get('CargoId').touched" >
+                        CargoId is required.
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Package#</span>
+                    <input formControlName="PackageId" type="text" placeholder="PackageId">
+                    <div class="validate-message" *ngIf="contactForm.get('PackageId').invalid && contactForm.get('PackageId').touched" >
+                        PackageId is required 
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Shipment Date</span>
+                    <input formControlName="ShipmentDate" type="text" placeholder="ShipmentDate">
+                    <div class="validate-message" *ngIf="contactForm.get('ShipmentDate').invalid && contactForm.get('ShipmentDate').touched" >
+                        ShipmentDate is required.
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Tracking#</span>
+                    <input formControlName="Tracking" type="number" placeholder="Tracking">
+                    <div class="validate-message" *ngIf="contactForm.get('Tracking').invalid && contactForm.get('Tracking').touched" >
+                        Tracking # is required 
+                    </div>
+                </div>
+
+                <div class="select-dropdown Carrier#">
+                    <span class="details"> Carrier</span>
+                    <select formControlName=" Carrier">
+                        <option value="">--Select --</option>
+                        <option value="1">FEDX</option>
+                        <option value="2">UPS</option>
+                    </select>
+                    <div class="validate-message" *ngIf="contactForm.get('Carrier').invalid && contactForm.get('Carrier').touched" >
+                        Carrier is required.
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">ShippingCharges (if any)</span>
+                    <input formControlName="ShippingCharges" type="number" placeholder="ShippingCharges">
+                    <div class="validate-message"  *ngIf="contactForm.get('ShippingCharges').invalid && contactForm.get('ShippingCharges').touched" >
+                        ShippingCharges  is required.
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="cor-form">
+                <div class="input-box textarea-box">
+                    <span class="details">Tracking URL</span>
+                    <textarea formControlName="TrackingUrl" rows="5"></textarea>
+                    <div class="validate-message" *ngIf="contactForm.get('TrackingUrl').invalid && contactForm.get('TrackingUrl').touched" >
+                        A valid TrackingUrl is required.
+                    </div>
+                </div>
+
+                <div class="input-box textarea-box">
+                    <span class="details">Note</span>
+                    <textarea formControlName="Note" rows="5"></textarea>
+                    <div class="validate-message"  *ngIf="contactForm.get('Note').invalid && contactForm.get('Note').touched" >
+                        Note should not exceed 500 characters.
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex">
+                <div>
+                    <button type="submit"  class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <div class="close-button">Close</div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

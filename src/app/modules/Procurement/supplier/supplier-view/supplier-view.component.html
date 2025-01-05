@@ -1,0 +1,96 @@
+<div class="card-wrapper">
+    <div class="container-fluid">
+        <div>
+            <h1>Mr. Ahmed </h1>
+        </div>
+        <div class="d-flex justify-content-between align-items-center py-2 ">
+            <div>
+                <strong>Supplier ID# : 00001</strong>
+            </div>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-light btn-sm me-2">
+                    <i class="fas fa-ban"></i> Mark as Inactive
+                </button>
+                <button class="btn btn-light btn-sm me-2">
+                    <i class="bi bi-pencil"></i> Edit
+                </button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between pl-3 pr-3">
+        <div class="w-25">
+            <div class="card-heading">Other Details</div>
+            <p class="d-flex justify-content-between"><strong>Supplier Type</strong> Business</p>
+            <p class="d-flex justify-content-between"><strong>Default Currency</strong> INR</p>
+            <p class="d-flex justify-content-between"><strong>Portal Language</strong> English</p>
+            <p class="d-flex justify-content-between"><strong>Email</strong>ahmed&#64;cortracker360.com</p>
+            <p class="d-flex justify-content-between"><strong>Mobile number</strong>9876543210</p>
+        </div>
+        <div class="w-25">
+            <div class="card-heading">BILLING ADDRESS</div>
+            <a>Mr. Ahmed Ahmed</a>
+            <p>Foster</p>
+            <p>272 Wyatt Inlet Apt. 509
+                27109 Sauer Way Suite 137
+                Port Wallace, Pennsylvania
+                Egypt - 669-250
+                1-400-769-7334 x728</p>
+        </div>
+        <div class="w-25">
+            <div class="card-heading">Shipping ADDRESS</div>
+            <p>Maha Laxmi</p>
+            <p>3230 Jaron Brooks Suite 855
+                72558 Schiller Point Apt. 129
+                Shanemouth, Connecticut
+                Egypt - 365-385
+                (934) 484-9885 x88980</p>
+        </div>
+    </div>
+    <div class="m-3">
+        <div class="nav nav-tabs">
+            <button *ngFor="let tab of tabs;let i = index" class="nav-link" [ngClass]="{'active': selectedTab === i}"
+                (click)="selectTab(i)">
+                {{ tab }}
+            </button>
+        </div>
+    </div>
+    <div class="tab-content">
+        <div *ngIf="selectedTab === 0" class="tab-pane fade show active">
+            <div class="faq-container">
+                <div class="faq-item">
+                  <div class="faq-question" (click)="toggleFaq(faqs[0])">
+                    {{ faqs[0].heading }}
+                    <span class="icon">{{ faqs[0].isOpen ? '-' : '+' }}</span>
+                  </div>
+                  <div class="faq-answer" *ngIf="faqs[0].isOpen">
+                    <app-supplier-purchase-order> </app-supplier-purchase-order>
+                  </div>
+                </div>
+              
+                <div class="faq-item">
+                  <div class="faq-question" (click)="toggleFaq(faqs[1])">
+                    {{ faqs[1].heading }}
+                    <span class="icon">{{ faqs[1].isOpen ? '-' : '+' }}</span>
+                  </div>
+                  <div class="faq-answer" *ngIf="faqs[1].isOpen">
+                    <app-supplier-purchase-recevies></app-supplier-purchase-recevies>
+                  </div>
+                </div>
+              
+                <div class="faq-item">
+                  <div class="faq-question" (click)="toggleFaq(faqs[2])">
+                    {{ faqs[2].heading }}
+                    <span class="icon">{{ faqs[2].isOpen ? '-' : '+' }}</span>
+                  </div>
+                  <div class="faq-answer" *ngIf="faqs[2].isOpen">
+                    <app-supplier-supplier-return></app-supplier-supplier-return>                  
+                </div>
+                </div>
+              </div>
+              
+        </div>
+        <app-customer-comments *ngIf="selectedTab === 1"></app-customer-comments>
+        <app-customer-contacts *ngIf="selectedTab === 2"></app-customer-contacts>
+    </div>
+</div>
