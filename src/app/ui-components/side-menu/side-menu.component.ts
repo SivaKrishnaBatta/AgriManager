@@ -20,67 +20,7 @@ export class SideMenuComponent {
       }
     }
   }
-  // public menus = [
-  //   {
-  //     "name": "Dashboard",
-  //     "icon": "fa-solid fa-gauge-high",
-  //     "url": "dashboard"
-  //   },
-  //   {
-  //     "name": "Cargos",
-  //     "icon": "fa-solid fa-boxes-stacked",
-  //     "url": "logistics/cargos"
-  //   },
-  //   {
-  //     "name": "Packages",
-  //     "icon": "fa-solid fa-box-open",
-  //     "url": "logistics/package"
-  //   },
-  //   {
-  //     "name": "Shipments",
-  //     "icon": "fa-solid fa-truck-fast",
-  //     "url": "logistics/shipment"
-  //   },
-  //   {
-  //     "name": "Delivery Note",
-  //     "icon": "fa-solid fa-file-invoice",
-  //     "url": "logistics/delivery"
-  //   },
-  //   {
-  //     "name": "Carrier Management",
-  //     "icon": "fa-solid fa-people-carry-box",
-  //     "url": "logistics/carrier"
-  //   },
-  //   {
-  //     "name": "Logistics Reports",
-  //     "icon": "fa-solid fa-chart-line",
-  //     "url": "logistics/reports"
-  //   },
-  //   {
-  //     "name": "Settings",
-  //     "icon": "fa-solid fa-gear",
-  //     "url": "setting/users",
-  //     "submenus": [
-  //       {
-  //         "name": "User Management",
-  //         "icon": "fa-solid fa-users-cog",
-  //         "url": "setting/users"
-  //       },
-  //       {
-  //         "name": "Freight Management",
-  //         "icon": "fa-solid fa-dolly",
-  //         "url": "logistics/freight"
-  //       },
-  //       {
-  //         "name": "Administration",
-  //         "icon": "fa-solid fa-screwdriver-wrench",
-  //         "url": "setting/administration"
-  //       }
-  //     ]
-  //   }
-  // ];
   
-
   public menus = [
     {
       "name": "Dashboard",
@@ -139,11 +79,6 @@ export class SideMenuComponent {
       "icon": "fa-solid fa-truck",
       "url": "logistics/package",
       "submenus": [
-        // {
-        //   "name": "Cargos",
-        //   "icon": "fa-solid fa-calendar-alt",
-        //   "url": "logistics/cargos"
-        // },
         {
           "name": "Packages",
           "icon": "fa-solid fa-box",
@@ -270,10 +205,10 @@ export class SideMenuComponent {
     {
       "name": "Warehouse",
       "icon": "fa-solid fa-boxes",
-      "url": "warehouse/warehouse-details",
+      "url": "warehouse-details",
       "submenus": [
         {
-          "name": "Warehouse Details",
+          "name": "Warehouse Details",  
           "icon": "fa-solid fa-info-circle",
           "url": "warehouse/warehouse-details"
         },

@@ -109,16 +109,6 @@ import { OrderFulfillmentReportComponent } from './modules/order-management/orde
 import { ReturnOrderAnalysisReportComponent } from './modules/order-management/order-reports/return-order-analysis-report/return-order-analysis-report.component';
 import { CustomerContactsComponent } from './modules/order-management/customers/customer-contacts/customer-contacts.component';
 import { CustomerCommentsComponent } from './modules/order-management/customers/customer-comments/customer-comments.component';
-import { StocktransferAddComponent } from './modules/warehouse/stock-transfer-forms/stocktransfer-add/stocktransfer-add.component';
-import { StocktransferListingComponent } from './modules/warehouse/stock-transfer-forms/stocktransfer-listing/stocktransfer-listing.component';
-import { StocktransferMainComponent } from './modules/warehouse/stock-transfer-forms/stocktransfer-main/stocktransfer-main.component';
-import { StocktransferViewComponent } from './modules/warehouse/stock-transfer-forms/stocktransfer-view/stocktransfer-view.component';
-import { WarehouseDetailsMainComponent } from './modules/warehouse/warehouse-details/warehouse-details-main/warehouse-details-main.component';
-import { WarehouseDetailsAddComponent } from './modules/warehouse/warehouse-details/warehouse-details-add/warehouse-details-add.component';
-import { WarehouseDetailsListingComponent } from './modules/warehouse/warehouse-details/warehouse-details-listing/warehouse-details-listing.component';
-import { WarehouseDetailsViewComponent } from './modules/warehouse/warehouse-details/warehouse-details-view/warehouse-details-view.component';
-import { WarehouseMainComponent } from './modules/warehouse/warehouse-main/warehouse-main/warehouse-main.component';
-import { AddStockMainComponent } from './modules/warehouse/add-stock/add-stock-main/add-stock-main.component';
 import { InvDetailMainComponent } from './modules/Inventory/inventory-details/inv-detail-main/inv-detail-main.component';
 import { InvDetailAddComponent } from './modules/Inventory/inventory-details/inv-detail-add/inv-detail-add.component';
 import { InvDetailListingComponent } from './modules/Inventory/inventory-details/inv-detail-listing/inv-detail-listing.component';
@@ -149,8 +139,6 @@ import { PurchaseByItemComponent } from './modules/Procurement/procurement-repor
 import { PurchaseHistoryComponent } from './modules/Procurement/procurement-reports/purchase-history/purchase-history.component';
 import { SReturnPrintComponent } from './modules/Procurement/supplier-return/s-return-print/s-return-print.component';
 import { SReturnItemsComponent } from './modules/Procurement/supplier-return/s-return-items/s-return-items.component';
-import { StockAdjustmentMainComponent } from './modules/warehouse/stock-adjustment/stock-adjustment-main/stock-adjustment-main.component';
-import { StockAdjustmentListingComponent } from './modules/warehouse/stock-adjustment/stock-adjustment-listing/stock-adjustment-listing.component';
 import { CreditMemoMainComponent } from './modules/order-management/credit-memo/credit-memo-main/credit-memo-main.component';
 import { CreditMemoListingComponent } from './modules/order-management/credit-memo/credit-memo-listing/credit-memo-listing.component';
 import { CreditMemoAddComponent } from './modules/order-management/credit-memo/credit-memo-add/credit-memo-add.component';
@@ -327,16 +315,6 @@ import { CountryStateCityComponent } from './modules/common-components/country-s
     InvReportsMainComponent,
     SoItemsComponent,
     SoPrintComponent,
-    WarehouseMainComponent,
-    StocktransferAddComponent,
-    StocktransferListingComponent,
-    StocktransferMainComponent,
-    StocktransferViewComponent,
-    WarehouseDetailsMainComponent,
-    WarehouseDetailsAddComponent,
-    WarehouseDetailsListingComponent,
-    WarehouseDetailsViewComponent,
-    AddStockMainComponent,
     RoPrintComponent,
     RoItemsComponent,
     InvoiceItemsComponent,
@@ -377,8 +355,6 @@ import { CountryStateCityComponent } from './modules/common-components/country-s
     PurchaseHistoryComponent,
     SReturnPrintComponent,
     SReturnItemsComponent,
-    StockAdjustmentMainComponent,
-    StockAdjustmentListingComponent,
     CreditMemoMainComponent,
     CreditMemoListingComponent,
     CreditMemoAddComponent,

@@ -102,18 +102,6 @@ import { CreditMemoAddComponent } from './modules/order-management/credit-memo/c
 import { CreditMemoViewComponent } from './modules/order-management/credit-memo/credit-memo-view/credit-memo-view.component';
 import { LoginComponent } from './ui-components/login/login.component';
 import { SignupComponent } from './ui-components/signup/signup.component';
-import { WarehouseMainComponent } from './modules/warehouse/warehouse-main/warehouse-main/warehouse-main.component';
-import { AddStockMainComponent } from './modules/warehouse/add-stock/add-stock-main/add-stock-main.component';
-import { StocktransferMainComponent } from './modules/warehouse/stock-transfer-forms/stocktransfer-main/stocktransfer-main.component';
-import { StocktransferListingComponent } from './modules/warehouse/stock-transfer-forms/stocktransfer-listing/stocktransfer-listing.component';
-import { StocktransferAddComponent } from './modules/warehouse/stock-transfer-forms/stocktransfer-add/stocktransfer-add.component';
-import { StocktransferViewComponent } from './modules/warehouse/stock-transfer-forms/stocktransfer-view/stocktransfer-view.component';
-import { WarehouseDetailsMainComponent } from './modules/warehouse/warehouse-details/warehouse-details-main/warehouse-details-main.component';
-import { WarehouseDetailsListingComponent } from './modules/warehouse/warehouse-details/warehouse-details-listing/warehouse-details-listing.component';
-import { WarehouseDetailsAddComponent } from './modules/warehouse/warehouse-details/warehouse-details-add/warehouse-details-add.component';
-import { WarehouseDetailsViewComponent } from './modules/warehouse/warehouse-details/warehouse-details-view/warehouse-details-view.component';
-import { StockAdjustmentMainComponent } from './modules/warehouse/stock-adjustment/stock-adjustment-main/stock-adjustment-main.component';
-import { StockAdjustmentListingComponent } from './modules/warehouse/stock-adjustment/stock-adjustment-listing/stock-adjustment-listing.component';
 import { FreightCalculationComponent } from './modules/logistics/Freightmanagement/freight-calculation/freight-calculation.component';
 import { DashboardMainComponent } from './modules/dashboard/dashboard-main/dashboard-main.component';
 import { authGuard } from './services/auth/auth.guard';
@@ -137,6 +125,10 @@ const routes: Routes = [
     component: MainComponent, canActivate: [authGuard],
     children: [
       { path: 'dashboard', component: DashboardMainComponent },
+      {
+        path:'warehouse',
+        loadChildren:()=>import('./modules/warehouse-module/warehouse-module.module').then(m=>m.WarehouseModuleModule)
+      },     
       {
         path: 'order',
         component: OrderMainComponent,
@@ -437,65 +429,6 @@ const routes: Routes = [
             component: InvReportsMainComponent,
           },
           { path: '**', redirectTo: '/scm/inventory/inventory' },
-        ],
-      },
-      {
-        path: 'warehouse',
-        component: WarehouseMainComponent,
-        children: [
-          { path: 'add-stock', component: AddStockMainComponent },
-          {
-            path: 'stock-transfer-forms',
-            component: StocktransferMainComponent,
-            children: [
-              {
-                path: 'stock-transfer-listing',
-                component: StocktransferListingComponent,
-              },
-              { path: 'add-transfer', component: StocktransferAddComponent },
-              { path: 'transfer-view', component: StocktransferViewComponent },
-              {
-                path: '**',
-                redirectTo:
-                  '/scm/warehouse/stock-transfer-forms/stock-transfer-listing',
-              },
-            ],
-          },
-          {
-            path: 'warehouse-details',
-            component: WarehouseDetailsMainComponent,
-            children: [
-              {
-                path: 'warehouse-listing',
-                component: WarehouseDetailsListingComponent,
-              },
-              {
-                path: 'add-warehouse-details',
-                component: WarehouseDetailsAddComponent,
-              },
-              {
-                path: 'warehouse-details-view',
-                component: WarehouseDetailsViewComponent,
-              },
-              {
-                path: '**',
-                redirectTo:
-                  '/scm/warehouse/warehouse-details/warehouse-listing',
-              },
-            ],
-          },
-          {
-            path: 'stock-adjustment',
-            component: StockAdjustmentMainComponent,
-            children: [
-              { path: 'listing', component: StockAdjustmentListingComponent },
-              {
-                path: '**',
-                redirectTo: '/scm/warehouse/stock-adjustment/listing',
-              },
-            ],
-          },
-          { path: '**', redirectTo: '/scm/warehouse/add-stock' },
         ],
       },
       {
