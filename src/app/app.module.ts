@@ -159,7 +159,6 @@ import { ShipmentPrintComponent } from './modules/logistics/Shipments/shipment-p
 import { ShipmentItemsComponent } from './modules/logistics/Shipments/shipment-items/shipment-items.component';
 
 
-// import { UserResetComponent } from './modules/settings/users/user-reset/user-reset.component';
 import { DashboardPieShipmentsComponent } from './modules/dashboard/dashboard-pie-shipments/dashboard-pie-shipments.component';
 
 import { ShipmentDeliveryConfirmComponent } from './modules/logistics/Shipments/shipment-delivery-confirm/shipment-delivery-confirm.component';
@@ -198,7 +197,9 @@ import { CountryStateCityModule } from './modules/common-components/country-stat
     CustomerMainComponent,
     SoMainComponent,
     CustomerListingComponent,
+    ShipmentDeliveryConfirmComponent,
     CustomerAddComponent,
+    DashboardPieShipmentsComponent,
     CustomerViewComponent,
     SoListingComponent,
     SoAddComponent,
@@ -347,7 +348,6 @@ import { CountryStateCityModule } from './modules/common-components/country-stat
     DashboardStockTransferRequestsComponent,
     ShipmentPrintComponent,
     ShipmentItemsComponent,
-    // UserResetComponent,
    
     TopCustomersSuppliersComponent,
    
