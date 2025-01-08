@@ -229,20 +229,21 @@ export class SideMenuComponent {
         }
       ]
     },
+    
     {
       "name": "Settings",
       "icon": "fa-solid fa-cog",
-      "url": "setting/users",
+      "url": "settings/users",
       "submenus": [
         {
           "name": "User Management",
           "icon": "fa-solid fa-user-cog",
-          "url": "setting/users"
+          "url": "settings/users"
         },
         {
           "name": "Administration",
           "icon": "fa-solid fa-tools",
-          "url": "setting/administration"
+          "url": "settings/Administrations"
         }
       ]
     },

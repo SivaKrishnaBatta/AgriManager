@@ -112,12 +112,6 @@ import { CustomerCommentsComponent } from './modules/order-management/customers/
 import { InvDetailMainComponent } from './modules/Inventory/inventory-details/inv-detail-main/inv-detail-main.component';
 import { InvDetailAddComponent } from './modules/Inventory/inventory-details/inv-detail-add/inv-detail-add.component';
 import { InvDetailListingComponent } from './modules/Inventory/inventory-details/inv-detail-listing/inv-detail-listing.component';
-import { SettingMainComponent } from './modules/settings/setting-main/setting-main.component';
-import { UserMainComponent } from './modules/settings/users/user-main/user-main.component';
-import { UserAddComponent } from './modules/settings/users/user-add/user-add.component';
-import { UserViewComponent } from './modules/settings/users/user-view/user-view.component';
-import { UserListingComponent } from './modules/settings/users/user-listing/user-listing.component';
-import { AdminMainComponent } from './modules/settings/Administration/admin-main/admin-main.component';
 import { CustomerInvoiceComponent } from './modules/order-management/customers/customer-invoice/customer-invoice.component';
 import { CustomerPaymentsComponent } from './modules/order-management/customers/customer-payments/customer-payments.component';
 import { CustomerSoComponent } from './modules/order-management/customers/customer-so/customer-so.component';
@@ -127,8 +121,7 @@ import { CustomerCreditNotesComponent } from './modules/order-management/custome
 import { InvSummeryComponent } from './modules/Inventory/inventory-reports/inv-summery/inv-summery.component';
 import { StockReportSummeryComponent } from './modules/Inventory/inventory-reports/stock-report-summery/stock-report-summery.component';
 import { CommittedStockDetailsComponent } from './modules/Inventory/inventory-reports/committed-stock-details/committed-stock-details.component';
-import { UserDetailsComponent } from './modules/settings/users/user-details/user-details.component';
-import { UserRolesComponent } from './modules/settings/users/user-roles/user-roles.component';
+
 import { PackageStatusReportComponent } from './modules/logistics/Logistics-Reports/package-status-report/package-status-report.component';
 import { DeliveryNoteSummaryReportComponent } from './modules/logistics/Logistics-Reports/delivery-note-summary-report/delivery-note-summary-report.component';
 import { CarrierPerformanceReportComponent } from './modules/logistics/Logistics-Reports/carrier-performance-report/carrier-performance-report.component';
@@ -157,16 +150,12 @@ import { FreightShippingMethodComponent } from './modules/logistics/Freightmanag
 import { FreightWeightRangeComponent } from './modules/logistics/Freightmanagement/freight-weight-range/freight-weight-range.component';
 import { FreightDimensionsComponent } from './modules/logistics/Freightmanagement/freight-dimensions/freight-dimensions.component';
 import { FreightCalculationComponent } from './modules/logistics/Freightmanagement/freight-calculation/freight-calculation.component';
-import { AdminPaymentTermsComponent } from './modules/settings/Administration/admin-payment-terms/admin-payment-terms.component';
-import { AdminPaymentModeComponent } from './modules/settings/Administration/admin-payment-mode/admin-payment-mode.component';
-import { AdminTaxsComponent } from './modules/settings/Administration/admin-taxs/admin-taxs.component';
+
 import { ProductionScheduleReportComponent } from './modules/Manufacturing/reports/production-schedule-report/production-schedule-report.component';
 import { WorkOrderStatusReportComponent } from './modules/Manufacturing/reports/work-order-status-report/work-order-status-report.component';
 import { InspectionResultsReportsComponent } from './modules/Manufacturing/reports/inspection-results-reports/inspection-results-reports.component';
 import { LoginComponent } from './ui-components/login/login.component';
 import { SignupComponent } from './ui-components/signup/signup.component';
-import { AdminUnitOfMeasureComponent } from './modules/settings/Administration/admin-unit-of-measure/admin-unit-of-measure.component';
-import { AdminProductionPriorityComponent } from './modules/settings/Administration/admin-production-priority/admin-production-priority.component';
 import { DashboardCardsComponent } from './modules/dashboard/dashboard-cards/dashboard-cards.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { QuInspectionComponent } from './modules/Manufacturing/Quality-control/qu-inspection/qu-inspection.component';
@@ -190,15 +179,15 @@ import { DashboardInventoryOveraTimeComponent } from './modules/dashboard/dashbo
 import { DashboardStockTransferRequestsComponent } from './modules/dashboard/dashboard-stock-transfer-requests/dashboard-stock-transfer-requests.component';
 import { ShipmentPrintComponent } from './modules/logistics/Shipments/shipment-print/shipment-print.component';
 import { ShipmentItemsComponent } from './modules/logistics/Shipments/shipment-items/shipment-items.component';
-import { UserResetComponent } from './modules/settings/users/user-reset/user-reset.component';
+
 import { SupplierPurchaseOrderComponent } from './modules/Procurement/supplier/supplier-purchase-order/supplier-purchase-order.component';
 import { SupplierPurchaseReceviesComponent } from './modules/Procurement/supplier/supplier-purchase-recevies/supplier-purchase-recevies.component';
 import { SupplierSupplierReturnComponent } from './modules/Procurement/supplier/supplier-supplier-return/supplier-supplier-return.component';
 import { DashboardPieShipmentsComponent } from './modules/dashboard/dashboard-pie-shipments/dashboard-pie-shipments.component';
-import { AdminDiscountComponent } from './modules/settings/Administration/admin-discount/admin-discount.component';
+
 import { ShipmentDeliveryConfirmComponent } from './modules/logistics/Shipments/shipment-delivery-confirm/shipment-delivery-confirm.component';
 import { TopCustomersSuppliersComponent } from './modules/dashboard/top-customers-suppliers/top-customers-suppliers.component';
-import { AdminContactTypesComponent } from './modules/settings/Administration/admin-contact-types/admin-contact-types.component';
+
 import { QuoteMainComponent } from './modules/order-management/quote/quote-main/quote-main.component';
 import { QuoteListingComponent } from './modules/order-management/quote/quote-listing/quote-listing.component';
 import { QuoteAddComponent } from './modules/order-management/quote/quote-add/quote-add.component';
@@ -218,7 +207,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookingTrackComponent } from './modules/logistics/Bookings/booking-track/booking-track.component';
 import { Page404Component } from './ui-components/page-404/page-404.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CountryStateCityComponent } from './modules/common-components/country-state-city/country-state-city.component';
+import { CountryStateCityModule } from './modules/common-components/country-state-city/country-state-city.module';
+
 
 @NgModule({
   declarations: [
@@ -328,12 +318,7 @@ import { CountryStateCityComponent } from './modules/common-components/country-s
     CustomerCommentsComponent,
     InvDetailMainComponent,
     InvDetailAddComponent,
-    SettingMainComponent,
-    UserMainComponent,
-    UserAddComponent,
-    UserViewComponent,
-    UserListingComponent,
-    AdminMainComponent,
+    
     CustomerInvoiceComponent,
     CustomerPaymentsComponent,
     CustomerSoComponent,
@@ -343,8 +328,7 @@ import { CountryStateCityComponent } from './modules/common-components/country-s
     InvSummeryComponent,
     StockReportSummeryComponent,
     CommittedStockDetailsComponent,
-    UserDetailsComponent,
-    UserRolesComponent,
+    
     PackageStatusReportComponent,
     DeliveryNoteSummaryReportComponent,
     CarrierPerformanceReportComponent,
@@ -374,16 +358,13 @@ import { CountryStateCityComponent } from './modules/common-components/country-s
     FreightWeightRangeComponent,
     FreightDimensionsComponent,
     FreightCalculationComponent,
-    AdminPaymentTermsComponent,
-    AdminPaymentModeComponent,
-    AdminTaxsComponent,
+    
     ProductionScheduleReportComponent,
     WorkOrderStatusReportComponent,
     InspectionResultsReportsComponent,
     LoginComponent,
     SignupComponent,
-    AdminUnitOfMeasureComponent,
-    AdminProductionPriorityComponent,
+   
     DashboardCardsComponent,
     QuInspectionComponent,
     DashboardBarchartComponent,
@@ -405,15 +386,15 @@ import { CountryStateCityComponent } from './modules/common-components/country-s
     DashboardStockTransferRequestsComponent,
     ShipmentPrintComponent,
     ShipmentItemsComponent,
-    UserResetComponent,
+    
     SupplierPurchaseOrderComponent,
     SupplierPurchaseReceviesComponent,
     SupplierSupplierReturnComponent,
     DashboardPieShipmentsComponent,
-    AdminDiscountComponent,
+   
     ShipmentDeliveryConfirmComponent,
     TopCustomersSuppliersComponent,
-    AdminContactTypesComponent,
+   
     QuoteMainComponent,
     QuoteListingComponent,
     QuoteAddComponent,
@@ -431,7 +412,7 @@ import { CountryStateCityComponent } from './modules/common-components/country-s
     FreightServiceTaxComponent,
     BookingTrackComponent,
     Page404Component,
-    CountryStateCityComponent
+    
   ],
   imports: [
     AppRoutingModule,
@@ -441,7 +422,8 @@ import { CountryStateCityComponent } from './modules/common-components/country-s
     NgbModule,
     NgApexchartsModule,
     NgxChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    CountryStateCityModule
     
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],

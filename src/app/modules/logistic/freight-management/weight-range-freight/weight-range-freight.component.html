@@ -1,0 +1,98 @@
+<div *ngIf="!addNew">
+    <div class="d-flex justify-content-between ">
+        <h2>Weight Range</h2>
+        <div>
+            <button class="btn mb-3 mr-3 btn-primary" (click)="addNew = true">+ Add New</button>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Weight Range</th>
+                <th>Charges</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>0 - 5 Kgs</td>
+                <td>$5</td>
+                <td>Small package, light items</td>
+                <td>
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>5 - 10 Kgs</td>
+                <td>$10</td>
+                <td>Medium package, regular items</td>
+                <td>
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>10 - 20 Kgs</td>
+                <td>$15</td>
+                <td>Large package, heavier items</td>
+                <td>
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>20 - 30 Kgs</td>
+                <td>$25</td>
+                <td>Very large package, bulky items</td>
+                <td>
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>30+ Kgs</td>
+                <td>$40</td>
+                <td>Extra heavy or oversized package</td>
+                <td>
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="addNew">
+    <h2 class="title">New Weight Range</h2>
+    <hr>
+    <div class="content">
+        <form>
+            <div class="cor-form">
+                <div class="input-box">
+                    <span class="details">Weight Range</span>
+                    <input formControlName="Weight Range" type="text" placeholder="Enter your Weight Range">
+                </div>
+                <div class="input-box">
+                    <span class="details">Charges</span>
+                    <input formControlName="teamSize" type="number" placeholder="Enter your Charges">
+                </div>
+            </div>
+            <div class="cor-form">
+                <div class="input-box textarea-box">
+                    <span class="details">Description</span>
+                    <textarea formControlName="description" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <button class="submit-button" (click)="addNew = false">Submit</button>
+                </div>
+                <div>
+                    <button class="close-button" (click)="addNew = false">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="card-wrapper">
+    <h1 class="sales-title">
+        <i class="fa-solid fa-sliders"></i> Freight Management
+    </h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <div class=" ">
+                <ul class="list-unstyled">
+                    <li [ngClass]="{ 'active': currentReport==1}"><a (click)="selectedReport(1)"><i
+                                class="bi bi-star"></i>
+                            Shipping Method </a></li>
+                    <!-- <li [ngClass]="{ 'active': currentReport==2}"><a (click)="selectedReport(2)"><i
+                                class="bi bi-star"></i>
+                            Weight Range </a></li>
+                    <li [ngClass]="{ 'active': currentReport==3 }"><a (click)="selectedReport(3)"><i
+                                class="bi bi-star"></i>
+                            Dimensions </a></li>   -->
+                    <li [ngClass]="{ 'active': currentReport==4 }"><a (click)="selectedReport(4)"><i
+                                        class="bi bi-star"></i>
+                                    Rate Per Kg </a></li>  
+                    <li [ngClass]="{ 'active': currentReport==5 }"><a (click)="selectedReport(5)"><i
+                                                class="bi bi-star"></i>
+                            Service Tax </a></li>       
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 border-start border-2 pl-4">
+            <!-- Main Content -->
+            <app-shipping-method-freight *ngIf="currentReport==1"></app-shipping-method-freight>
+            <app-weight-range-freight *ngIf="currentReport==2"></app-weight-range-freight>
+            <app-dimensions-freight *ngIf="currentReport==3"></app-dimensions-freight>
+            <app-rate-freight *ngIf="currentReport==4"></app-rate-freight>
+            <app-service-tax-freight *ngIf="currentReport==5"></app-service-tax-freight>
+        </div>
+    </div>
+</div>
+
+<!-- <router-outlet></router-outlet> --><!-- <button routerLink="/scm/logistics/freight/listing">freight listing</button>
+<button routerLink="/scm/logistics/freight/add-freight">Add freight</button>
+<button  routerLink="/scm/logistics/freight/freight-view">freight view</button> -->

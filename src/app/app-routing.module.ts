@@ -90,12 +90,7 @@ import { InventoryMainComponent } from './modules/Inventory/inventory-main/inven
 import { InvDetailMainComponent } from './modules/Inventory/inventory-details/inv-detail-main/inv-detail-main.component';
 import { InvDetailListingComponent } from './modules/Inventory/inventory-details/inv-detail-listing/inv-detail-listing.component';
 import { InvDetailAddComponent } from './modules/Inventory/inventory-details/inv-detail-add/inv-detail-add.component';
-import { SettingMainComponent } from './modules/settings/setting-main/setting-main.component';
-import { UserMainComponent } from './modules/settings/users/user-main/user-main.component';
-import { UserListingComponent } from './modules/settings/users/user-listing/user-listing.component';
-import { UserAddComponent } from './modules/settings/users/user-add/user-add.component';
-import { UserViewComponent } from './modules/settings/users/user-view/user-view.component';
-import { AdminMainComponent } from './modules/settings/Administration/admin-main/admin-main.component';
+
 import { CreditMemoMainComponent } from './modules/order-management/credit-memo/credit-memo-main/credit-memo-main.component';
 import { CreditMemoListingComponent } from './modules/order-management/credit-memo/credit-memo-listing/credit-memo-listing.component';
 import { CreditMemoAddComponent } from './modules/order-management/credit-memo/credit-memo-add/credit-memo-add.component';
@@ -128,7 +123,15 @@ const routes: Routes = [
       {
         path:'warehouse',
         loadChildren:()=>import('./modules/warehouse-module/warehouse-module.module').then(m=>m.WarehouseModuleModule)
-      },     
+      },
+      {
+        path:'settings',
+        loadChildren:()=>import('./modules/settings-profile/settings-profile.module').then(m=>m.SettingsProfileModule)
+      },   
+      {
+        path:'logistic',
+        loadChildren:()=>import('./modules/logistic/logistic.module').then(m=>m.LogisticModule)
+      },   
       {
         path: 'order',
         component: OrderMainComponent,
@@ -431,37 +434,14 @@ const routes: Routes = [
           { path: '**', redirectTo: '/scm/inventory/inventory' },
         ],
       },
-      {
-        path: 'setting',
-        component: SettingMainComponent,
-        children: [
-          {
-            path: 'users',
-            component: UserMainComponent,
-            children: [
-              { path: 'listing', component: UserListingComponent },
-              { path: 'add-user', component: UserAddComponent },
-              { path: 'user-view', component: UserViewComponent },
-              { path: '**', redirectTo: '/scm/setting/users/listing' },
-            ],
-          },
-          {
-            path: 'administration',
-            component: AdminMainComponent,
-            // children: [
-            //   { path: 'warehouse-listing', component: WarehouseDetailsListingComponent },
-            //   { path: 'add-warehouse-details', component: WarehouseDetailsAddComponent },
-            //   { path: 'warehouse-details-view', component: WarehouseDetailsViewComponent },
-            //   { path: '**', redirectTo: '/scm/warehouse/warehouse-details/warehouse-listing', }
-            // ],
-          },
-        ],
-      },
+
 
       { path: '**', redirectTo: '/scm/dashboard' },
     ],
   },
   { path: '17/mock-template', component: UiTemplateComponent },
+  { path: 'products', loadChildren: () => import('./modules/settings-profile/settings-profile.module').then(m => m.SettingsProfileModule) },
+  { path: 'logistic', loadChildren: () => import('./modules/logistic/logistic.module').then(m => m.LogisticModule) },
   { path: '**', redirectTo: '/scm/dashboard' },
 ];
 

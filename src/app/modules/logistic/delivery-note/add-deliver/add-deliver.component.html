@@ -1,0 +1,84 @@
+<div class="card-wrapper">
+    <h1 class="title">Delivery Notes</h1>
+    <hr>
+    <div class="content">
+        <form [formGroup]="deliveryForm" (ngSubmit)="submitForm()">
+            <div class="cor-form">
+                <div class="select-dropdown Sales Order">
+                    <span class="details">Cargo ID</span>
+                    <select formControlName="CargoID">
+                        <option value="">--Select --</option>
+                        <option value="1">Cargo ID-1</option>
+                        <option value="2">Cargo ID-02</option>
+                        <option value="2">Cargo ID-03</option>
+                    </select>
+                    <div class="validate-message" *ngIf="deliveryForm.get('CargoID').invalid && deliveryForm.get('CargoID').touched" >
+                        Cargo ID is required.
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Sender Name</span>
+                    <input formControlName="SenderName" type="text" placeholder="Sender Name">
+                    <div class="validate-message" *ngIf="deliveryForm.get('SenderName').invalid && deliveryForm.get('SenderName').touched" >
+                        Sender name is required 
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Receiver Name</span>
+                    <input formControlName="ReceiverName" type="text" placeholder="Receiver Name">
+                    <div class="validate-message" *ngIf="deliveryForm.get('ReceiverName').invalid && deliveryForm.get('ReceiverName').touched" >
+                        Receiver name is required 
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Delivery Challan# (if any)<span style="color: red;">*</span></span>
+                    <input formControlName="DeliveryChallan" type="number" placeholder="Delivery Challan Number">
+                    <div class="validate-message" *ngIf="deliveryForm.get('DeliveryChallan').invalid && deliveryForm.get('DeliveryChallan').touched" >
+                        Delivery Challan is required.
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Reference#<span style="color: red;">*</span></span>
+                    <input formControlName="Reference" type="text" placeholder="Reference">
+                    <div class="validate-message" *ngIf="deliveryForm.get('Reference').invalid && deliveryForm.get('Reference').touched" >
+                        Reference is required.
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Delivery Challan Date<span style="color: red;">*</span></span>
+                    <input formControlName="DeliveryDate" type="date">
+                    <div class="validate-message" *ngIf="deliveryForm.get('DeliveryDate').invalid && deliveryForm.get('DeliveryDate').touched" >
+                        Delivery date is required.
+                    </div>
+                </div>
+            </div>
+
+            <div class="cor-form">
+                <div class="input-box textarea-box">
+                    <span class="details">Customer Notes</span>
+                    <textarea formControlName="CustomerNotes" rows="5"></textarea>
+                </div>
+
+                <div class="input-box textarea-box">
+                    <span class="details">Terms & Conditions</span>
+                    <textarea formControlName="TermsConditions" rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="d-flex">
+                <div>
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button routerLink="/scm/logistic/delivery-note/listing" class="close-button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
