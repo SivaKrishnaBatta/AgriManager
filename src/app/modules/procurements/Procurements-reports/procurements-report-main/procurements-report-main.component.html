@@ -1,0 +1,26 @@
+<div class="card-wrapper">
+    <h1 class="sales-title">
+        <i class="fa-solid fa-box-open"></i> Procurement Reports
+    </h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <div class=" ">
+    <ul class="list-unstyled">
+        <li [ngClass]="{ 'active': currentReport==1}"><a (click)="selectedReport(1)"><i class="bi bi-star"></i> Purchase Order details</a></li>
+        <li [ngClass]="{ 'active': currentReport==2}"><a (click)="selectedReport(2)"><i class="bi bi-star"></i> Purchase Order by Vendor </a></li>
+        <li [ngClass]="{ 'active': currentReport==3 }"><a (click)="selectedReport(3)"><i class="bi bi-star"></i> Purchase by Item </a></li>
+        <li [ngClass]="{ 'active': currentReport==4}"><a (click)="selectedReport(4)"><i class="bi bi-star"></i> Purchase History</a></li>
+    </ul>
+</div>
+</div>
+<div class="col-md-9 border-start border-2 pl-4">
+<!-- Main Content -->
+<app-purchase-orders-deatils *ngIf="currentReport==1"></app-purchase-orders-deatils>
+<app-purchase-orders-vendor *ngIf="currentReport==2"></app-purchase-orders-vendor>
+<app-purchase-by-items *ngIf="currentReport==3"></app-purchase-by-items>
+<app-purchases-history *ngIf="currentReport==4"></app-purchases-history>
+</div>
+</div>
+</div> 
+<router-outlet></router-outlet>

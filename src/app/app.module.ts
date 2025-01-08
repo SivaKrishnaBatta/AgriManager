@@ -32,20 +32,6 @@ import { RoViewComponent } from './modules/order-management/returnOrders/ro-view
 import { OrderReportsMainComponent } from './modules/order-management/order-reports/order-reports-main/order-reports-main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiTemplateComponent } from './ui-components/ui-template/ui-template.component';
-import { ProcurementMainComponent } from './modules/Procurement/procurement-main/procurement-main.component';
-import { SupplierMainComponent } from './modules/Procurement/supplier/supplier-main/supplier-main.component';
-import { SupplierListingComponent } from './modules/Procurement/supplier/supplier-listing/supplier-listing.component';
-import { SupplierViewComponent } from './modules/Procurement/supplier/supplier-view/supplier-view.component';
-import { SupplierAddComponent } from './modules/Procurement/supplier/supplier-add/supplier-add.component';
-import { PoMainComponent } from './modules/Procurement/purchase-order/po-main/po-main.component';
-import { PoListingComponent } from './modules/Procurement/purchase-order/po-listing/po-listing.component';
-import { PoAddComponent } from './modules/Procurement/purchase-order/po-add/po-add.component';
-import { PoViewComponent } from './modules/Procurement/purchase-order/po-view/po-view.component';
-import { SReturnMainComponent } from './modules/Procurement/supplier-return/s-return-main/s-return-main.component';
-import { SReturnAddComponent } from './modules/Procurement/supplier-return/s-return-add/s-return-add.component';
-import { SReturnViewComponent } from './modules/Procurement/supplier-return/s-return-view/s-return-view.component';
-import { SReturnListingComponent } from './modules/Procurement/supplier-return/s-return-listing/s-return-listing.component';
-import { ProcurementsReportsMainComponent } from './modules/Procurement/procurement-reports/procurements-reports-main/procurements-reports-main.component';
 import { LogisticsMainComponent } from './modules/logistics/logistics-main/logistics-main.component';
 import { PackagesMainComponent } from './modules/logistics/Packages/packages-main/packages-main.component';
 import { PackagesListingComponent } from './modules/logistics/Packages/packages-listing/packages-listing.component';
@@ -126,19 +112,12 @@ import { PackageStatusReportComponent } from './modules/logistics/Logistics-Repo
 import { DeliveryNoteSummaryReportComponent } from './modules/logistics/Logistics-Reports/delivery-note-summary-report/delivery-note-summary-report.component';
 import { CarrierPerformanceReportComponent } from './modules/logistics/Logistics-Reports/carrier-performance-report/carrier-performance-report.component';
 import { InventoryComponent } from './modules/logistics/Logistics-Reports/inventory/inventory.component';
-import { PurchaseOrderDetailsComponent } from './modules/Procurement/procurement-reports/purchase-order-details/purchase-order-details.component';
-import { PurchaseOrderVendorComponent } from './modules/Procurement/procurement-reports/purchase-order-vendor/purchase-order-vendor.component';
-import { PurchaseByItemComponent } from './modules/Procurement/procurement-reports/purchase-by-item/purchase-by-item.component';
-import { PurchaseHistoryComponent } from './modules/Procurement/procurement-reports/purchase-history/purchase-history.component';
-import { SReturnPrintComponent } from './modules/Procurement/supplier-return/s-return-print/s-return-print.component';
-import { SReturnItemsComponent } from './modules/Procurement/supplier-return/s-return-items/s-return-items.component';
 import { CreditMemoMainComponent } from './modules/order-management/credit-memo/credit-memo-main/credit-memo-main.component';
 import { CreditMemoListingComponent } from './modules/order-management/credit-memo/credit-memo-listing/credit-memo-listing.component';
 import { CreditMemoAddComponent } from './modules/order-management/credit-memo/credit-memo-add/credit-memo-add.component';
 import { CreditMemoViewComponent } from './modules/order-management/credit-memo/credit-memo-view/credit-memo-view.component';
 import { PackageItemsComponent } from './modules/logistics/Packages/package-items/package-items.component';
 import { PackagePrintComponent } from './modules/logistics/Packages/package-print/package-print.component';
-import { PoPrintComponent } from './modules/Procurement/purchase-order/po-print/po-print.component';
 import { BomInvReportComponent } from './modules/Manufacturing/reports/bom-inv-report/bom-inv-report.component';
 import { DeliveryPrintComponent } from './modules/logistics/DeliveryNote/delivery-print/delivery-print.component';
 import { DeliveryItemsComponent } from './modules/logistics/DeliveryNote/delivery-items/delivery-items.component';
@@ -174,15 +153,13 @@ import { DashboardPoBreakdownComponent } from './modules/dashboard/dashboard-po-
 import { DashboardPaymentStatusComponent } from './modules/dashboard/dashboard-payment-status/dashboard-payment-status.component';
 import { DashboardManufacturingMetricsComponent } from './modules/dashboard/dashboard-manufacturing-metrics/dashboard-manufacturing-metrics.component';
 import { DashboardCarrierPerformanceComponent } from './modules/dashboard/dashboard-carrier-performance/dashboard-carrier-performance.component';
-import { PoItemsComponent } from './modules/Procurement/purchase-order/po-items/po-items.component';
 import { DashboardInventoryOveraTimeComponent } from './modules/dashboard/dashboard-inventory-overa-time/dashboard-inventory-overa-time.component';
 import { DashboardStockTransferRequestsComponent } from './modules/dashboard/dashboard-stock-transfer-requests/dashboard-stock-transfer-requests.component';
 import { ShipmentPrintComponent } from './modules/logistics/Shipments/shipment-print/shipment-print.component';
 import { ShipmentItemsComponent } from './modules/logistics/Shipments/shipment-items/shipment-items.component';
 
-import { SupplierPurchaseOrderComponent } from './modules/Procurement/supplier/supplier-purchase-order/supplier-purchase-order.component';
-import { SupplierPurchaseReceviesComponent } from './modules/Procurement/supplier/supplier-purchase-recevies/supplier-purchase-recevies.component';
-import { SupplierSupplierReturnComponent } from './modules/Procurement/supplier/supplier-supplier-return/supplier-supplier-return.component';
+
+// import { UserResetComponent } from './modules/settings/users/user-reset/user-reset.component';
 import { DashboardPieShipmentsComponent } from './modules/dashboard/dashboard-pie-shipments/dashboard-pie-shipments.component';
 
 import { ShipmentDeliveryConfirmComponent } from './modules/logistics/Shipments/shipment-delivery-confirm/shipment-delivery-confirm.component';
@@ -240,20 +217,9 @@ import { CountryStateCityModule } from './modules/common-components/country-stat
     RoViewComponent,
     OrderReportsMainComponent,
     UiTemplateComponent,
-    ProcurementMainComponent,
-    SupplierMainComponent,
-    SupplierListingComponent,
-    SupplierViewComponent,
-    SupplierAddComponent,
-    PoMainComponent,
-    PoListingComponent,
-    PoAddComponent,
-    PoViewComponent,
-    SReturnMainComponent,
-    SReturnAddComponent,
-    SReturnViewComponent,
-    SReturnListingComponent,
-    ProcurementsReportsMainComponent,
+
+    
+
     LogisticsMainComponent,
     PackagesMainComponent,
     PackagesListingComponent,
@@ -333,12 +299,7 @@ import { CountryStateCityModule } from './modules/common-components/country-stat
     DeliveryNoteSummaryReportComponent,
     CarrierPerformanceReportComponent,
     InventoryComponent,
-    PurchaseOrderDetailsComponent,
-    PurchaseOrderVendorComponent,
-    PurchaseByItemComponent,
-    PurchaseHistoryComponent,
-    SReturnPrintComponent,
-    SReturnItemsComponent,
+   
     CreditMemoMainComponent,
     CreditMemoListingComponent,
     CreditMemoAddComponent,
@@ -346,7 +307,7 @@ import { CountryStateCityModule } from './modules/common-components/country-stat
     CreditMemoViewComponent,
     PackageItemsComponent,
     PackagePrintComponent,
-    PoPrintComponent,
+    
     BomInvReportComponent,
     DeliveryPrintComponent,
     DeliveryItemsComponent,
@@ -381,18 +342,13 @@ import { CountryStateCityModule } from './modules/common-components/country-stat
     DashboardPaymentStatusComponent,
     DashboardManufacturingMetricsComponent,
     DashboardCarrierPerformanceComponent,
-    PoItemsComponent,
+    
     DashboardInventoryOveraTimeComponent,
     DashboardStockTransferRequestsComponent,
     ShipmentPrintComponent,
     ShipmentItemsComponent,
-    
-    SupplierPurchaseOrderComponent,
-    SupplierPurchaseReceviesComponent,
-    SupplierSupplierReturnComponent,
-    DashboardPieShipmentsComponent,
+    // UserResetComponent,
    
-    ShipmentDeliveryConfirmComponent,
     TopCustomersSuppliersComponent,
    
     QuoteMainComponent,

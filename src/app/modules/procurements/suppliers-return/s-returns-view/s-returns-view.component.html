@@ -1,0 +1,68 @@
+<div class="card-wrapper">
+    <div class="container-fluid">
+        <div>
+            <h1>Supplier Return </h1>
+        </div>
+        <div class="d-flex justify-content-between align-items-center py-2 ">
+            <div>
+                <strong>Supple Return # : SR-00001</strong>
+            </div>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-light btn-sm me-2">
+                    <i class="bi bi-pencil"></i> Edit
+                </button>
+                <button class="btn btn-light btn-sm me-2">
+                    <i class="bi bi-envelope"></i> Email
+                </button>
+                <button class="btn btn-light btn-sm me-2">
+                    <i class="bi bi-check-circle"></i> Mark as Confirmed
+                </button>
+                <button routerLink="/scm/logistics/package/add-package" class="btn btn-light btn-sm me-2">
+                    <i class="bi bi-check-circle"></i> Create Package
+                </button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between pl-3 pr-3">
+        <div class="w-25">
+            <div class="card-heading">Order Details</div>
+            <p class="d-flex justify-content-between"><strong>Reference#</strong> 55858</p>
+            <p class="d-flex justify-content-between"><strong>Order Date:</strong> 29/08/2024</p>
+            <p class="d-flex justify-content-between"><strong>Expected Shipment Date:</strong> 31/08/2024</p>
+            <p class="d-flex justify-content-between"><strong>Payment Terms:</strong> Due on Receipt</p>
+            <p class="d-flex justify-content-between"><strong>Sales Person</strong>Tate</p>
+        </div>
+        <div class="w-25">
+            <div class="card-heading">BILLING ADDRESS</div>
+            <a >Mr. Ahmed Ahmed</a>
+            <p>Foster</p>
+            <p>272 Wyatt Inlet Apt. 509
+                27109 Sauer Way Suite 137
+                Port Wallace, Pennsylvania
+                Egypt - 669-250
+                1-400-769-7334 x728</p>
+        </div>
+        <div class="w-25">
+            <div class="card-heading">Shipping ADDRESS</div>
+            <p>Kenneth</p>
+            <p>3230 Jaron Brooks Suite 855
+                72558 Schiller Point Apt. 129
+                Shanemouth, Connecticut
+                Egypt - 365-385
+                (934) 484-9885 x88980</p>
+        </div>
+    </div>
+    <div class="m-3">
+        <div class="nav nav-tabs">
+            <button *ngFor="let tab of tabs;let i = index" class="nav-link" [ngClass]="{'active': selectedTab === i}"
+                (click)="selectTab(i)">
+                {{ tab }}
+            </button>
+        </div>
+    </div>
+    <div class="tab-content">
+        <app-s-returns-items *ngIf="selectedTab === 0"></app-s-returns-items>
+        <app-s-returns-print *ngIf="selectedTab === 1"></app-s-returns-print>
+    </div>
+</div>

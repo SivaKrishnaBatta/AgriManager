@@ -112,29 +112,29 @@ export class SideMenuComponent {
       ]
     },
     {
-      "name": "Procurement",
+      "name": "Procurements",
       "icon": "fa-solid fa-shopping-cart",
-      "url": "procurement/suppliers",
+      "url": "procurements/suppliers",
       "submenus": [
         {
           "name": "Supplier Management",
           "icon": "fa-solid fa-user-tie",
-          "url": "procurement/suppliers"
+          "url": "procurements/suppliers/suppliers-listing"
         },
         {
           "name": "Purchase Orders (PO)",
           "icon": "fa-solid fa-file-signature",
-          "url": "procurement/po"
+          "url": "procurements/po"
         },
         {
           "name": "Supplier Return",
           "icon": "fa-solid fa-undo-alt",
-          "url": "procurement/supplier-return"
+          "url": "procurements/suppliers-return"
         },
         {
           "name": "Procurement Reports",
           "icon": "fa-solid fa-chart-line",
-          "url": "procurement/reports"
+          "url": "procurements/reports"
         }
       ]
     },

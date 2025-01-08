@@ -23,21 +23,7 @@ import { RoAddComponent } from './modules/order-management/returnOrders/ro-add/r
 import { RoViewComponent } from './modules/order-management/returnOrders/ro-view/ro-view.component';
 import { OrderReportsMainComponent } from './modules/order-management/order-reports/order-reports-main/order-reports-main.component';
 import { UiTemplateComponent } from './ui-components/ui-template/ui-template.component';
-import { ProcurementMainComponent } from './modules/Procurement/procurement-main/procurement-main.component';
-import { SupplierMainComponent } from './modules/Procurement/supplier/supplier-main/supplier-main.component';
-import { SupplierListingComponent } from './modules/Procurement/supplier/supplier-listing/supplier-listing.component';
-import { SupplierAddComponent } from './modules/Procurement/supplier/supplier-add/supplier-add.component';
-import { SupplierViewComponent } from './modules/Procurement/supplier/supplier-view/supplier-view.component';
-import { PoMainComponent } from './modules/Procurement/purchase-order/po-main/po-main.component';
-import { PoListingComponent } from './modules/Procurement/purchase-order/po-listing/po-listing.component';
-import { PoAddComponent } from './modules/Procurement/purchase-order/po-add/po-add.component';
-import { PoViewComponent } from './modules/Procurement/purchase-order/po-view/po-view.component';
 import { CustomerViewComponent } from './modules/order-management/customers/customer-view/customer-view.component';
-import { SReturnMainComponent } from './modules/Procurement/supplier-return/s-return-main/s-return-main.component';
-import { SReturnListingComponent } from './modules/Procurement/supplier-return/s-return-listing/s-return-listing.component';
-import { SReturnAddComponent } from './modules/Procurement/supplier-return/s-return-add/s-return-add.component';
-import { SReturnViewComponent } from './modules/Procurement/supplier-return/s-return-view/s-return-view.component';
-import { ProcurementsReportsMainComponent } from './modules/Procurement/procurement-reports/procurements-reports-main/procurements-reports-main.component';
 import { LogisticsMainComponent } from './modules/logistics/logistics-main/logistics-main.component';
 import { PackagesMainComponent } from './modules/logistics/Packages/packages-main/packages-main.component';
 import { PackagesListingComponent } from './modules/logistics/Packages/packages-listing/packages-listing.component';
@@ -132,6 +118,14 @@ const routes: Routes = [
         path:'logistic',
         loadChildren:()=>import('./modules/logistic/logistic.module').then(m=>m.LogisticModule)
       },   
+      {
+        path:'procurements',
+        loadChildren:()=>import('./modules/procurements/procurements.module').then(m=>m.ProcurementsModule)
+      },
+      {
+        path:'inventorys',
+        loadChildren:()=>import('./modules/inventorys/inventorys.module').then(m=>m.InventorysModule)
+      },    
       {
         path: 'order',
         component: OrderMainComponent,
@@ -282,50 +276,6 @@ const routes: Routes = [
             path: 'reports',
             component: LogisticsReportsMainComponent,
           },
-        ],
-      },
-      {
-        path: 'procurement',
-        component: ProcurementMainComponent,
-        children: [
-          {
-            path: 'suppliers',
-            component: SupplierMainComponent,
-            children: [
-              { path: 'listing', component: SupplierListingComponent },
-              { path: 'add-suppliers', component: SupplierAddComponent },
-              { path: 'suppliers-view', component: SupplierViewComponent },
-              { path: '**', redirectTo: '/scm/procurement/suppliers/listing' },
-            ],
-          },
-          {
-            path: 'po',
-            component: PoMainComponent,
-            children: [
-              { path: 'listing', component: PoListingComponent },
-              { path: 'add-po', component: PoAddComponent },
-              { path: 'po-view', component: PoViewComponent },
-              { path: '**', redirectTo: '/scm/procurement/po/listing' },
-            ],
-          },
-          {
-            path: 'supplier-return',
-            component: SReturnMainComponent,
-            children: [
-              { path: 'listing', component: SReturnListingComponent },
-              { path: 'add-supplier-return', component: SReturnAddComponent },
-              { path: 'supplier-return-view', component: SReturnViewComponent },
-              {
-                path: '**',
-                redirectTo: '/scm/procurement/supplier-return/listing',
-              },
-            ],
-          },
-          {
-            path: 'reports',
-            component: ProcurementsReportsMainComponent,
-          },
-          { path: '**', redirectTo: '/scm/procurement/suppliers' },
         ],
       },
       {
