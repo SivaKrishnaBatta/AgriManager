@@ -126,88 +126,88 @@ export class SideMenuComponent {
         {
           "name": "Purchase Orders (PO)",
           "icon": "fa-solid fa-file-signature",
-          "url": "procurements/po"
+          "url": "procurements/purchase-orders/po-listings"
         },
         {
           "name": "Supplier Return",
           "icon": "fa-solid fa-undo-alt",
-          "url": "procurements/suppliers-return"
+          "url": "procurements/suppliers-return/returns-listing"
         },
         {
           "name": "Procurement Reports",
           "icon": "fa-solid fa-chart-line",
-          "url": "procurements/reports"
+          "url": "procurements/procurements-reports/purchase-orders-details"
         }
       ]
     },
     {
       "name": "Manufacturing",
       "icon": "fa-solid fa-cogs",
-      "url": "manufacturing/bom",
+      "url": "manufacturings/boms/boms-listing",
       "submenus": [
         {
           "name": "Bill of Materials (BOM)",
           "icon": "fa-solid fa-clipboard-list",
-          "url": "manufacturing/bom"
+          "url": "manufacturings/boms/boms-listing"
         },
         {
           "name": "Production Planning",
           "icon": "fa-solid fa-project-diagram",
-          "url": "manufacturing/production"
+          "url": "manufacturings/productions/prod-listing"
         },
         {
           "name": "Work Orders",
           "icon": "fa-solid fa-tasks",
-          "url": "manufacturing/work-order"
+          "url": "manufacturings/work-order/order-listing"
         },
         {
           "name": "Quality Control",
           "icon": "fa-solid fa-check-circle",
-          "url": "manufacturing/qc"
+          "url": "manufacturings/quality/qc-listings"
         },
         {
           "name": "Manufacturing Reports",
           "icon": "fa-solid fa-chart-area",
-          "url": "manufacturing/reports"
+          "url": "manufacturings/report/inv-reports"
         }
       ]
     },
     {
       "name": "Inventory",
       "icon": "fa-solid fa-warehouse",
-      "url": "inventory/stock",
+      "url": "inventorys/inventory-details/details-listing",
       "submenus": [
         {
-          "name": "Add Stock",
+          "name": "Add Stock",  
           "icon": "fa-solid fa-plus-square",
-          "url": "inventory/stock"
+          "url": "inventorys/stock-level/stocks-listing"
         },
         {
           "name": "Inventory Details",
           "icon": "fa-solid fa-list-alt",
-          "url": "inventory/detail"
+          "url": "inventorys/inventory-details/details-listing"
         },
         {
           "name": "Inventory Replenishment",
           "icon": "fa-solid fa-sync",
-          "url": "inventory/replenishment"
+          "url": "inventorys/replenishments/listing"
         },
         {
           "name": "Lot",
           "icon": "fa-solid fa-th-large",
-          "url": "inventory/lot"
+          "url": "inventorys/lots/lots-listing"
         },
         {
           "name": "Inventory Reports",
           "icon": "fa-solid fa-chart-bar",
-          "url": "inventory/reports"
+          "url": "inventorys/inventory-report/summary"
         }
       ]
     },
     {
       "name": "Warehouse",
       "icon": "fa-solid fa-boxes",
-      "url": "warehouse-details",
+      "url": "warehouse/warehouse-details/listing",
       "submenus": [
         {
           "name": "Warehouse Details",  

@@ -35,10 +35,10 @@ const routes: Routes = [
       {path:'purchase-orders-details', component: PurchaseOrdersDeatilsComponent},
       {path:'purchase-orders-vendor', component: PurchaseOrdersVendorComponent},
       {path:'purchases-history', component:PurchasesHistoryComponent},
-      // {
-      //   path:'**',
-      //   redirectTo:'/scm/procurements/procurements-reports'
-      // },
+      {
+        path:'**',
+        redirectTo:'/scm/procurements/procurements-reports/purchase-orders-details'
+      },
     ]
   },
   {
@@ -49,10 +49,10 @@ const routes: Routes = [
      {path:'po-prints', component:PoPrintsComponent},
      {path:'po-listings', component:PoListingsComponent},
      {path:'po-views', component:PoViewsComponent},
-    //  {
-    //   path:'**',
-    //   redirectTo:''
-    //  },
+     {
+      path:'**',
+      redirectTo:'/scm/procurements/purchase-orders/po-listings'
+     },
     ]
   },
 
@@ -66,10 +66,10 @@ const routes: Routes = [
       {path:'purchase-receives', component:SuppliersPurchaseReceivesComponent},
       {path:'supplier-return', component:SuppliersSupplierReturnComponent},
       {path:'suppliers-view', component:SuppliersViewComponent},
-      // {
-      //   path:'',
-      //   redirectTo:'/scm/procurements/suppliers/suppliers-listing'
-      // },
+      {
+        path:'**',
+        redirectTo:'/scm/procurements/suppliers/suppliers-listing'
+       },
     ]
   },
 

@@ -14,27 +14,29 @@ import { StockReportSummaryComponent } from './inventory-report/stock-report-sum
 import { LotsMainComponent } from './lots/lots-main/lots-main.component';
 import { LotsAddComponent } from './lots/lots-add/lots-add.component';
 import { LotsListingComponent } from './lots/lots-listing/lots-listing.component';
+import { StocksMainComponent } from './stock-level/stocks-main/stocks-main.component';
+import { StocksListingComponent } from './stock-level/stocks-listing/stocks-listing.component';
 
 const routes: Routes = [
   { path: '', component: InventorysComponent },
-  {path:'inentory-details', component: InvDetailsMainComponent,
+  {path:'inventory-details', component: InvDetailsMainComponent,
     children:[
       {path:'bulkuploads', component:InvBulkuploadsComponent},
       {path:'details-add', component:InvDetailsAddComponent},
       {path:'details-listing', component:InvDetailsListingComponent},
-      // {
-      //   path:'',
-      //   component:
-      // },
+      {
+        path:'**',
+        redirectTo:'scm/inventorys/inventory-details/details-listing'
+      },
     ]
   },
   {
     path:'replenishments', component: ReplenishmentsMainComponent,
     children:[
       {path:'listing', component:ReplenishmentsListingComponent},
-      // {path:'',
-      //   component:
-      // },
+      {path:'**',
+       redirectTo:'scm/inventorys/replenishments/listing'
+      },
     ]
   },
   {
@@ -43,10 +45,10 @@ const routes: Routes = [
       {path:'stocks-details', component: CommittedStocksDetailsComponent},
       {path:'summary', component: InvSummaryComponent},
       {path:'report-summary', component: StockReportSummaryComponent},
-      // {
-      //   path:'',
-      //   redirectTo:
-      // }
+      {
+        path:'**',
+        redirectTo:'scm/inventorys/stock-level/stocks-listing'
+      }
     ]
   },
   {
@@ -54,9 +56,22 @@ const routes: Routes = [
     children:[
       {path:'lots-add', component:LotsAddComponent},
       {path:'lots-listing', component:LotsListingComponent},
-
+      {
+        path:'**',
+        redirectTo:'scm/inventorys/lots/lots-listing'
+      }
     ]
-  }
+  },
+  {
+    path:'stock-level', component: StocksMainComponent,
+    children:[
+      {path:'stocks-listing', component:StocksListingComponent},
+      {
+        path:'**',
+        redirectTo:'scm/inventorys/stock-level/stocks-listing'
+      }
+    ]
+  },
 ];
 
 @NgModule({

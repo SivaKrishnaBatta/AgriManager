@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { WorkOrderListingComponent } from './work-order-listing.component';
+
+describe('WorkOrderListingComponent', () => {
+  let component: WorkOrderListingComponent;
+  let fixture: ComponentFixture<WorkOrderListingComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [WorkOrderListingComponent]
+    });
+    fixture = TestBed.createComponent(WorkOrderListingComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

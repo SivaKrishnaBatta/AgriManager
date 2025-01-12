@@ -1,0 +1,68 @@
+<h1 class="text-center"> BOM Inventory Report</h1>
+<div class="d-flex justify-content-between align-items-center py-2 ">
+    <div class="d-flex align-items-center gap-2">
+        <div class="input-box w-50">
+            <span class="details">From</span>
+            <input formControlName="userName" type="date" placeholder="Enter your user Name">
+        </div>
+        <div class="input-box w-50">
+            <span class="details">To</span>
+            <input formControlName="userName" type="date" placeholder="Enter your user Name">
+        </div>
+    </div>
+    <div class="d-flex align-items-center">
+        <button class="btn btn-light btn-sm me-2">
+            <i class="fas fa-file-pdf"></i> Print as PDF
+        </button>
+        <button routerLink="/scm/logistics/package/add-package" class="btn btn-light btn-sm me-2">
+            <i class="fas fa-file-excel"></i> Export as Excel
+        </button>
+    </div>
+</div>
+<hr>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Carrier Name</th>
+            <th scope="col">On-Time Delivery Percentage</th>
+            <th scope="col">Total Shipments</th>
+            <th scope="col">Average Delivery Time</th>
+            <th scope="col">Cost Metrics</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Carrier A</td>
+            <td>95%</td>
+            <td>1,200</td>
+            <td>3 Days</td>
+            <td>Rs. 20,000</td>
+        </tr>
+        <tr>
+            <td>Carrier B</td>
+            <td>90%</td>
+            <td>950</td>
+            <td>4 Days</td>
+            <td>Rs. 18,500</td>
+        </tr>
+        <tr>
+            <td>Carrier C</td>
+            <td>88%</td>
+            <td>1,050</td>
+            <td>3.5 Days</td>
+            <td>Rs. 22,000</td>
+        </tr>
+        <tr>
+            <td>Carrier D</td>
+            <td>92%</td>
+            <td>1,400</td>
+            <td>3 Days</td>
+            <td>Rs. 25,000</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+

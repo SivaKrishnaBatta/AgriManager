@@ -1,0 +1,68 @@
+<div class="card-wrapper">
+    <h1 class="title">Add QC Inspection</h1>
+    <hr>
+    <div class="content">
+        <form>
+            <div class="cor-form">
+                <div class="input-box">
+                    <span class="details">QC ID<span style="color: red;">*</span></span>
+                    <input formControlName="QC_ID" type="text" placeholder="QC ID">
+                </div>
+                <div class="select-dropdown gender-details">
+                    <span class="details">Product Name</span>
+                    <select formControlName="userStatus">
+                        <option value="">--Select --</option>
+                        <option value="1">Mobile</option>
+                        <option value="2">Laptop</option>
+                    </select>
+                </div>
+                <div class="select-dropdown gender-details">
+                    <span class="details">Work Order</span>
+                    <select formControlName="userStatus">
+                        <option value="">--Select --</option>
+                        <option value="1">WO01</option>
+                        <option value="2">WO02</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cor-form">
+                <div class="select-dropdown gender-details">
+                    <span class="details">Inspector Name</span>
+                    <select formControlName="userStatus">
+                        <option value="">--Select --</option>
+                        <option value="1">user-1</option>
+                        <option value="2">user-2 </option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Inspection Date<span style="color: red;">*</span></span>
+                    <input formControlName="Inspection_Date" type="date" placeholder="Inspection Date">
+                </div>
+                <div class="input-box">
+                    <span class="details">LOT Number<span style="color: red;">*</span></span>
+                    <input formControlName="Batch_Number" type="text" placeholder="Batch/Serial Number">
+                </div>
+            </div>
+
+            <div class="cor-form">
+                <div class="input-box">
+                    <span class="details">Comments</span>
+                    <textarea formControlName="Comments" type="text" placeholder="Comments"></textarea>
+                </div>
+                <div class="input-box">
+                    <span class="details">Description</span>
+                    <textarea formControlName="Description" type="text" placeholder="Description"></textarea>
+                </div>
+            </div>
+
+            <div class="d-flex">
+                <div>
+                    <button routerLink="/scm/manufacturings/quality/qc-views" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button routerLink="/scm/manufacturings/quality/qc-listings" class="close-button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
