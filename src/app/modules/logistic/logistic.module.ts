@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
+import { CommonModule } from '@angular/common';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { LogisticRoutingModule } from './logistic-routing.module';
 import { LogisticComponent } from './logistic.component';
 import { BookItemsComponent } from './Booking/book-items/book-items.component';
@@ -33,6 +33,24 @@ import { ShippingMethodFreightComponent } from './freight-management/shipping-me
 import { ViewFreightComponent } from './freight-management/view-freight/view-freight.component';
 import { WeightRangeFreightComponent } from './freight-management/weight-range-freight/weight-range-freight.component';
 import { CarrierPerformanceReportComponent } from './logistic-report/carrier-performance-report/carrier-performance-report.component';
+import { DeliverysNoteReportComponent } from './logistic-report/deliverys-note-report/deliverys-note-report.component';
+import { InventroysComponent } from './logistic-report/inventroys/inventroys.component';
+import { LogisticReportMainComponent } from './logistic-report/logistic-report-main/logistic-report-main.component';
+import { PackagesStatusReportComponent } from './logistic-report/packages-status-report/packages-status-report.component';
+import { PackagesItemComponent } from './package/packages-item/packages-item.component';
+import { PackagesPrintComponent } from './package/packages-print/packages-print.component';
+import { PackageAddComponent } from './package/package-add/package-add.component';
+import { PackageListingComponent } from './package/package-listing/package-listing.component';
+import { PackageMainComponent } from './package/package-main/package-main.component';
+import { PackageViewComponent } from './package/package-view/package-view.component';
+import { ShipmentsAddComponent } from './shipment/shipments-add/shipments-add.component';
+import { ShipmentsDeliveryConfirmComponent } from './shipment/shipments-delivery-confirm/shipments-delivery-confirm.component';
+import { ShipmentsItemComponent } from './shipment/shipments-item/shipments-item.component';
+import { ShipmentsListingComponent } from './shipment/shipments-listing/shipments-listing.component';
+import { ShipmentsMainComponent } from './shipment/shipments-main/shipments-main.component';
+import { ShipmentsPrintComponent } from './shipment/shipments-print/shipments-print.component';
+import { ShipmentsViewComponent } from './shipment/shipments-view/shipments-view.component';
+
 
 
 
@@ -41,7 +59,7 @@ import { CarrierPerformanceReportComponent } from './logistic-report/carrier-per
   declarations: [
     LogisticComponent,
     BookItemsComponent,
-    BookTrackComponent,
+   
     BookAddComponent,
     BookListingComponent,
     BookMainComponent,
@@ -68,14 +86,37 @@ import { CarrierPerformanceReportComponent } from './logistic-report/carrier-per
     ViewFreightComponent,
     WeightRangeFreightComponent,
     CarrierPerformanceReportComponent,
+    DeliverysNoteReportComponent,
+    InventroysComponent,
+    LogisticReportMainComponent,
+    PackagesStatusReportComponent,
+    PackagesItemComponent,
+    PackagesPrintComponent,
+    PackageAddComponent,
+    PackageListingComponent,
+    PackageMainComponent,
+    PackageViewComponent,
+    ShipmentsAddComponent,
+    ShipmentsDeliveryConfirmComponent,
+    ShipmentsItemComponent,
+    ShipmentsListingComponent,
+    ShipmentsMainComponent,
+    ShipmentsPrintComponent,
+    ShipmentsViewComponent,
+    BookTrackComponent,
     
   ],
+  exports:[ BookTrackComponent],
   imports: [
     CommonModule,
     LogisticRoutingModule,
     ReactiveFormsModule,
-    CountryStateCityModule
+    CountryStateCityModule,
+  
 
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  
+  
 })
 export class LogisticModule { }

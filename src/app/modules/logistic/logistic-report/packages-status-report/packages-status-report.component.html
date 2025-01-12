@@ -1,0 +1,154 @@
+<!-- <h1 class="text-center">Package  Status Report</h1>
+<div class="d-flex justify-content-between align-items-center py-2 ">
+    <div class="d-flex align-items-center gap-2">
+        <div class="input-box w-50">
+            <span class="details">From</span>
+            <input formControlName="userName" type="date" placeholder="Enter your user Name">
+        </div>
+        <div class="input-box w-50">
+            <span class="details">To</span>
+            <input formControlName="userName" type="date" placeholder="Enter your user Name">
+        </div>
+        <div class="text-center mt-3">
+            <button class="btn btn-primary" (click)="submitReport()">Submit</button>
+        </div>
+    </div>
+    <div class="d-flex align-items-center">
+        <button class="btn btn-light btn-sm me-2">
+            <i class="fas fa-file-pdf"></i> Print as PDF
+        </button>
+        <button routerLink="/scm/logistics/package/add-package" class="btn btn-light btn-sm me-2">
+            <i class="fas fa-file-excel"></i> Export as Excel
+        </button>
+    </div>
+</div>
+<hr>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Package ID</th>
+            <th scope="col">Status</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Recipient Name</th>
+            <th scope="col">Date Created</th>
+            <th scope="col">Last Updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>PKG001</td>
+            <td>Shipped</td>
+            <td>New York, USA</td>
+            <td>John Doe</td>
+            <td>2024-09-01</td>
+            <td>2024-09-05</td>
+        </tr>
+        <tr>
+            <td>PKG002</td>
+            <td>Delivered</td>
+            <td>London, UK</td>
+            <td>Jane Smith</td>
+            <td>2024-08-28</td>
+            <td>2024-09-02</td>
+        </tr>
+        <tr>
+            <td>PKG003</td>
+            <td>Not Shipped</td>
+            <td>Tokyo, Japan</td>
+            <td>Ken Tanaka</td>
+            <td>2024-09-06</td>
+            <td>2024-09-06</td>
+        </tr>
+        <tr>
+            <td>PKG004</td>
+            <td>Shipped</td>
+            <td>Sydney, Australia</td>
+            <td>Lisa Wong</td>
+            <td>2024-09-03</td>
+            <td>2024-09-07</td>
+        </tr>
+    </tbody>
+</table> -->
+
+
+<h1 class="text-center">Package Status Report</h1>
+<div class="d-flex justify-content-between align-items-center py-2">
+    <form [formGroup]="statusReportForm" (ngSubmit)="submitReport()" class="d-flex align-items-center gap-2">
+        <div class="input-box w-50">
+            <span class="details">From</span>
+            <input formControlName="fromDate" type="date" placeholder="From Date">
+            <!-- Validation message for From Date -->
+            <div class="validate-message"
+                *ngIf="statusReportForm.controls['fromDate'].invalid && (statusReportForm.controls['fromDate'].dirty || statusReportForm.controls['fromDate'].touched)">
+                From date is required.
+            </div>
+        </div>
+        <div class="input-box w-50">
+            <span class="details">To</span>
+            <input formControlName="toDate" type="date" placeholder="To Date">
+            <!-- Validation message for To Date -->
+            <div class="validate-message"
+                *ngIf="statusReportForm.controls['toDate'].invalid && (statusReportForm.controls['toDate'].dirty || statusReportForm.controls['toDate'].touched)">
+            To date is required.
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <button class="btn btn-primary" (click)="submitReport()">Submit</button>
+        </div>
+    </form>
+    <div class="d-flex align-items-center">
+        <button class="btn btn-light btn-sm me-2">
+            <i class="fas fa-file-pdf"></i> Print as PDF
+        </button>
+        <button routerLink="/scm/logistic/package/add" class="btn btn-light btn-sm me-2">
+            <i class="fas fa-file-excel"></i> Export as Excel
+        </button>
+    </div>
+</div>
+<hr>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Package ID</th>
+            <th scope="col">Status</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Recipient Name</th>
+            <th scope="col">Date Created</th>
+            <th scope="col">Last Updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>PKG001</td>
+            <td>Shipped</td>
+            <td>New York, USA</td>
+            <td>John Doe</td>
+            <td>2024-09-01</td>
+            <td>2024-09-05</td>
+        </tr>
+        <tr>
+            <td>PKG002</td>
+            <td>Delivered</td>
+            <td>London, UK</td>
+            <td>Jane Smith</td>
+            <td>2024-08-28</td>
+            <td>2024-09-02</td>
+        </tr>
+        <tr>
+            <td>PKG003</td>
+            <td>Not Shipped</td>
+            <td>Tokyo, Japan</td>
+            <td>Ken Tanaka</td>
+            <td>2024-09-06</td>
+            <td>2024-09-06</td>
+        </tr>
+        <tr>
+            <td>PKG004</td>
+            <td>Shipped</td>
+            <td>Sydney, Australia</td>
+            <td>Lisa Wong</td>
+            <td>2024-09-03</td>
+            <td>2024-09-07</td>
+        </tr>
+    </tbody>
+</table>

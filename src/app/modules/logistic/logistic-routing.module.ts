@@ -28,6 +28,24 @@ import { ServiceTaxFreightComponent } from './freight-management/service-tax-fre
 import { ShippingMethodFreightComponent } from './freight-management/shipping-method-freight/shipping-method-freight.component';
 import { ViewFreightComponent } from './freight-management/view-freight/view-freight.component';
 import { WeightRangeFreightComponent } from './freight-management/weight-range-freight/weight-range-freight.component';
+import { LogisticReportMainComponent } from './logistic-report/logistic-report-main/logistic-report-main.component';
+import { CarrierPerformanceReportComponent } from './logistic-report/carrier-performance-report/carrier-performance-report.component';
+import { DeliverysNoteReportComponent } from './logistic-report/deliverys-note-report/deliverys-note-report.component';
+import { InventroysComponent } from './logistic-report/inventroys/inventroys.component';
+import { PackagesStatusReportComponent } from './logistic-report/packages-status-report/packages-status-report.component';
+import { PackageMainComponent } from './package/package-main/package-main.component';
+import { PackageAddComponent } from './package/package-add/package-add.component';
+import { PackageListingComponent } from './package/package-listing/package-listing.component';
+import { PackageViewComponent } from './package/package-view/package-view.component';
+import { PackagesItemComponent } from './package/packages-item/packages-item.component';
+import { PackagesPrintComponent } from './package/packages-print/packages-print.component';
+import { ShipmentsMainComponent } from './shipment/shipments-main/shipments-main.component';
+import { ShipmentsAddComponent } from './shipment/shipments-add/shipments-add.component';
+import { ShipmentsDeliveryConfirmComponent } from './shipment/shipments-delivery-confirm/shipments-delivery-confirm.component';
+import { ShipmentsListingComponent } from './shipment/shipments-listing/shipments-listing.component';
+import { ShipmentsItemComponent } from './shipment/shipments-item/shipments-item.component';
+import { ShipmentsPrintComponent } from './shipment/shipments-print/shipments-print.component';
+import { ShipmentsViewComponent } from './shipment/shipments-view/shipments-view.component';
 
 const routes: Routes = [
   { path: '', component: LogisticComponent },
@@ -43,7 +61,7 @@ const routes: Routes = [
         // {
         //   path: '**',
         //   redirectTo:
-        //     '/scm/settings/Administrations',
+        //     '/scm/logistic/listing',
         // },
         
       ]
@@ -100,6 +118,52 @@ const routes: Routes = [
             '/scm/logistic/freight-management/listing',
         },
         
+      ]
+    },
+    {
+      path: 'reports', component: LogisticReportMainComponent,
+      children: [
+        { path: 'carrier-performance', component: CarrierPerformanceReportComponent },
+        { path: 'delivery-note', component: DeliverysNoteReportComponent },
+        { path: 'inventroys', component: InventroysComponent},
+        { path: 'package-status', component: PackagesStatusReportComponent },
+        {
+          path: '**',
+          redirectTo:
+            '/scm/logistic/reports',
+        },
+        ]
+    },
+    {
+      path: 'package', component: PackageMainComponent,
+      children: [
+        { path: 'add', component: PackageAddComponent },
+        { path: 'listing', component: PackageListingComponent },
+        { path: 'view', component: PackageViewComponent},
+        { path: 'items', component: PackagesItemComponent },
+        
+        { path: 'print', component: PackagesPrintComponent },
+        {
+          path: '**',
+          redirectTo:
+            '/scm/logistic/package/listing',
+        }, 
+      ]
+    },
+    {
+      path: 'shipment', component: ShipmentsMainComponent,
+      children: [
+        { path: 'add', component: ShipmentsAddComponent },
+        { path: 'delivery-confirm', component: ShipmentsDeliveryConfirmComponent },
+        { path: 'item', component: ShipmentsItemComponent },
+        { path: 'listing', component: ShipmentsListingComponent },
+        { path: 'print', component: ShipmentsPrintComponent},
+        { path: 'view', component: ShipmentsViewComponent},
+        {
+          path: '**',
+          redirectTo:
+            '/scm/logistic/shipment/listing',
+        }, 
       ]
     },
 

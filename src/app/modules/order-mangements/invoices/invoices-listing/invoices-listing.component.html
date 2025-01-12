@@ -1,0 +1,79 @@
+<div class="card-wrapper">
+    <div class="d-flex justify-content-between ">
+        <h1>All Invoices</h1>
+        <button routerLink="/scm/order-mangements/invoices/add" class="btn mb-3 mr-3 btn-primary">Add Invoice</button>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Invoice#</th>
+                <th>DATE</th>
+                <th>CUSTOMER NAME</th>
+                <th>Order Number</th>
+                <th>STATUS</th>
+                <th>Due Date</th>
+                <th>Amount</th>
+                <th>Balance Due</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr >
+                <td>1</td>
+                <td routerLink="/scm/order-mangements/invoices/view" class="highlighted-row">INV-1001</td>
+                <td>2024-09-01</td>
+                <td>John Doe</td>
+                <td>ORD-2001</td>
+                <td>Paid</td>
+                <td>2024-09-10</td>
+                <td>$1,250.00</td>
+                <td>$0.00</td>
+            </tr>
+            <tr >
+                <td>2</td>
+                <td routerLink="/scm/order-mangements/invoices/view" class="highlighted-row">INV-1002</td>
+                <td>2024-09-05</td>
+                <td>Jane Smith</td>
+                <td>ORD-2002</td>
+                <td>Pending</td>
+                <td>2024-09-15</td>
+                <td>$850.00</td>
+                <td>$850.00</td>
+            </tr>
+            <tr >
+                <td>3</td>
+                <td routerLink="/scm/order-mangements/invoices/view" class="highlighted-row">INV-1003</td>
+                <td>2024-09-08</td>
+                <td>Robert Brown</td>
+                <td>ORD-2003</td>
+                <td>Overdue</td>
+                <td>2024-09-05</td>
+                <td>$1,500.00</td>
+                <td>$500.00</td>
+            </tr>
+            <tr >
+                <td>4</td>
+                <td routerLink="/scm/order-mangements/invoices/view" class="highlighted-row">INV-1004</td>
+                <td>2024-09-10</td>
+                <td>Emily White</td>
+                <td>ORD-2004</td>
+                <td>Paid</td>
+                <td>2024-09-20</td>
+                <td>$700.00</td>
+                <td>$0.00</td>
+            </tr>
+            <tr >
+                <td>5</td>
+                <td routerLink="/scm/order-mangements/invoices/view" class="highlighted-row">INV-1005</td>
+                <td>2024-09-12</td>
+                <td>Michael Green</td>
+                <td>ORD-2005</td>
+                <td>Pending</td>
+                <td>2024-09-25</td>
+                <td>$950.00</td>
+                <td>$950.00</td>
+            </tr>            
+        </tbody>
+    </table>
+</div>

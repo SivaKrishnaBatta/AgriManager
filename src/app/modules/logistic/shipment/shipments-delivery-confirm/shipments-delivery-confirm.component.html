@@ -1,0 +1,32 @@
+<div class="cor-content" >
+    <h1>Mark as Delivered</h1>
+    <div class="mb-4"><b> you want to mark the shipment(s) as Delivered?</b></div>
+    
+    <div class="cor-form ">
+        <div class="input-box">
+            <span class="details">Delivered Date<span style="color: red;">*</span></span>
+            <input formControlName="Inspection_Date" type="date" placeholder="Total Quantity" value="150">
+        </div>
+        <div class="input-box">
+            <span class="details">Delivered Time<span style="color: red;">*</span></span>
+            <input formControlName="Inspection_Date" type="time" placeholder="Quantity Passed">
+        </div>
+        <div class="input-box" style="width: 500px;">
+            <span class="details">Delivery Notification</span>
+            <div class="checkbox-group">
+                <label for="reading">
+                    <input type="checkbox" id="reading" name="hobbies" value="reading">
+                    Do you want to send a delivery notification to the customer?
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex">
+        <div>
+            <button class="submit-button" routerLink="/scm/logistic/delivery-note/view">Submit</button>
+        </div>
+        <div>
+            <button class="close-button" routerLink="/scm/logistic/shipment">Cancel</button>
+          </div>
+    </div>
+</div>

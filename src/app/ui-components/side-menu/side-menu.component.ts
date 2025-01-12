@@ -27,87 +27,89 @@ export class SideMenuComponent {
       "icon": "fa-solid fa-tachometer-alt",
       "url": "dashboard"
     },
+  
     {
-      "name": "Order Management",
+      "name": "Order Managements",
       "icon": "fa-solid fa-box-open",
-      "url": "order/customers",
+      "url": "order-mangements/customer",
       "submenus": [
         {
           "name": "Customers",
           "icon": "fa-solid fa-users",
-          "h": "order/customers"
+          "h": "order-mangements/customer"
         },
         {
           "name": "Quotes",
           "icon": "fa-solid fa-file-contract",
-          "url": "order/quote"
+          "url": "order-mangements/quotes"
         },
         {
           "name": "Sales Order",
           "icon": "fa-solid fa-receipt",
-          "url": "order/sale-order"
+          "url": "order-mangements/sales-orders"
         },
         {
           "name": "Invoice",
           "icon": "fa-solid fa-file-invoice-dollar",
-          "url": "order/invoice"
+          "url": "order-mangements/invoices"
         },
         {
           "name": "Payments",
           "icon": "fa-solid fa-credit-card",
-          "url": "order/payments"
+          "url": "order-mangements/payments"
         },
         {
           "name": "RMA",
           "icon": "fa-solid fa-undo-alt",
-          "url": "order/rma"
+          "url": "order-mangements/return-orders"
         },
         {
           "name": "Credit Memo",
           "icon": "fa-solid fa-file-invoice",
-          "url": "order/credit-memo"
+          "url": "order-mangements/credit-memo"
         },
         {
           "name": "Order Management Reports",
           "icon": "fa-solid fa-chart-bar",
-          "url": "order/order-reports"
+          "url": "order-mangements/order-reports"
         }
       ]
     },
+    
     {
-      "name": "Logistics",
+      "name": "Logistic",
       "icon": "fa-solid fa-truck",
-      "url": "logistics/package",
+      "url": "logistic/package",
       "submenus": [
         {
           "name": "Packages",
           "icon": "fa-solid fa-box",
-          "url": "logistics/package"
+          "url": "logistic/package"
         },
         {
           "name": "Shipments",
           "icon": "fa-solid fa-shipping-fast",
-          "url": "logistics/shipment"
+          "url": "logistic/shipment"
         },
         {
           "name": "Delivery Note",
           "icon": "fa-solid fa-file-alt",
-          "url": "logistics/delivery"
+          "url": "logistic/delivery-note"
         },
         {
           "name": "Carrier Management",
           "icon": "fa-solid fa-people-carry",
-          "url": "logistics/carrier"
+          "url": "logistic/carrier-mangement"
         },
         {
           "name": "Freight Management",
           "icon": "fa-solid fa-truck-loading",
-          "url": "logistics/freight"
+          "url": "logistic/freight-management"
         },
         {
           "name": "Logistics Reports",
           "icon": "fa-solid fa-chart-pie",
-          "url": "logistics/reports"
+          "url": "logistic/reports"
         }
       ]
     },

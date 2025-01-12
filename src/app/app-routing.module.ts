@@ -1,51 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
-import { CustomerMainComponent } from './modules/order-management/customers/customer-main/customer-main.component';
-import { OrderMainComponent } from './modules/order-management/order-main/order-main.component';
-import { SoMainComponent } from './modules/order-management/sales-order/so-main/so-main.component';
-import { CustomerListingComponent } from './modules/order-management/customers/customer-listing/customer-listing.component';
-import { CustomerAddComponent } from './modules/order-management/customers/customer-add/customer-add.component';
-import { SoListingComponent } from './modules/order-management/sales-order/so-listing/so-listing.component';
-import { SoAddComponent } from './modules/order-management/sales-order/so-add/so-add.component';
-import { SoViewComponent } from './modules/order-management/sales-order/so-view/so-view.component';
-import { InvoiceMainComponent } from './modules/order-management/invoice/invoice-main/invoice-main.component';
-import { InvoiceListingComponent } from './modules/order-management/invoice/invoice-listing/invoice-listing.component';
-import { InvoiceAddComponent } from './modules/order-management/invoice/invoice-add/invoice-add.component';
-import { InvoiceViewComponent } from './modules/order-management/invoice/invoice-view/invoice-view.component';
-import { PaymentsMainComponent } from './modules/order-management/payments/payments-main/payments-main.component';
-import { PaymentsListingComponent } from './modules/order-management/payments/payments-listing/payments-listing.component';
-import { PaymentsAddComponent } from './modules/order-management/payments/payments-add/payments-add.component';
-import { PaymentsViewComponent } from './modules/order-management/payments/payments-view/payments-view.component';
-import { RoMainComponent } from './modules/order-management/returnOrders/ro-main/ro-main.component';
-import { RoListingComponent } from './modules/order-management/returnOrders/ro-listing/ro-listing.component';
-import { RoAddComponent } from './modules/order-management/returnOrders/ro-add/ro-add.component';
-import { RoViewComponent } from './modules/order-management/returnOrders/ro-view/ro-view.component';
-import { OrderReportsMainComponent } from './modules/order-management/order-reports/order-reports-main/order-reports-main.component';
 import { UiTemplateComponent } from './ui-components/ui-template/ui-template.component';
-import { CustomerViewComponent } from './modules/order-management/customers/customer-view/customer-view.component';
-import { LogisticsMainComponent } from './modules/logistics/logistics-main/logistics-main.component';
-import { PackagesMainComponent } from './modules/logistics/Packages/packages-main/packages-main.component';
-import { PackagesListingComponent } from './modules/logistics/Packages/packages-listing/packages-listing.component';
-import { PackagesAddComponent } from './modules/logistics/Packages/packages-add/packages-add.component';
-import { PackagesViewComponent } from './modules/logistics/Packages/packages-view/packages-view.component';
-import { ShipmentMainComponent } from './modules/logistics/Shipments/shipment-main/shipment-main.component';
-import { ShipmentListingComponent } from './modules/logistics/Shipments/shipment-listing/shipment-listing.component';
-import { ShipmentAddComponent } from './modules/logistics/Shipments/shipment-add/shipment-add.component';
-import { ShipmentViewComponent } from './modules/logistics/Shipments/shipment-view/shipment-view.component';
-import { DeliveryMainComponent } from './modules/logistics/DeliveryNote/delivery-main/delivery-main.component';
-import { DeliveryListingComponent } from './modules/logistics/DeliveryNote/delivery-listing/delivery-listing.component';
-import { DeliveryAddComponent } from './modules/logistics/DeliveryNote/delivery-add/delivery-add.component';
-import { DeliveryViewComponent } from './modules/logistics/DeliveryNote/delivery-view/delivery-view.component';
-import { CarrierMainComponent } from './modules/logistics/CarrierManagement/carrier-main/carrier-main.component';
-import { CarrierListingComponent } from './modules/logistics/CarrierManagement/carrier-listing/carrier-listing.component';
-import { CarrierAddComponent } from './modules/logistics/CarrierManagement/carrier-add/carrier-add.component';
-import { CarrierViewComponent } from './modules/logistics/CarrierManagement/carrier-view/carrier-view.component';
-import { FreightMainComponent } from './modules/logistics/Freightmanagement/freight-main/freight-main.component';
-import { FreightListingComponent } from './modules/logistics/Freightmanagement/freight-listing/freight-listing.component';
-import { FreightAddComponent } from './modules/logistics/Freightmanagement/freight-add/freight-add.component';
-import { FreightViewComponent } from './modules/logistics/Freightmanagement/freight-view/freight-view.component';
-import { LogisticsReportsMainComponent } from './modules/logistics/Logistics-Reports/logistics-reports-main/logistics-reports-main.component';
+
 import { ManufacturingMainComponent } from './modules/Manufacturing/manufacturing-main/manufacturing-main.component';
 import { BomMainComponent } from './modules/Manufacturing/BOM/bom-main/bom-main.component';
 import { BomListingComponent } from './modules/Manufacturing/BOM/bom-listing/bom-listing.component';
@@ -77,24 +34,12 @@ import { InvDetailMainComponent } from './modules/Inventory/inventory-details/in
 import { InvDetailListingComponent } from './modules/Inventory/inventory-details/inv-detail-listing/inv-detail-listing.component';
 import { InvDetailAddComponent } from './modules/Inventory/inventory-details/inv-detail-add/inv-detail-add.component';
 
-import { CreditMemoMainComponent } from './modules/order-management/credit-memo/credit-memo-main/credit-memo-main.component';
-import { CreditMemoListingComponent } from './modules/order-management/credit-memo/credit-memo-listing/credit-memo-listing.component';
-import { CreditMemoAddComponent } from './modules/order-management/credit-memo/credit-memo-add/credit-memo-add.component';
-import { CreditMemoViewComponent } from './modules/order-management/credit-memo/credit-memo-view/credit-memo-view.component';
 import { LoginComponent } from './ui-components/login/login.component';
 import { SignupComponent } from './ui-components/signup/signup.component';
-import { FreightCalculationComponent } from './modules/logistics/Freightmanagement/freight-calculation/freight-calculation.component';
 import { DashboardMainComponent } from './modules/dashboard/dashboard-main/dashboard-main.component';
 import { authGuard } from './services/auth/auth.guard';
-import { QuoteMainComponent } from './modules/order-management/quote/quote-main/quote-main.component';
-import { QuoteListingComponent } from './modules/order-management/quote/quote-listing/quote-listing.component';
-import { QuoteAddComponent } from './modules/order-management/quote/quote-add/quote-add.component';
-import { QuoteViewComponent } from './modules/order-management/quote/quote-view/quote-view.component';
 import { InvBulkuploadComponent } from './modules/Inventory/inventory-details/inv-bulkupload/inv-bulkupload.component';
-import { BookingsMainComponent } from './modules/logistics/Bookings/bookings-main/bookings-main.component';
-import { BookingsListingComponent } from './modules/logistics/Bookings/bookings-listing/bookings-listing.component';
-import { BookingsAddComponent } from './modules/logistics/Bookings/bookings-add/bookings-add.component';
-import { BookingsViewComponent } from './modules/logistics/Bookings/bookings-view/bookings-view.component';
+
 import { Page404Component } from './ui-components/page-404/page-404.component';
 
 const routes: Routes = [
@@ -125,159 +70,13 @@ const routes: Routes = [
       {
         path:'inventorys',
         loadChildren:()=>import('./modules/inventorys/inventorys.module').then(m=>m.InventorysModule)
-      },    
+      },  
       {
-        path: 'order',
-        component: OrderMainComponent,
-        children: [
-          {
-            path: 'customers',
-            component: CustomerMainComponent,
-            children: [
-              { path: 'listing', component: CustomerListingComponent },
-              { path: 'add-customer', component: CustomerAddComponent },
-              { path: 'customer-view', component: CustomerViewComponent },
-              { path: '**', redirectTo: '/scm/order/customers/listing' },
-            ],
-          },
-          {
-            path: 'quote',
-            component: QuoteMainComponent,
-            children: [
-              { path: 'listing', component: QuoteListingComponent },
-              { path: 'add', component: QuoteAddComponent },
-              { path: 'view', component: QuoteViewComponent },
-              { path: '**', redirectTo: '/scm/order/quote/listing' },
-            ],
-          },
-          {
-            path: 'sale-order',
-            component: SoMainComponent,
-            children: [
-              { path: 'listing', component: SoListingComponent },
-              { path: 'add-so', component: SoAddComponent },
-              { path: 'so-view', component: SoViewComponent },
-              { path: '**', redirectTo: '/scm/order/sale-order/listing' },
-            ],
-          },
-          {
-            path: 'invoice',
-            component: InvoiceMainComponent,
-            children: [
-              { path: 'listing', component: InvoiceListingComponent },
-              { path: 'add-invoice', component: InvoiceAddComponent },
-              { path: 'invoice-view', component: InvoiceViewComponent },
-              { path: '**', redirectTo: '/scm/order/invoice/listing' },
-            ],
-          },
-          {
-            path: 'payments',
-            component: PaymentsMainComponent,
-            children: [
-              { path: 'listing', component: PaymentsListingComponent },
-              { path: 'add-payments', component: PaymentsAddComponent },
-              { path: 'payments-view', component: PaymentsViewComponent },
-              { path: '**', redirectTo: '/scm/order/payments/listing' },
-            ],
-          },
-          {
-            path: 'rma',
-            component: RoMainComponent,
-            children: [
-              { path: 'listing', component: RoListingComponent },
-              { path: 'add-rma', component: RoAddComponent },
-              { path: 'rma-view', component: RoViewComponent },
-              { path: '**', redirectTo: '/scm/order/rma/listing' },
-            ],
-          },
-          {
-            path: 'credit-memo',
-            component: CreditMemoMainComponent,
-            children: [
-              { path: 'listing', component: CreditMemoListingComponent },
-              { path: 'credit-memo-add', component: CreditMemoAddComponent },
-              { path: 'credit-memo-view', component: CreditMemoViewComponent },
-              { path: '**', redirectTo: '/scm/order/credit-memo/listing' },
-            ],
-          },
-          {
-            path: 'order-reports',
-            component: OrderReportsMainComponent,
-          },
-          { path: '**', redirectTo: '/scm/order/customers' },
-        ],
-      },
-      {
-        path: 'logistics',
-        component: LogisticsMainComponent,
-        children: [
-          {
-            path: 'cargos',
-            component: BookingsMainComponent,
-            children: [
-              { path: 'listing', component: BookingsListingComponent },
-              { path: 'add', component: BookingsAddComponent },
-              { path: 'view/:id', component: BookingsViewComponent },
-              { path: '**', redirectTo: '/scm/logistics/cargos/listing' },
-            ],
-          },
-          {
-            path: 'package',
-            component: PackagesMainComponent,
-            children: [
-              { path: 'listing', component: PackagesListingComponent },
-              { path: 'add-package', component: PackagesAddComponent },
-              { path: 'package-view', component: PackagesViewComponent },
-              { path: '**', redirectTo: '/scm/logistics/package/listing' },
-            ],
-          },
-          {
-            path: 'shipment',
-            component: ShipmentMainComponent,
-            children: [
-              { path: 'listing', component: ShipmentListingComponent },
-              { path: 'add-shipment', component: ShipmentAddComponent },
-              { path: 'shipment-view', component: ShipmentViewComponent },
-              { path: '**', redirectTo: '/scm/logistics/shipment/listing' },
-            ],
-          },
-          {
-            path: 'delivery',
-            component: DeliveryMainComponent,
-            children: [
-              { path: 'listing', component: DeliveryListingComponent },
-              { path: 'add-delivery', component: DeliveryAddComponent },
-              { path: 'delivery-view', component: DeliveryViewComponent },
-              { path: '**', redirectTo: '/scm/logistics/delivery/listing' },
-            ],
-          },
-          {
-            path: 'carrier',
-            component: CarrierMainComponent,
-            children: [
-              { path: 'listing', component: CarrierListingComponent },
-              { path: 'add-carrier', component: CarrierAddComponent },
-              { path: 'carrier-view/:id', component: CarrierViewComponent },
-              { path: '**', redirectTo: '/scm/logistics/carrier/listing' },
-            ],
-          },
-          {
-            path: 'freight',
-            component: FreightMainComponent,
-            children: [
-              { path: 'listing', component: FreightListingComponent },
-              { path: 'add-freight', component: FreightAddComponent },
-              { path: 'calculation', component: FreightCalculationComponent },
-              { path: 'freight-view', component: FreightViewComponent },
-              { path: '**', redirectTo: '/scm/logistics/freight/listing' },
-            ],
-          },
-          {
-            path: 'reports',
-            component: LogisticsReportsMainComponent,
-          },
-        ],
-      },
+        path:'order-mangements',
+        loadChildren:()=>import('./modules/order-mangements/order-mangements.module').then(m=>m.OrderMangementsModule)
+      },  
+      
+     
       {
         path: 'manufacturing',
         component: ManufacturingMainComponent,
@@ -392,6 +191,10 @@ const routes: Routes = [
   { path: '17/mock-template', component: UiTemplateComponent },
   { path: 'products', loadChildren: () => import('./modules/settings-profile/settings-profile.module').then(m => m.SettingsProfileModule) },
   { path: 'logistic', loadChildren: () => import('./modules/logistic/logistic.module').then(m => m.LogisticModule) },
+  { path: 'order-managements', loadChildren: () => import('./modules/order-mangements/order-mangements.module').then(m => m.OrderMangementsModule) },
+  
+  
+  
   { path: '**', redirectTo: '/scm/dashboard' },
 ];
 

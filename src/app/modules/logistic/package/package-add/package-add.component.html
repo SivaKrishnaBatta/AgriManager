@@ -1,0 +1,102 @@
+
+
+
+<div class="card-wrapper">
+    <h1 class="title">Package</h1>
+    <hr>
+    <div class="content">
+        <form [formGroup]="packageForm" (ngSubmit)="submitForm()">
+            <div class="cor-form">
+                <!-- Cargo ID -->
+                <div class="select-dropdown Sales Order">
+                    <span class="details">Cargo ID<span style="color: red;">*</span></span>
+                    <select formControlName="CargoId">
+                        <option value="">--Select --</option>
+                        <option value="1">Cargo ID-1</option>
+                        <option value="2">Cargo ID-02</option>
+                        <option value="3">Cargo ID-03</option>
+                    </select>
+                    <div  class="validate-message" *ngIf="packageForm.get('CargoId').invalid && packageForm.get('CargoId').touched" >
+                        CargoId is required.
+                    </div>
+                </div>
+
+                <!-- Package Slip -->
+                <div class="input-box">
+                    <span class="details">Package Slip#<span style="color: red;">*</span></span>
+                    <input formControlName="PackageSlip" type="text" placeholder="PackageSlip">
+                    <div  class="validate-message" *ngIf="packageForm.get('PackageSlip').invalid && packageForm.get('PackageSlip').touched" >
+                        PackageSlip is required.
+                    </div>
+                </div>
+
+                <!-- Sender Name -->
+                <div class="input-box">
+                    <span class="details">Sender Name:<span style="color: red;">*</span></span>
+                    <input formControlName="SenderName " type="text" placeholder="SenderName ">
+                    <div  class="validate-message"  *ngIf="packageForm.get('SenderName').invalid && packageForm.get('SenderName').touched" >
+                        SenderName  is required.
+                    </div>
+                </div>
+
+                <!-- Receiver Name -->
+                <div class="input-box">
+                    <span class="details">Receiver Name:<span style="color: red;">*</span></span>
+                    <input formControlName="ReceiverName" type="text" placeholder="ReceiverName">
+                    <div  class="validate-message" *ngIf="packageForm.get('ReceiverName').invalid && packageForm.get('ReceiverName').touched" >
+                        ReceiverName  is required.
+                    </div>
+                </div>
+
+                <!-- Package Date -->
+                <div class="input-box">
+                    <span class="details">Package Date#<span style="color: red;">*</span></span>
+                    <input formControlName="PackageDate" type="PackageDate">
+                    <div  class="validate-message" *ngIf="packageForm.get('PackageDate').invalid && packageForm.get('PackageDate').touched" >
+                        PackageDateis required.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description and Comments -->
+            <div class="cor-form">
+                <div class="input-box textarea-box">
+                    <span class="details"><span style="color: red;">*</span>Description</span>
+                    <textarea formControlName="Description" rows="5"></textarea>
+                    <div  class="validate-message" *ngIf="packageForm.get('Description').invalid && packageForm.get('Description').touched" >
+                        Description must be within 200 characters.
+                    </div>
+                </div>
+
+                <div class="input-box textarea-box">
+                    <span class="details"><span style="color: red;">*</span>Comments</span>
+                    <textarea formControlName="Comment" rows="5"></textarea>
+                    <div  class="validate-message"  *ngIf="packageForm.get('Comment').invalid && packageForm.get('Comment').touched" >
+                        Comment must be within 200 characters.
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-box textarea-box">
+                <span class="details">Status </span>
+                <textarea formControlName="Status" rows="5"></textarea>
+                <div  class="validate-message"  *ngIf="packageForm.get('Status').invalid && packageForm.get('Status').touched" >
+                    Status Required
+                </div>
+            </div>
+
+           
+
+
+            <!-- Submit and Close Buttons -->
+            <div class="d-flex">
+                <div>
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+                <div>
+                    <button routerLink="/scm/logistic/package/listing" class="close-button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+
+
+
+
+<div class="card-wrapper">
+    <div class="d-flex justify-content-between ">
+        <h1>Shipment</h1>
+        <div>
+            <button routerLink="/scm/logistic/shipment/add" class="btn mb-3 mr-3 btn-primary"><i class="fa-solid fa-plus"></i> Add shipment</button>
+        </div>
+    </div>
+   
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Shipment Order#</th>
+                <th scope="col">CustomerName</th>
+                <th scope="col">cargo#</th>
+                <th scope="col">Package#</th>
+                <th scope="col">DATE</th>
+                <th scope="col">Carrier</th>
+                <th scope="col">Status</th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of AllShipments;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{a.id}}</td>
+                <td>---</td>
+                <td>{{a.cargoId}}</td>
+                <td>{{a.packageId}}</td>
+                <td>{{a.shipmentDate | date}}</td>
+                <td>{{a.carrier}}</td>
+                <td>{{a.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <button routerLink="/scm/logistics/shipment/listing">shipment listing</button> -->
+<!-- <button routerLink="/scm/logistics/shipment/add-shipment">Add shipment</button> -->
+<!-- <button  routerLink="/scm/logistics/shipment/shipment-view">shipment view</button> -->
+
