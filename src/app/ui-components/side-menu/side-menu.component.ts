@@ -20,237 +20,221 @@ export class SideMenuComponent {
       }
     }
   }
-  
+
   public menus = [
     {
-      "name": "Dashboard",
-      "icon": "fa-solid fa-tachometer-alt",
-      "url": "dashboard"
-    },
-  
-    {
-      "name": "Order Managements",
-      "icon": "fa-solid fa-box-open",
-      "url": "order-mangements/customer",
-      "submenus": [
+      name: "Dashboard",
+      icon: "fa-solid fa-tachometer-alt",
+      url: "dashboard",
+      submenus: [
         {
-          "name": "Customers",
-          "icon": "fa-solid fa-users",
-          "h": "order-mangements/customer"
+          name: "Overview",
+          icon: "fa-solid fa-chart-line",
+          url: "dashboard/overview"
         },
         {
-          "name": "Quotes",
-          "icon": "fa-solid fa-file-contract",
-          "url": "order-mangements/quotes"
+          name: "Active Crops",
+          icon: "fa-solid fa-seedling",
+          url: "dashboard/active-crops"
         },
         {
-          "name": "Sales Order",
-          "icon": "fa-solid fa-receipt",
-          "url": "order-mangements/sales-orders"
+          name: "Total Expenses",
+          icon: "fa-solid fa-wallet",
+          url: "dashboard/expenses"
         },
         {
-          "name": "Invoice",
-          "icon": "fa-solid fa-file-invoice-dollar",
-          "url": "order-mangements/invoices"
+          name: "Total Income",
+          icon: "fa-solid fa-coins",
+          url: "dashboard/income"
         },
         {
-          "name": "Payments",
-          "icon": "fa-solid fa-credit-card",
-          "url": "order-mangements/payments"
-        },
-        {
-          "name": "RMA",
-          "icon": "fa-solid fa-undo-alt",
-          "url": "order-mangements/return-orders"
-        },
-        {
-          "name": "Credit Memo",
-          "icon": "fa-solid fa-file-invoice",
-          "url": "order-mangements/credit-memo"
-        },
-        {
-          "name": "Order Management Reports",
-          "icon": "fa-solid fa-chart-bar",
-          "url": "order-mangements/order-reports"
+          name: "Profit / Loss",
+          icon: "fa-solid fa-scale-balanced",
+          url: "dashboard/profit-loss"
         }
       ]
     },
-    
-    {
-      "name": "Logistic",
-      "icon": "fa-solid fa-truck",
-      "url": "logistic/package",
-      "submenus": [
-        {
-          "name": "Packages",
-          "icon": "fa-solid fa-box",
-          "url": "logistic/package"
-        },
-        {
-          "name": "Shipments",
-          "icon": "fa-solid fa-shipping-fast",
-          "url": "logistic/shipment"
-        },
-        {
-          "name": "Delivery Note",
-          "icon": "fa-solid fa-file-alt",
-          "url": "logistic/delivery-note"
-        },
-        {
-          "name": "Carrier Management",
-          "icon": "fa-solid fa-people-carry",
-          "url": "logistic/carrier-mangement"
-        },
-        {
-          "name": "Freight Management",
-          "icon": "fa-solid fa-truck-loading",
-          "url": "logistic/freight-management"
-        },
-        {
-          "name": "Logistics Reports",
-          "icon": "fa-solid fa-chart-pie",
-          "url": "logistic/reports"
-        }
-      ]
-    },
-    {
-      "name": "Procurements",
-      "icon": "fa-solid fa-shopping-cart",
-      "url": "procurements/suppliers",
-      "submenus": [
-        {
-          "name": "Supplier Management",
-          "icon": "fa-solid fa-user-tie",
-          "url": "procurements/suppliers/suppliers-listing"
-        },
-        {
-          "name": "Purchase Orders (PO)",
-          "icon": "fa-solid fa-file-signature",
-          "url": "procurements/purchase-orders/po-listings"
-        },
-        {
-          "name": "Supplier Return",
-          "icon": "fa-solid fa-undo-alt",
-          "url": "procurements/suppliers-return/returns-listing"
-        },
-        {
-          "name": "Procurement Reports",
-          "icon": "fa-solid fa-chart-line",
-          "url": "procurements/procurements-reports/purchase-orders-details"
-        }
-      ]
-    },
-    {
-      "name": "Manufacturing",
-      "icon": "fa-solid fa-cogs",
-      "url": "manufacturings/boms/boms-listing",
-      "submenus": [
-        {
-          "name": "Bill of Materials (BOM)",
-          "icon": "fa-solid fa-clipboard-list",
-          "url": "manufacturings/boms/boms-listing"
-        },
-        {
-          "name": "Production Planning",
-          "icon": "fa-solid fa-project-diagram",
-          "url": "manufacturings/productions/prod-listing"
-        },
-        {
-          "name": "Work Orders",
-          "icon": "fa-solid fa-tasks",
-          "url": "manufacturings/work-order/order-listing"
-        },
-        {
-          "name": "Quality Control",
-          "icon": "fa-solid fa-check-circle",
-          "url": "manufacturings/quality/qc-listings"
-        },
-        {
-          "name": "Manufacturing Reports",
-          "icon": "fa-solid fa-chart-area",
-          "url": "manufacturings/report/inv-reports"
-        }
-      ]
-    },
-    {
-      "name": "Inventory",
-      "icon": "fa-solid fa-warehouse",
-      "url": "inventorys/inventory-details/details-listing",
-      "submenus": [
-        {
-          "name": "Add Stock",  
-          "icon": "fa-solid fa-plus-square",
-          "url": "inventorys/stock-level/stocks-listing"
-        },
-        {
-          "name": "Inventory Details",
-          "icon": "fa-solid fa-list-alt",
-          "url": "inventorys/inventory-details/details-listing"
-        },
-        {
-          "name": "Inventory Replenishment",
-          "icon": "fa-solid fa-sync",
-          "url": "inventorys/replenishments/listing"
-        },
-        {
-          "name": "Lot",
-          "icon": "fa-solid fa-th-large",
-          "url": "inventorys/lots/lots-listing"
-        },
-        {
-          "name": "Inventory Reports",
-          "icon": "fa-solid fa-chart-bar",
-          "url": "inventorys/inventory-report/summary"
-        }
-      ]
-    },
-    {
-      "name": "Warehouse",
-      "icon": "fa-solid fa-boxes",
-      "url": "warehouse/warehouse-details/listing",
-      "submenus": [
-        {
-          "name": "Warehouse Details",  
-          "icon": "fa-solid fa-info-circle",
-          "url": "warehouse/warehouse-details"
-        },
-        {
-          "name": "Add Stock",
-          "icon": "fa-solid fa-plus",
-          "url": "warehouse/add-stock"
-        },
-        {
-          "name": "Stock Transfer Form",
-          "icon": "fa-solid fa-exchange-alt",
-          "url": "warehouse/stock-transfer-forms"
-        },
-        {
-          "name": "Stock Adjustment Requests",
-          "icon": "fa-solid fa-sliders-h",
-          "url": "warehouse/stock-adjustment"
-        }
-      ]
-    },
-    
-    {
-      "name": "Settings",
-      "icon": "fa-solid fa-cog",
-      "url": "settings/users",
-      "submenus": [
-        {
-          "name": "User Management",
-          "icon": "fa-solid fa-user-cog",
-          "url": "settings/users"
-        },
-        {
-          "name": "Administration",
-          "icon": "fa-solid fa-tools",
-          "url": "settings/Administrations"
-        }
-      ]
-    },
-    {
 
+    {
+      name: "Farm Management",
+      icon: "fa-solid fa-tractor",
+      url: "farms",
+      submenus: [
+        {
+          name: "Farms List",
+          icon: "fa-solid fa-list",
+          url: "farms/list"
+        },
+        {
+          name: "Add / Edit Farm",
+          icon: "fa-solid fa-plus-square",
+          url: "farms/manage"
+        }
+      ]
+    },
+
+    {
+      name: "Field Management",
+      icon: "fa-solid fa-map",
+      url: "fields",
+      submenus: [
+        {
+          name: "Fields List",
+          icon: "fa-solid fa-list-ul",
+          url: "fields/list"
+        },
+        {
+          name: "Add / Edit Field",
+          icon: "fa-solid fa-plus",
+          url: "fields/manage"
+        }
+      ]
+    },
+
+    {
+      name: "Crop Management",
+      icon: "fa-solid fa-leaf",
+      url: "crops",
+      submenus: [
+        {
+          name: "Crops List",
+          icon: "fa-solid fa-table",
+          url: "crops/list"
+        },
+        {
+          name: "Add Crop",
+          icon: "fa-solid fa-seedling",
+          url: "crops/add"
+        },
+        {
+          name: "Active Crops",
+          icon: "fa-solid fa-play-circle",
+          url: "crops/active"
+        },
+        {
+          name: "Completed Crops",
+          icon: "fa-solid fa-check-circle",
+          url: "crops/completed"
+        }
+      ]
+    },
+
+    {
+      name: "Expense Management",
+      icon: "fa-solid fa-money-bill-wave",
+      url: "expenses",
+      submenus: [
+        {
+          name: "Expenses List",
+          icon: "fa-solid fa-receipt",
+          url: "expenses/list"
+        },
+        {
+          name: "Add Expense",
+          icon: "fa-solid fa-plus-circle",
+          url: "expenses/add"
+        },
+        {
+          name: "Expense Categories",
+          icon: "fa-solid fa-tags",
+          url: "expenses/categories"
+        },
+        {
+          name: "Crop-wise Expenses",
+          icon: "fa-solid fa-chart-pie",
+          url: "expenses/crop-wise"
+        }
+      ]
+    },
+
+    {
+      name: "Income / Returns",
+      icon: "fa-solid fa-hand-holding-dollar",
+      url: "income",
+      submenus: [
+        {
+          name: "Income List",
+          icon: "fa-solid fa-list",
+          url: "income/list"
+        },
+        {
+          name: "Add Income",
+          icon: "fa-solid fa-plus",
+          url: "income/add"
+        },
+        {
+          name: "Crop-wise Income",
+          icon: "fa-solid fa-chart-bar",
+          url: "income/crop-wise"
+        }
+      ]
+    },
+
+    {
+      name: "Reports",
+      icon: "fa-solid fa-chart-column",
+      url: "reports",
+      submenus: [
+        {
+          name: "Crop Summary",
+          icon: "fa-solid fa-seedling",
+          url: "reports/crop-summary"
+        },
+        {
+          name: "Farm-wise Report",
+          icon: "fa-solid fa-tractor",
+          url: "reports/farm-wise"
+        },
+        {
+          name: "Field-wise Report",
+          icon: "fa-solid fa-map-marked-alt",
+          url: "reports/field-wise"
+        },
+        {
+          name: "Monthly Report",
+          icon: "fa-solid fa-calendar",
+          url: "reports/monthly"
+        },
+        {
+          name: "Quarterly Report",
+          icon: "fa-solid fa-calendar-alt",
+          url: "reports/quarterly"
+        },
+        {
+          name: "Half-Yearly Report",
+          icon: "fa-solid fa-calendar-minus",
+          url: "reports/half-yearly"
+        },
+        {
+          name: "Yearly Report",
+          icon: "fa-solid fa-calendar-check",
+          url: "reports/yearly"
+        }
+      ]
+    },
+
+    {
+      name: "Settings",
+      icon: "fa-solid fa-cog",
+      url: "settings",
+      submenus: [
+        {
+          name: "Profile",
+          icon: "fa-solid fa-user",
+          url: "settings/profile"
+        },
+        {
+          name: "Change Password",
+          icon: "fa-solid fa-key",
+          url: "settings/change-password"
+        },
+        {
+          name: "Expense Category Setup",
+          icon: "fa-solid fa-sliders-h",
+          url: "settings/expense-categories"
+        }
+      ]
     }
   ];
+
 }
