@@ -1,0 +1,71 @@
+<div class="card-wrapper">
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="card-heading m-0">
+      {{ isEdit ? 'Edit Farm' : 'Add Farm' }}
+    </h2>
+  </div>
+
+  <hr />
+
+  <!-- FORM WRAPPER -->
+  <form [formGroup]="farmForm" class="cor-form">
+
+    <!-- Farm Name -->
+    <div class="input-box">
+      <label class="details">Farm Name *</label>
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Enter farm name" />
+      <small *ngIf="farmForm.get('name')?.touched && farmForm.get('name')?.invalid">
+        Farm name is required
+      </small>
+    </div>
+
+    <!-- Location -->
+    <div class="input-box">
+      <label class="details">Location</label>
+      <input
+        type="text"
+        formControlName="location"
+        placeholder="Enter location" />
+    </div>
+
+    <!-- Total Fields (NEW FIELD) -->
+    <div class="input-box">
+      <label class="details">Total Fields</label>
+      <input
+        type="number"
+        formControlName="fields"
+        placeholder="Enter total fields" />
+    </div>
+
+    <!-- Notes (Full Width) -->
+    <div class="textarea-box">
+      <label class="details">Notes</label>
+      <textarea
+        formControlName="notes"
+        placeholder="Enter notes"></textarea>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex gap-2 mt-3">
+      <button
+        type="button"
+        class="submit-button"
+        (click)="save()">
+        Save
+      </button>
+
+      <button
+        type="button"
+        class="close-button"
+        (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+
+</div>
