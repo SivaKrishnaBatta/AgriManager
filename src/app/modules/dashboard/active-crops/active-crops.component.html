@@ -1,0 +1,108 @@
+<div class="card-wrapper">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Active Crops</h1>
+    <button
+      class="btn btn-primary"
+      (click)="openForm(null)"
+    >
+      + Add Crop
+    </button>
+  </div>
+
+  <!-- Table -->
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Crop Name</th>
+        <th>Farm</th>
+        <th>Field</th>
+        <th>Start Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr
+        *ngFor="let crop of activeCrops; let i = index"
+        class="highlighted-row"
+        (click)="openForm(crop)"
+      >
+        <td>{{ i + 1 }}</td>
+
+        <!-- ONLY this navigates -->
+        <td
+          class="highlighted-row"
+          (click)="goToDetails(crop.id, $event)"
+        >
+          {{ crop.crop }}
+        </td>
+
+        <td>{{ crop.farm }}</td>
+        <td>{{ crop.field }}</td>
+        <td>{{ crop.startDate }}</td>
+        <td>
+          <span class="cor-active">{{ crop.status }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- MODAL -->
+<div class="cor-modal" [class.cor-show]="showModal">
+
+  <div class="cor-modal-background" (click)="closeModal()"></div>
+
+  <div class="cor-modal-content cor-content">
+
+    <span class="cor-close" (click)="closeModal()">&times;</span>
+
+    <h1>
+      {{ selectedCrop ? 'Edit Active Crop' : 'Add Active Crop' }}
+    </h1>
+
+    <form class="cor-form">
+
+      <div class="input-box">
+        <span class="details">Crop Name</span>
+        <input type="text" [value]="selectedCrop?.crop || ''">
+      </div>
+
+      <div class="input-box">
+        <span class="details">Farm</span>
+        <input type="text" [value]="selectedCrop?.farm || ''">
+      </div>
+
+      <div class="input-box">
+        <span class="details">Field</span>
+        <input type="text" [value]="selectedCrop?.field || ''">
+      </div>
+
+      <div class="input-box">
+        <span class="details">Start Date</span>
+        <input type="date" [value]="selectedCrop?.startDate || ''">
+      </div>
+
+      <div class="status">
+        <span class="details">Status</span>
+        <select>
+          <option>Active</option>
+          <option>Completed</option>
+        </select>
+      </div>
+
+    </form>
+
+    <hr>
+
+    <div class="d-flex gap-2">
+      <button class="submit-button">Save</button>
+      <button class="close-button" (click)="closeModal()">Cancel</button>
+    </div>
+
+  </div>
+</div>

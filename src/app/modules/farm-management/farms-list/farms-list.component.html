@@ -1,0 +1,50 @@
+<div class="card-wrapper">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="card-heading m-0">Farms List</h2>
+    <button class="btn mb-3 mr-3 btn-primary" (click)="addFarm()">
+      Add Farm
+    </button>
+  </div>
+
+  <!-- Table -->
+  <div class="table-responsive">
+    <table class="table align-middle table-hover">
+      <thead>
+        <tr>
+          <th>Farm Name</th>
+          <th>Location</th>
+          <th>Total Fields</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let farm of farms">
+          <td> <a
+            class="highlighted-row"
+            [routerLink]="['/scm/farms/details', farm.id]">
+            {{ farm.name }}
+          </a></td>
+          <td>{{ farm.location || '-' }}</td>
+          <td>{{ farm.fields }}</td>
+          <td class="text-center">
+            <button
+              class="btn btn-outline-primary btn-sm"
+              (click)="editFarm(farm.id)">
+              Edit
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="!farms || farms.length === 0">
+          <td colspan="4" class="text-center text-muted">
+            No farms created yet
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

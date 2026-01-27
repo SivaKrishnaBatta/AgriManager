@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { TotalIncomeComponent } from './total-income.component';
+
+describe('TotalIncomeComponent', () => {
+  let component: TotalIncomeComponent;
+  let fixture: ComponentFixture<TotalIncomeComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [TotalIncomeComponent]
+    });
+    fixture = TestBed.createComponent(TotalIncomeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
