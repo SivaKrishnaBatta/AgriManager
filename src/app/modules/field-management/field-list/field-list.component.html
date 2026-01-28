@@ -1,0 +1,73 @@
+<div class="card-wrapper">
+
+  <!-- Page Header -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="card-heading m-0">Fields List</h2>
+    <button class="btn btn-primary" (click)="addField()">Add Field</button>
+  </div>
+
+  <!-- Loop Farms -->
+  <div *ngFor="let farm of farms" class="mb-4">
+
+    <h5 class="mb-2">{{ farm.farmName }}</h5>
+
+    <div class="table-responsive">
+      <table class="table align-middle table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Field Name</th>
+            <th>Farm Name</th>
+            <th>Area</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let field of farm.fields">
+            <td>{{ field.id }}</td>
+
+            <td>
+              <a
+                class="highlighted-row"
+                (click)="viewField(field.id)">
+                {{ field.name }}
+              </a>
+            </td>
+
+            <td>{{ farm.farmName }}</td>
+            <td>{{ field.area }}</td>
+
+            <td class="text-center">
+              <button
+                class="btn btn-outline-primary btn-sm"
+                (click)="viewField(field.id)">
+                View
+              </button>
+
+              <button
+                class="btn btn-outline-secondary btn-sm mx-1"
+                (click)="editField(field.id)">
+                Edit
+              </button>
+
+              <button
+                class="btn btn-outline-danger btn-sm"
+                (click)="deleteField(field.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+
+          <tr *ngIf="farm.fields.length === 0">
+            <td colspan="5" class="text-center text-muted">
+              No fields available
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
