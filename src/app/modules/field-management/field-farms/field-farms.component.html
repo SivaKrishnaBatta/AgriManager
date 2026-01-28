@@ -1,0 +1,76 @@
+<div class="card-wrapper">
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="card-heading m-0">
+      {{ isEdit ? 'Edit Field' : 'Add Field' }}
+    </h2>
+  </div>
+
+  <hr />
+
+  <form [formGroup]="fieldForm" class="cor-form">
+
+    <!-- Farm Selection -->
+    <div class="input-box">
+      <label class="details">Farm *</label>
+      <select formControlName="farmId">
+        <option value="">Select Farm</option>
+        <option *ngFor="let farm of farms" [value]="farm.id">
+          {{ farm.name }}
+        </option>
+      </select>
+      <small *ngIf="fieldForm.get('farmId')?.touched && fieldForm.get('farmId')?.invalid">
+        Farm is required
+      </small>
+    </div>
+
+    <!-- Field Name -->
+    <div class="input-box">
+      <label class="details">Field Name *</label>
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Enter field name" />
+      <small *ngIf="fieldForm.get('name')?.touched && fieldForm.get('name')?.invalid">
+        Field name is required
+      </small>
+    </div>
+
+    <!-- Area -->
+    <div class="input-box">
+      <label class="details">Area</label>
+      <input
+        type="text"
+        formControlName="area"
+        placeholder="Enter area" />
+    </div>
+
+    <!-- Notes -->
+    <div class="textarea-box">
+      <label class="details">Notes</label>
+      <textarea
+        formControlName="notes"
+        placeholder="Enter notes"></textarea>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex gap-2 mt-3">
+      <button
+        type="button"
+        class="submit-button"
+        (click)="save()">
+        {{ isEdit ? 'Update' : 'Save' }}
+      </button>
+
+      <button
+        type="button"
+        class="close-button"
+        (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+
+</div>
+

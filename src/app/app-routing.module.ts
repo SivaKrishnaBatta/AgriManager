@@ -31,12 +31,18 @@ const routes: Routes = [
           import('./modules/dashboard/dashboard.module')
             .then(m => m.DashboardModule)
       },
-{
-  path: 'farms',
-  loadChildren: () =>
-    import('./modules/farm-management/farm-management.module')
-      .then(m => m.FarmManagementModule)
-},
+    {
+      path: 'farms',
+      loadChildren: () =>
+        import('./modules/farm-management/farm-management.module')
+          .then(m => m.FarmManagementModule)
+    },
+        {
+      path: 'fields',
+      loadChildren: () =>
+        import('./modules/field-management/field-management.module')
+          .then(m => m.FieldManagementModule)
+    },
       {
         path: 'warehouse',
         loadChildren: () =>

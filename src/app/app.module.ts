@@ -51,6 +51,7 @@ import { DashboardBarchartComponent } from './modules/dashboard/dashboard-barcha
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,6 +90,7 @@ import { DashboardBarchartComponent } from './modules/dashboard/dashboard-barcha
     TopCustomersSuppliersComponent,
     
     Page404Component,
+  
   
     
     
