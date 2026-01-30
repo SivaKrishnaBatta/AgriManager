@@ -26,33 +26,7 @@ export class SideMenuComponent {
       name: "Dashboard",
       icon: "fa-solid fa-tachometer-alt",
       url: "dashboard",
-      submenus: [
-        {
-          name: "Overview",
-          icon: "fa-solid fa-chart-line",
-          url: "dashboard/overview"
-        },
-        {
-          name: "Active Crops",
-          icon: "fa-solid fa-seedling",
-          url: "dashboard/active-crops"
-        },
-        {
-          name: "Total Expenses",
-          icon: "fa-solid fa-wallet",
-          url: "dashboard/expenses"
-        },
-        {
-          name: "Total Income",
-          icon: "fa-solid fa-coins",
-          url: "dashboard/income"
-        },
-        {
-          name: "Profit / Loss",
-          icon: "fa-solid fa-scale-balanced",
-          url: "dashboard/profit-loss"
-        }
-      ]
+      
     },
 
     {
@@ -94,7 +68,7 @@ export class SideMenuComponent {
     {
       name: "Crop Management",
       icon: "fa-solid fa-leaf",
-      url: "crops",
+      url: "crop",
       submenus: [
         {
           name: "Crops List",
@@ -106,16 +80,7 @@ export class SideMenuComponent {
           icon: "fa-solid fa-seedling",
           url: "crops/add"
         },
-        {
-          name: "Active Crops",
-          icon: "fa-solid fa-play-circle",
-          url: "crops/active"
-        },
-        {
-          name: "Completed Crops",
-          icon: "fa-solid fa-check-circle",
-          url: "crops/completed"
-        }
+        
       ]
     },
 
@@ -127,7 +92,7 @@ export class SideMenuComponent {
         {
           name: "Expenses List",
           icon: "fa-solid fa-receipt",
-          url: "expenses/list"
+          url: "expenses/expenselist"
         },
         {
           name: "Add Expense",
@@ -137,12 +102,12 @@ export class SideMenuComponent {
         {
           name: "Expense Categories",
           icon: "fa-solid fa-tags",
-          url: "expenses/categories"
+          url: "expenses/category"
         },
         {
           name: "Crop-wise Expenses",
           icon: "fa-solid fa-chart-pie",
-          url: "expenses/crop-wise"
+          url: "expenses/cropwise"
         }
       ]
     },
