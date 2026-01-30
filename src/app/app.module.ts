@@ -46,6 +46,18 @@ import { CountryStateCityModule } from './modules/common-components/country-stat
 import { DashboardManufacturingMetricsComponent } from './modules/dashboard/Dashboard-widgets/dashboard-manufacturing-metrics/dashboard-manufacturing-metrics.component';
 
 import { DashboardBarchartComponent } from './modules/dashboard/dashboard-barchart/dashboard-barchart.component';
+// import { AddCropComponent } from './modules/crop-management/add-crop/add-crop.component';
+// import { ExpensesListComponent } from './modules/expense-management/expenses-list/expenses-list.component';
+// import { AddExpenseComponent } from './modules/expense-management/add-expense/add-expense.component';
+// import { ExpenseCategoriesComponent } from './modules/expense-management/expense-categories/expense-categories.component';
+// import { CropwiseExpensesComponent } from './modules/expense-management/cropwise-expenses/cropwise-expenses.component';
+// import { IncomeListComponent } from './modules/income/income-list/income-list.component';
+// import { AddIncomeComponent } from './modules/income/add-income/add-income.component';
+// import { CropwiseIncomeComponent } from './modules/income/cropwise-income/cropwise-income.component';
+// import { ProfileComponent } from './modules/settings/profile/profile.component';
+// import { ChangePasswordComponent } from './modules/settings/change-password/change-password.component';
+// import { ExpenseCategorySetupComponent } from './modules/settings/expense-category-setup/expense-category-setup.component';
+
 
 
 
@@ -90,6 +102,18 @@ import { DashboardBarchartComponent } from './modules/dashboard/dashboard-barcha
     TopCustomersSuppliersComponent,
     
     Page404Component,
+          // ExpensesListComponent,
+          // AddExpenseComponent,
+          // ExpenseCategoriesComponent,
+          // CropwiseExpensesComponent,
+          // IncomeListComponent,
+          // AddIncomeComponent,
+          // CropwiseIncomeComponent,
+          // ProfileComponent,
+          // ChangePasswordComponent,
+          // ExpenseCategorySetupComponent,
+          
+     
   
   
     

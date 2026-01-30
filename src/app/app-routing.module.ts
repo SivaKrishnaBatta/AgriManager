@@ -43,6 +43,30 @@ const routes: Routes = [
         import('./modules/field-management/field-management.module')
           .then(m => m.FieldManagementModule)
     },
+     {
+      path: 'crops',
+      loadChildren: () =>
+        import('./modules/crop-management/crop-mamagement.module')
+          .then(m => m.CropManagementModule)
+    },
+    {
+      path: 'expenses',
+      loadChildren: () =>
+        import('./modules/expense-management/expense-management.module')
+          .then(m => m.ExpenseManagementModule)
+    },
+    {
+      path: 'income',
+      loadChildren: () =>
+        import('./modules/income/income-management.module')
+          .then(m => m.IncomeManagementModule)
+    },
+    {
+      path: 'settings',
+      loadChildren: () =>
+        import('./modules/settings/settings-management.module')
+          .then(m => m.SettingsManagementModule)
+    },
       {
         path: 'warehouse',
         loadChildren: () =>

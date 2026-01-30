@@ -1,0 +1,41 @@
+<div class="card-wrapper">
+  <h2 class="card-heading">Crops List</h2>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Crop Name</th>
+          <th>Farm</th>
+          <th>Field</th>
+          <th>Status</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let crop of cropsList">
+          <td>{{ crop.cropName }}</td>
+          <td>{{ crop.farmName }}</td>
+          <td>{{ crop.fieldName }}</td>
+          <td>
+            <span
+              [ngClass]="crop.status === 'Active' ? 'text-success' : 'text-danger'">
+              {{ crop.status }}
+            </span>
+          </td>
+          <td>{{ crop.startDate }}</td>
+          <td>{{ crop.endDate ? crop.endDate : '-' }}</td>
+        </tr>
+
+        <tr *ngIf="!cropsList || cropsList.length === 0">
+          <td colspan="6" class="text-center">
+            No crops found
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,97 @@
+<div class="card-wrapper">
+  <h2 class="card-heading">Add Crop</h2>
+
+  <form class="cor-form">
+
+    <!-- Row 1 -->
+    <div class="d-flex gap-4 w-100">
+      <div class="input-box">
+        <label class="details">Farm *</label>
+        <select [(ngModel)]="crop.farmId" name="farmId">
+          <option value="">Select Farm</option>
+          <option *ngFor="let farm of farms" [value]="farm.id">
+            {{ farm.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="input-box">
+        <label class="details">Field *</label>
+        <select [(ngModel)]="crop.fieldId" name="fieldId">
+          <option value="">Select Field</option>
+          <option *ngFor="let field of fields" [value]="field.id">
+            {{ field.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="input-box">
+        <label class="details">Crop Name *</label>
+        <input
+          type="text"
+          placeholder="Enter crop name"
+          [(ngModel)]="crop.cropName"
+          name="cropName"
+        />
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="d-flex gap-4 w-100 mt-3">
+      <div class="input-box">
+        <label class="details">Season</label>
+        <input
+          type="text"
+          placeholder="Enter season"
+          [(ngModel)]="crop.season"
+          name="season"
+        />
+      </div>
+
+      <div class="input-box">
+        <label class="details">Start Date *</label>
+        <input
+          type="date"
+          [(ngModel)]="crop.startDate"
+          name="startDate"
+        />
+      </div>
+
+      <div class="input-box">
+        <label class="details">Expected End Date</label>
+        <input
+          type="date"
+          [(ngModel)]="crop.expectedEndDate"
+          name="expectedEndDate"
+        />
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="d-flex gap-4 w-100 mt-3">
+      <div class="input-box">
+        <label class="details">Expected Yield</label>
+        <input
+          type="number"
+          placeholder="Enter expected yield"
+          [(ngModel)]="crop.expectedYield"
+          name="expectedYield"
+        />
+      </div>
+    </div>
+
+    <!-- Buttons Row -->
+    <div class="d-flex gap-3 mt-4">
+      <button type="button" class="submit-button">
+        Save
+      </button>
+
+      <button type="button" class="close-button">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+</div>
+
+ 
