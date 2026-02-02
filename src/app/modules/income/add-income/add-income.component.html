@@ -1,1 +1,57 @@
-<p>add-income works!</p>
+<div class="card-wrapper">
+
+  <h2 class="card-heading">
+    {{ isEdit ? 'Edit Income' : 'Add Income' }}
+  </h2>
+
+  <hr />
+
+  <form [formGroup]="incomeForm" class="cor-form">
+
+    <div class="input-box">
+      <label class="details">Crop *</label>
+      <select formControlName="crop">
+        <option value="">Select Crop</option>
+        <option *ngFor="let c of crops">{{ c }}</option>
+      </select>
+    </div>
+
+    <div class="input-box">
+      <label class="details">Quantity Sold</label>
+      <input type="number" formControlName="quantity" />
+    </div>
+
+    <div class="input-box">
+      <label class="details">Price per Unit</label>
+      <input type="number" formControlName="price" />
+    </div>
+
+    <div class="input-box">
+      <label class="details">Total Amount *</label>
+      <input type="number" formControlName="amount" />
+    </div>
+
+    <div class="input-box">
+      <label class="details">Sale Date *</label>
+      <input type="date" formControlName="date" />
+    </div>
+
+    <div class="textarea-box">
+      <label class="details">Notes</label>
+      <textarea formControlName="notes"></textarea>
+    </div>
+
+    <div class="w-100 d-flex gap-2 mt-3">
+      <button class="submit-button" type="button" (click)="save()">
+        {{ isEdit ? 'Update' : 'Save' }}
+      </button>
+
+      <button class="close-button" type="button" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+
+</div>
+

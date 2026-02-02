@@ -6,12 +6,16 @@ import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { CropwiseExpensesComponent } from './cropwise-expenses/cropwise-expenses.component';
 import { ExpenseCategoriesComponent } from './expense-categories/expense-categories.component';
 import { ExpensesListComponent } from './expenses-list/expenses-list.component';
+import { ExpenseDetailsComponent } from './expense-details/expense-details.component';
+import { ExpenseCategoryFormComponent } from './expense-category-form/expense-category-form.component';
 @NgModule({
   declarations: [
    AddExpenseComponent,
    CropwiseExpensesComponent,
    ExpenseCategoriesComponent,
-   ExpensesListComponent
+   ExpensesListComponent,
+   ExpenseDetailsComponent,
+   ExpenseCategoryFormComponent
 
 
   ],

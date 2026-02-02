@@ -1,1 +1,54 @@
-<p>profile works!</p>
+<div class="card-wrapper">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="card-heading m-0">Profile</h2>
+  </div>
+
+  <hr />
+
+  <form [formGroup]="profileForm" class="cor-form">
+
+    <!-- Full Name -->
+    <div class="input-box">
+      <label class="details">Full Name *</label>
+      <input type="text" formControlName="fullName" />
+    </div>
+
+    <!-- Email -->
+    <div class="input-box">
+      <label class="details">Email *</label>
+      <input type="email" formControlName="email" />
+    </div>
+
+    <!-- Mobile -->
+    <div class="input-box">
+      <label class="details">Mobile</label>
+      <input type="text" formControlName="mobile" />
+    </div>
+
+    <!-- Address -->
+    <div class="textarea-box">
+      <label class="details">Address</label>
+      <textarea formControlName="address"></textarea>
+    </div>
+
+    <!-- Notes -->
+    <div class="textarea-box">
+      <label class="details">Notes</label>
+      <textarea formControlName="notes"></textarea>
+    </div>
+
+    <!-- Buttons -->
+    <div class="w-100 d-flex gap-2 mt-3">
+      <button
+        type="button"
+        class="submit-button"
+        (click)="updateProfile()">
+        Update Profile
+      </button>
+    </div>
+
+  </form>
+
+</div>

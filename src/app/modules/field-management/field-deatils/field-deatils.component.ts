@@ -1,5 +1,6 @@
 import { Component,OnInit  } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FieldService } from 'src/app/services/field/field.service';
 
 @Component({
   selector: 'app-field-deatils',
@@ -8,46 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FieldDeatilsComponent implements OnInit {
 
-  fieldId!: number;
+ fieldId!: number;
   field: any;
-
-  // Static data (same as list)
-  farms = [
-    {
-      farmId: 1,
-      farmName: 'Cotton Farm',
-      fields: [
-        {
-          id: 1,
-          name: 'Field A',
-          area: '2 Acres',
-          notes: 'Near water source'
-        },
-        {
-          id: 2,
-          name: 'Field B',
-          area: '1.5 Acres',
-          notes: 'Good soil quality'
-        }
-      ]
-    },
-    {
-      farmId: 2,
-      farmName: 'Tomato Farm',
-      fields: [
-        {
-          id: 3,
-          name: 'Field C',
-          area: '3 Acres',
-          notes: 'Used for seasonal crops'
-        }
-      ]
-    }
-  ];
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private fieldService: FieldService
   ) {}
 
   ngOnInit(): void {
@@ -55,28 +23,22 @@ export class FieldDeatilsComponent implements OnInit {
     this.loadFieldDetails();
   }
 
-  loadFieldDetails() {
-    for (const farm of this.farms) {
-      const foundField = farm.fields.find(f => f.id === this.fieldId);
-      if (foundField) {
-        this.field = {
-          ...foundField,
-          farmName: farm.farmName
-        };
-        break;
+  loadFieldDetails(): void {
+    this.fieldService.getFieldById(this.fieldId).subscribe({
+      next: (res) => {
+        this.field = res;
+      },
+      error: () => {
+        this.router.navigate(['/agri/fields/list']);
       }
-    }
-
-    if (!this.field) {
-      this.router.navigate(['/scm/fields/list']);
-    }
+    });
   }
 
-  goBack() {
-    this.router.navigate(['/scm/fields/list']);
+  goBack(): void {
+    this.router.navigate(['/agri/fields/list']);
   }
 
-  editField() {
-    this.router.navigate(['/scm/fields/edit', this.fieldId]);
+  editField(): void {
+    this.router.navigate(['/agri/fields/edit', this.fieldId]);
   }
 }

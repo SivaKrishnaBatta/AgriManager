@@ -5,11 +5,13 @@ import { IncomeManagementRoutingModule } from './income-management-routing.modul
 import { AddIncomeComponent } from './add-income/add-income.component';
 import { CropwiseIncomeComponent } from './cropwise-income/cropwise-income.component';
 import { IncomeListComponent } from './income-list/income-list.component';
+import { IncomeDetailsComponent } from './income-details/income-details.component';
 @NgModule({
   declarations: [
     AddIncomeComponent,
     CropwiseIncomeComponent,
-    IncomeListComponent
+    IncomeListComponent,
+    IncomeDetailsComponent
 
   ],
   imports: [

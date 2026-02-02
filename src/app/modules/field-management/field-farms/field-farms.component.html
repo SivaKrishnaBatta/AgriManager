@@ -15,8 +15,8 @@
       <label class="details">Farm *</label>
       <select formControlName="farmId">
         <option value="">Select Farm</option>
-        <option *ngFor="let farm of farms" [value]="farm.id">
-          {{ farm.name }}
+        <option *ngFor="let farm of farms" [value]="farm.farmId">
+          {{ farm.farmName }}
         </option>
       </select>
       <small *ngIf="fieldForm.get('farmId')?.touched && fieldForm.get('farmId')?.invalid">
@@ -29,9 +29,9 @@
       <label class="details">Field Name *</label>
       <input
         type="text"
-        formControlName="name"
+        formControlName="fieldName"
         placeholder="Enter field name" />
-      <small *ngIf="fieldForm.get('name')?.touched && fieldForm.get('name')?.invalid">
+      <small *ngIf="fieldForm.get('fieldName')?.touched && fieldForm.get('fieldName')?.invalid">
         Field name is required
       </small>
     </div>
@@ -73,4 +73,3 @@
   </form>
 
 </div>
-

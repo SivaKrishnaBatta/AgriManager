@@ -6,7 +6,7 @@
     <button class="btn btn-primary" (click)="addField()">Add Field</button>
   </div>
 
-  <!-- Loop Farms -->
+  <!-- Grouped by Farm -->
   <div *ngFor="let farm of farms" class="mb-4">
 
     <h5 class="mb-2">{{ farm.farmName }}</h5>
@@ -25,35 +25,35 @@
 
         <tbody>
           <tr *ngFor="let field of farm.fields">
-            <td>{{ field.id }}</td>
+            <td>{{ field.fieldId }}</td>
 
             <td>
               <a
                 class="highlighted-row"
-                (click)="viewField(field.id)">
-                {{ field.name }}
+                (click)="viewField(field.fieldId)">
+                {{ field.fieldName }}
               </a>
             </td>
 
             <td>{{ farm.farmName }}</td>
-            <td>{{ field.area }}</td>
+            <td>{{ field.area || '-' }}</td>
 
             <td class="text-center">
               <button
                 class="btn btn-outline-primary btn-sm"
-                (click)="viewField(field.id)">
+                (click)="viewField(field.fieldId)">
                 View
               </button>
 
               <button
                 class="btn btn-outline-secondary btn-sm mx-1"
-                (click)="editField(field.id)">
+                (click)="editField(field.fieldId)">
                 Edit
               </button>
 
               <button
                 class="btn btn-outline-danger btn-sm"
-                (click)="deleteField(field.id)">
+                (click)="deleteField(field.fieldId)">
                 Delete
               </button>
             </td>

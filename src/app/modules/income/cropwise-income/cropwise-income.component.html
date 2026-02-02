@@ -1,1 +1,51 @@
-<p>cropwise-income works!</p>
+<div class="card-wrapper">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="card-heading m-0">Crop-wise Income</h2>
+  </div>
+
+  <!-- Loop Crops -->
+  <div *ngFor="let crop of cropWiseIncome" class="mb-4">
+
+    <!-- Crop Header -->
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h5 class="m-0">{{ crop.cropName }}</h5>
+      <span class="fw-bold">
+        Total: ₹ {{ crop.totalAmount }}
+      </span>
+    </div>
+
+    <!-- Income Table -->
+    <div class="table-responsive">
+      <table class="table align-middle table-hover">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let inc of crop.incomes">
+            <td>{{ inc.date }}</td>
+            <td>{{ inc.quantity }}</td>
+            <td>₹ {{ inc.amount }}</td>
+            <td>{{ inc.notes || '-' }}</td>
+          </tr>
+
+          <tr *ngIf="crop.incomes.length === 0">
+            <td colspan="4" class="text-center text-muted">
+              No income recorded
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
+

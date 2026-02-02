@@ -42,7 +42,7 @@ export class SideMenuComponent {
         {
           name: "Add / Edit Farm",
           icon: "fa-solid fa-plus-square",
-          url: "farms/manage"
+          url: "farms/add"
         }
       ]
     },
@@ -60,7 +60,7 @@ export class SideMenuComponent {
         {
           name: "Add / Edit Field",
           icon: "fa-solid fa-plus",
-          url: "fields/manage"
+          url: "fields/add"
         }
       ]
     },
@@ -92,7 +92,7 @@ export class SideMenuComponent {
         {
           name: "Expenses List",
           icon: "fa-solid fa-receipt",
-          url: "expenses/expenselist"
+          url: "expenses/list"
         },
         {
           name: "Add Expense",

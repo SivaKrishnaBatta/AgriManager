@@ -9,9 +9,10 @@ const routes: Routes = [
 
   { path: 'list', component: FarmsListComponent },
 
-  { path: 'manage', component: FarmFormComponent },        // create
-  { path: 'manage/:id', component: FarmFormComponent },  // edit
-  { path: 'details/:id', component: FarmDetailsComponent }
+  { path: 'add', component: FarmFormComponent },        // create
+  { path: 'edit/:id', component: FarmFormComponent },  // edit
+  { path: 'view/:id', component: FarmDetailsComponent },
+  { path: '', redirectTo: 'list', pathMatch: 'full' }
 ];
 
 @NgModule({
