@@ -1,6 +1,8 @@
-import { Component,OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FarmService } from 'src/app/services/farm/farm.service';
+import { FieldService } from 'src/app/services/field/field.service';
 
 @Component({
   selector: 'app-field-farms',
@@ -8,47 +10,30 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./field-farms.component.scss']
 })
 export class FieldFarmsComponent implements OnInit {
+
   fieldForm!: FormGroup;
   isEdit = false;
   fieldId!: number;
 
-  // Static farms (for dropdown)
-  farms = [
-    { id: 1, name: 'Farm 1' },
-    { id: 2, name: 'Farm 2' }
-  ];
-
-  // Static fields data (used only for edit)
-  fields = [
-    {
-      id: 1,
-      farmId: 1,
-      name: 'Field A',
-      area: '2 Acres',
-      notes: 'Near water source'
-    },
-    {
-      id: 2,
-      farmId: 2,
-      name: 'Field B',
-      area: '1.5 Acres',
-      notes: 'Seasonal field'
-    }
-  ];
+  farms: any[] = [];
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private farmService: FarmService,
+    private fieldService: FieldService
   ) {}
 
   ngOnInit(): void {
     this.fieldForm = this.fb.group({
       farmId: ['', Validators.required],
-      name: ['', Validators.required],
+      fieldName: ['', Validators.required],
       area: [''],
       notes: ['']
     });
+
+    this.loadFarms();
 
     this.fieldId = Number(this.route.snapshot.paramMap.get('id'));
     if (this.fieldId) {
@@ -57,32 +42,45 @@ export class FieldFarmsComponent implements OnInit {
     }
   }
 
-  loadField(id: number) {
-    const field = this.fields.find(f => f.id === id);
-    if (field) {
-      this.fieldForm.patchValue({
-        farmId: field.farmId,
-        name: field.name,
-        area: field.area,
-        notes: field.notes
-      });
-    }
+  // ✅ Load farms for dropdown
+  loadFarms(): void {
+    this.farmService.getFarms().subscribe(res => {
+      this.farms = res;
+    });
   }
 
-  save() {
+  // ✅ Load field for edit
+  loadField(id: number): void {
+    this.fieldService.getFieldById(id).subscribe(res => {
+      this.fieldForm.patchValue({
+        farmId: res.farmId,
+        fieldName: res.fieldName,
+        area: res.area,
+        notes: res.notes
+      });
+    });
+  }
+
+  // ✅ Save / Update
+  save(): void {
     if (this.fieldForm.invalid) return;
 
     if (this.isEdit) {
-      console.log('Update Field', this.fieldForm.value);
+      this.fieldService
+        .updateField(this.fieldId, this.fieldForm.value)
+        .subscribe(() => {
+          this.router.navigate(['/agri/fields/list']);
+        });
     } else {
-      console.log('Create Field', this.fieldForm.value);
+      this.fieldService
+        .createField(this.fieldForm.value)
+        .subscribe(() => {
+          this.router.navigate(['/agri/fields/list']);
+        });
     }
-
-    this.router.navigate(['/scm/fields/list']);
   }
 
-  cancel() {
-    this.router.navigate(['/scm/fields/list']);
+  cancel(): void {
+    this.router.navigate(['/agri/fields/list']);
   }
-
 }

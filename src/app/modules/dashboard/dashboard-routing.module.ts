@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '',
     component: DashboardMainComponent,
     children: [
-      { path: '', redirectTo: 'active-crops', pathMatch: 'full' },
+     
       { path: 'active-crops', component: ActiveCropsComponent },
       { path: 'expenses', component: TotalExpensesComponent },
       { path: 'income', component: TotalIncomeComponent },

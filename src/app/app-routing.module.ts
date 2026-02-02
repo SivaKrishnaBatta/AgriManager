@@ -7,23 +7,24 @@ import { UiTemplateComponent } from './ui-components/ui-template/ui-template.com
 import { LoginComponent } from './ui-components/login/login.component';
 import { SignupComponent } from './ui-components/signup/signup.component';
 
-import { authGuard } from './services/auth/auth.guard';
+import { AuthGuard } from './services/auth/auth.guard';
+
 
 import { Page404Component } from './ui-components/page-404/page-404.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/scm/dashboard', pathMatch: 'full' },
+ 
 
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignupComponent },
   { path: '404', component: Page404Component },
 
   {
-    path: 'scm',
+    path: 'agri',
     component: MainComponent,
-    canActivate: [authGuard],
+    canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    
 
       {
         path: 'dashboard',
@@ -121,7 +122,7 @@ const routes: Routes = [
   },
 
   { path: '17/mock-template', component: UiTemplateComponent },
-  { path: '**', redirectTo: '/scm/dashboard' }
+  { path: '**', redirectTo: '/agri/dashboard' }
 ];
 
 

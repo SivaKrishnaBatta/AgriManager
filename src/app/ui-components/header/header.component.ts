@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,13 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService   // ✅ ADD THIS
+  ) {}
 
   logout() {
-    localStorage.clear();
+    this.authService.logout();
     this.router.navigate(['/login']);
   }
 

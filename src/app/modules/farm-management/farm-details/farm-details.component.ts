@@ -1,35 +1,33 @@
-import { Component } from '@angular/core';
+import { Component,OnInit  } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FarmService } from 'src/app/services/farm/farm.service';
 
 @Component({
   selector: 'app-farm-details',
   templateUrl: './farm-details.component.html',
   styleUrls: ['./farm-details.component.scss']
 })
-export class FarmDetailsComponent {
-   farms = [
-    { id: 1, name: 'Farm 1', location: 'Hyderabad', fields: 3,   notes: 'Main cultivation farm near city outskirts' },
-    { id: 2, name: 'Farm 2', location: 'Guntur', fields: 2, notes: 'Seasonal farm used for paddy crops' }
-  ];
-
-  farm: any;
+export class FarmDetailsComponent implements OnInit {
+   farm: any;
 
   constructor(
     private route: ActivatedRoute,
+    private farmService: FarmService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.farm = this.farms.find(f => f.id === id);
-
-    if (!this.farm) {
-      this.router.navigate(['/scm/farms/list']);
-    }
+    this.loadFarm(id);
   }
 
-  goBack() {
-    this.router.navigate(['/scm/farms/list']);
+  loadFarm(id: number) {
+    this.farmService.getFarmById(id).subscribe(res => {
+      this.farm = res;
+    });
   }
 
+  back() {
+    this.router.navigate(['/agri/farms/list']);
+  }
 }

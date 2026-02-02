@@ -1,47 +1,66 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FieldService } from 'src/app/services/field/field.service';
+
 @Component({
   selector: 'app-field-list',
   templateUrl: './field-list.component.html',
   styleUrls: ['./field-list.component.scss']
 })
-export class FieldListComponent {
- constructor(private router: Router) {}
+export class FieldListComponent implements OnInit {
 
-  farms = [
-    {
-      farmId: 1,
-      farmName: 'Cotton Farm',
-      fields: [
-        { id: 1, name: 'Field A', area: '2 Acres' },
-        { id: 2, name: 'Field B', area: '1.5 Acres' }
-      ]
-    },
-    {
-      farmId: 2,
-      farmName: 'Tomato Farm',
-      fields: [
-        { id: 3, name: 'Field C', area: '3 Acres' }
-      ]
-    }
-  ];
+  farms: any[] = [];
 
-  addField() {
-    this.router.navigate(['/scm/fields/add']);
+  constructor(
+    private router: Router,
+    private fieldService: FieldService
+  ) {}
+
+  ngOnInit(): void {
+    this.loadFields();
   }
 
-  viewField(id: number) {
-    this.router.navigate(['/scm/fields/view', id]);
+  loadFields(): void {
+    this.fieldService.getFields().subscribe(res => {
+      this.groupByFarm(res);
+    });
   }
 
-  editField(id: number) {
-    this.router.navigate(['/scm/fields/edit', id]);
+  groupByFarm(fields: any[]): void {
+    const grouped: any = {};
+
+    fields.forEach(field => {
+      if (!grouped[field.farmId]) {
+        grouped[field.farmId] = {
+          farmId: field.farmId,
+          farmName: field.farmName,
+          fields: []
+        };
+      }
+
+      grouped[field.farmId].fields.push(field);
+    });
+
+    this.farms = Object.values(grouped);
   }
 
-  deleteField(id: number) {
+  addField(): void {
+    this.router.navigate(['/agri/fields/add']);
+  }
+
+  viewField(id: number): void {
+    this.router.navigate(['/agri/fields/view', id]);
+  }
+
+  editField(id: number): void {
+    this.router.navigate(['/agri/fields/edit', id]);
+  }
+
+  deleteField(id: number): void {
     if (confirm('Are you sure you want to delete this field?')) {
-      console.log('Delete Field', id);
+      this.fieldService.deleteField(id).subscribe(() => {
+        this.loadFields();
+      });
     }
   }
-
 }

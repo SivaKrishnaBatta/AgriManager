@@ -1,21 +1,29 @@
 <div class="card-wrapper">
-  <h2 class="card-heading">Crops List</h2>
+   <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="card-heading m-0">Crop List</h2>
+    <button class="btn mb-3 mr-3 btn-primary" (click)="addCrop()">
+      Add Crop
+    </button>
+  </div>
 
   <div class="table-responsive">
     <table class="table">
       <thead>
         <tr>
+          <!-- <th>Id</th> -->
           <th>Crop Name</th>
           <th>Farm</th>
           <th>Field</th>
           <th>Status</th>
           <th>Start Date</th>
           <th>End Date</th>
+          <th class="text-center">Actions</th>
         </tr>
       </thead>
 
       <tbody>
         <tr *ngFor="let crop of cropsList">
+          <!-- <td>{{ crop.id }}</td> -->
           <td>{{ crop.cropName }}</td>
           <td>{{ crop.farmName }}</td>
           <td>{{ crop.fieldName }}</td>
@@ -27,6 +35,13 @@
           </td>
           <td>{{ crop.startDate }}</td>
           <td>{{ crop.endDate ? crop.endDate : '-' }}</td>
+          <td class="text-center">
+           <button
+              class="btn btn-outline-primary btn-sm"
+              (click)="editCrop(crop.id)">
+              Edit
+            </button>
+          </td>
         </tr>
 
         <tr *ngIf="!cropsList || cropsList.length === 0">

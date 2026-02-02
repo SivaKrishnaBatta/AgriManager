@@ -44,7 +44,8 @@ import { Page404Component } from './ui-components/page-404/page-404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CountryStateCityModule } from './modules/common-components/country-state-city/country-state-city.module';
 import { DashboardManufacturingMetricsComponent } from './modules/dashboard/Dashboard-widgets/dashboard-manufacturing-metrics/dashboard-manufacturing-metrics.component';
-
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth/auth.interceptor';
 import { DashboardBarchartComponent } from './modules/dashboard/dashboard-barchart/dashboard-barchart.component';
 // import { AddCropComponent } from './modules/crop-management/add-crop/add-crop.component';
 // import { ExpensesListComponent } from './modules/expense-management/expenses-list/expenses-list.component';
@@ -134,7 +135,10 @@ import { DashboardBarchartComponent } from './modules/dashboard/dashboard-barcha
     
     
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy,},
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
 
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

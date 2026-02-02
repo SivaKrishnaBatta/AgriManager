@@ -1,0 +1,43 @@
+<div class="card-wrapper">
+
+  <h2 class="card-heading">
+    {{ isEdit ? 'Edit Category' : 'Add Category' }}
+  </h2>
+
+  <hr />
+
+  <form [formGroup]="categoryForm" class="cor-form">
+
+    <!-- Category Name -->
+    <div class="input-box">
+      <label class="details">Category Name *</label>
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Enter category name" />
+      <small
+        *ngIf="categoryForm.get('name')?.touched && categoryForm.get('name')?.invalid">
+        Category name is required
+      </small>
+    </div>
+
+    <!-- BUTTON ROW (FULL WIDTH) -->
+    <div class="w-100 d-flex gap-2 mt-3">
+      <button
+        type="button"
+        class="submit-button"
+        (click)="save()">
+        {{ isEdit ? 'Update' : 'Save' }}
+      </button>
+
+      <button
+        type="button"
+        class="close-button"
+        (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+
+</div>

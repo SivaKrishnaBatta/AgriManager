@@ -1,60 +1,70 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FarmService } from 'src/app/services/farm/farm.service';
 
 @Component({
   selector: 'app-farm-form',
   templateUrl: './farm-form.component.html',
   styleUrls: ['./farm-form.component.scss']
 })
-export class FarmFormComponent {
-  farmForm!: FormGroup;
+export class FarmFormComponent implements OnInit{
+   farmForm!: FormGroup;
+  farmId: number | null = null;
   isEdit = false;
-  farmId!: number;
 
   constructor(
     private fb: FormBuilder,
+    private farmService: FarmService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.farmForm = this.fb.group({
-      name: ['', Validators.required],
+      farmName: ['', Validators.required],
       location: [''],
+      totalFields: [''],
       notes: ['']
     });
 
-    this.farmId = Number(this.route.snapshot.paramMap.get('id'));
-    if (this.farmId) {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.farmId = Number(id);
       this.isEdit = true;
-      this.loadFarm(this.farmId);
+      this.loadFarm();
     }
   }
 
-  loadFarm(id: number) {
-    // mock data – replace with API
-    this.farmForm.patchValue({
-      name: 'Farm 1',
-      location: 'Hyderabad',
-      notes: 'Test farm'
+  // ✅ THIS METHOD WAS MISSING
+  submit(): void {
+    if (this.farmForm.invalid) return;
+
+    if (this.isEdit && this.farmId) {
+      this.farmService
+        .updateFarm(this.farmId, this.farmForm.value)
+        .subscribe(() => {
+          this.router.navigate(['/agri/farms/list']);
+        });
+    } else {
+      this.farmService
+        .addFarm(this.farmForm.value)
+        .subscribe(() => {
+          this.router.navigate(['/agri/farms/list']);
+        });
+    }
+  }
+
+  loadFarm(): void {
+    if (!this.farmId) return;
+
+    this.farmService.getFarmById(this.farmId).subscribe(res => {
+      this.farmForm.patchValue(res);
     });
   }
 
-  save() {
-    if (this.farmForm.invalid) return;
-
-    if (this.isEdit) {
-      console.log('Update farm', this.farmForm.value);
-    } else {
-      console.log('Create farm', this.farmForm.value);
-    }
-
-    this.router.navigate(['/scm/farms/list']);
-  }
-
-  cancel() {
-    this.router.navigate(['/scm/farms/list']);
+  cancel(): void {
+    this.router.navigate(['/agri/farms/list']);
   }
 
 }

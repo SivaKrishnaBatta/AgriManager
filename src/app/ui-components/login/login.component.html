@@ -1,6 +1,7 @@
 <section>
   <div class="container" [ngClass]="{ 'active': isActive }" id="container">
-    <!-- Sign-Up Form -->
+
+    <!-- Sign-Up Form (UNCHANGED) -->
     <div class="form-container sign-up">
       <form>
         <div>
@@ -10,39 +11,57 @@
         <input type="text" placeholder="Name">
         <input type="email" placeholder="Email">
         <input type="password" placeholder="Password">
-        <button (click)="login()">Sign Up</button>
+        <button type="button">Sign Up</button>
       </form>
     </div>
 
-    <!-- Sign-In Form -->
-    <div class="form-container sign-in ">
-      <form>
+    <!-- ✅ Sign-In Form (EDITED & WORKING) -->
+    <div class="form-container sign-in">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+
         <div>
           <img src="../../../assets/Logos/cortracker.png" alt="Logo">
         </div>
+
         <h1>Sign In</h1>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
+
+        <input
+          type="number"
+          placeholder="Customer ID"
+          formControlName="customerId" />
+
+        <input
+          type="text"
+          placeholder="User Name"
+          formControlName="userName" />
+
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password" />
+
         <a href="#">Forgot Your Password?</a>
-        <button (click)="login()">Sign In</button>
+
+        <button type="submit">Sign In</button>
+
       </form>
     </div>
 
-    <!-- Toggle Container -->
+    <!-- Toggle Container (UNCHANGED) -->
     <div class="toggle-container">
       <div class="toggle">
         <div class="toggle-panel toggle-left">
           <h1>Welcome Back!</h1>
           <p>Enter your personal details to use all site features</p>
-          <button (click)="showLogin()">Sign In</button>
+          <button type="button" (click)="showLogin()">Sign In</button>
         </div>
         <div class="toggle-panel toggle-right">
           <h1>Hello, Friend!</h1>
           <p>Register with your personal details to use all site features</p>
-          <button (click)="showRegister()">Sign Up</button>
+          <button type="button" (click)="showRegister()">Sign Up</button>
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
 </section>

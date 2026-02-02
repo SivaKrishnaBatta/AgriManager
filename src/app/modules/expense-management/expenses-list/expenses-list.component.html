@@ -1,1 +1,86 @@
-<p>expenses-list works!</p>
+
+<div class="card-wrapper">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="card-heading m-0">Expenses List</h2>
+    <button class="btn btn-primary" (click)="addExpense()">Add Expense</button>
+  </div>
+  <div class="d-flex gap-3 mb-1">
+  <div class="w-20">
+    <span class="details">From Date</span>
+  </div>
+
+  <div class="w-20">
+    <span class="details">To Date</span>
+  </div>
+
+  <div class="w-20">
+    <span class="details">Crop</span>
+  </div>
+
+  <div class="w-20">
+    <span class="details">Category</span>
+  </div>
+</div>
+  <!-- Filters -->
+  <div class="d-flex gap-3 mb-3 flex-wrap">
+    <input type="date" class="form-control w-20" />
+    <input type="date" class="form-control w-20" />
+
+    <select class="form-control w-20">
+      <option value="">Select Crop</option>
+      <option>Rice</option>
+      <option>Wheat</option>
+    </select>
+
+    <select class="form-control w-20">
+      <option value="">Category</option>
+      <option>Fertilizer</option>
+      <option>Labor</option>
+      <option>Pesticide</option>
+    </select>
+  </div>
+
+  <!-- Table -->
+  <div class="table-responsive">
+    <table class="table align-middle table-hover">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Crop</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let exp of expenses">
+          <td>{{ exp.date }}</td>
+          <td>{{ exp.crop }}</td>
+          <td>{{ exp.category }}</td>
+          <td>₹ {{ exp.amount }}</td>
+          <td class="text-center">
+            <button class="btn btn-outline-primary btn-sm"
+              (click)="viewExpense(exp.id)">
+              View
+            </button>
+
+            <button class="btn btn-outline-secondary btn-sm mx-1"
+              (click)="editExpense(exp.id)">
+              Edit
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="expenses.length === 0">
+          <td colspan="5" class="text-center text-muted">
+            No expenses found
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
