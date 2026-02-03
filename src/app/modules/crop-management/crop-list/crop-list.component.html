@@ -1,16 +1,15 @@
 <div class="card-wrapper">
-   <div class="d-flex justify-content-between align-items-center mb-3">
+  <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 class="card-heading m-0">Crop List</h2>
-    <button class="btn mb-3 mr-3 btn-primary" (click)="addCrop()">
+    <button class="btn btn-primary" (click)="addCrop()">
       Add Crop
     </button>
   </div>
 
-  <div class="table-responsive">
-    <table class="table">
+  
+    <table class="table  table-hover">
       <thead>
         <tr>
-          <!-- <th>Id</th> -->
           <th>Crop Name</th>
           <th>Farm</th>
           <th>Field</th>
@@ -23,34 +22,56 @@
 
       <tbody>
         <tr *ngFor="let crop of cropsList">
-          <!-- <td>{{ crop.id }}</td> -->
           <td>{{ crop.cropName }}</td>
           <td>{{ crop.farmName }}</td>
           <td>{{ crop.fieldName }}</td>
+
           <td>
             <span
-              [ngClass]="crop.status === 'Active' ? 'text-success' : 'text-danger'">
-              {{ crop.status }}
+              [ngClass]="crop.cropStatusName === 'Active'
+                ? 'text-success'
+                : crop.cropStatusName === 'Completed'
+                ? 'text-secondary'
+                : 'text-warning'">
+              {{ crop.cropStatusName }}
             </span>
           </td>
-          <td>{{ crop.startDate }}</td>
-          <td>{{ crop.endDate ? crop.endDate : '-' }}</td>
+
+          <td>{{ crop.startDate | date:'dd MMM yyyy' }}</td>
+          <td>
+            {{ crop.expectedEndDate
+                ? (crop.expectedEndDate | date:'dd MMM yyyy')
+                : '-' }}
+          </td>
+
           <td class="text-center">
-           <button
-              class="btn btn-outline-primary btn-sm"
-              (click)="editCrop(crop.id)">
+            <button
+              class="btn btn-outline-info btn-sm me-1"
+              (click)="viewCrop(crop.cropId)">
+              View
+            </button>
+
+            <button
+              class="btn btn-outline-primary btn-sm me-1"
+              (click)="editCrop(crop.cropId)">
               Edit
+            </button>
+
+           <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              (click)="deleteCrop(crop.cropId, $event)">
+              Delete
             </button>
           </td>
         </tr>
 
-        <tr *ngIf="!cropsList || cropsList.length === 0">
-          <td colspan="6" class="text-center">
+        <tr *ngIf="cropsList.length === 0">
+          <td colspan="7" class="text-center">
             No crops found
           </td>
         </tr>
       </tbody>
     </table>
-  </div>
+  
 </div>
-
