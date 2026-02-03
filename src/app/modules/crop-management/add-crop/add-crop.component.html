@@ -8,54 +8,99 @@
 
   <hr />
 
-  <form [formGroup]="cropForm" class="cor-form">
+  <form [formGroup]="cropForm">
 
+    <!-- Crop Name -->
     <div class="input-box">
       <label class="details">Crop Name *</label>
       <input formControlName="cropName" />
+      <small class="text-danger" *ngIf="isInvalid('cropName')">
+        Crop Name is required
+      </small>
     </div>
 
+    <!-- Farm -->
     <div class="input-box">
       <label class="details">Farm *</label>
-      <select formControlName="farmName">
+      <select formControlName="farmId">
         <option value="">Select Farm</option>
-        <option *ngFor="let farm of farms">{{ farm }}</option>
+        <option *ngFor="let farm of farms" [value]="farm.farmId">
+          {{ farm.farmName }}
+        </option>
       </select>
+      <small class="text-danger" *ngIf="isInvalid('farmId')">
+        Farm is required
+      </small>
     </div>
 
+    <!-- Field -->
     <div class="input-box">
       <label class="details">Field *</label>
-      <select formControlName="fieldName">
+      <select formControlName="fieldId">
         <option value="">Select Field</option>
-        <option *ngFor="let field of fields">{{ field }}</option>
+        <option *ngFor="let field of fields" [value]="field.fieldId">
+          {{ field.fieldName }}
+        </option>
       </select>
+      <small class="text-danger" *ngIf="isInvalid('fieldId')">
+        Field is required
+      </small>
     </div>
 
+    <!-- Status -->
     <div class="input-box">
       <label class="details">Status *</label>
-      <select formControlName="status">
-        <option>Active</option>
-        <option>Completed</option>
+      <select formControlName="cropStatusId">
+        <option value="">Select Status</option>
+        <option *ngFor="let s of statuses" [value]="s.cropStatusId">
+          {{ s.cropStatusName }}
+        </option>
       </select>
+      <small class="text-danger" *ngIf="isInvalid('cropStatusId')">
+        Status is required
+      </small>
     </div>
 
+    <!-- Season -->
+    <div class="input-box">
+      <label class="details">Season</label>
+      <input formControlName="season" />
+    </div>
+
+    <!-- Start Date -->
     <div class="input-box">
       <label class="details">Start Date *</label>
       <input type="date" formControlName="startDate" />
+      <small class="text-danger" *ngIf="isInvalid('startDate')">
+        Start Date is required
+      </small>
     </div>
 
+    <!-- End Date (Only if Completed) -->
+<div class="input-box" *ngIf="showEndDate">
+  <label class="details">End Date</label>
+  <input type="date" formControlName="expectedEndDate" />
+</div>
+
+
+    <!-- Date range error -->
+   <small class="text-danger" *ngIf="cropForm.errors?.['dateRangeInvalid']">
+  End Date cannot be earlier than Start Date
+</small>
+
+    <!-- Expected Yield -->
     <div class="input-box">
-      <label class="details">End Date</label>
-      <input type="date" formControlName="endDate" />
+      <label class="details">Expected Yield</label>
+      <input formControlName="expectedYield" />
     </div>
 
-    <div class="textarea-box">
-      <label class="details">Notes</label>
-      <textarea formControlName="notes"></textarea>
-    </div>
-
+    <!-- Buttons -->
     <div class="d-flex gap-2 mt-3">
-      <button class="submit-button" type="button" (click)="save()">
+      <button
+        class="submit-button"
+        type="button"
+        (click)="save()"
+        [disabled]="cropForm.invalid">
         {{ isEdit ? 'Update' : 'Save' }}
       </button>
 

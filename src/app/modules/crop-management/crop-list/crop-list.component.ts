@@ -1,47 +1,66 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CropService } from 'src/app/services/crop/crop.service';
+
 @Component({
   selector: 'app-crop-list',
   templateUrl: './crop-list.component.html',
   styleUrls: ['./crop-list.component.scss']
 })
-export class CropListComponent {
-cropsList = [
-  {
-    id: 1,
-    cropName: 'Rice',
-    farmName: 'Green Farm',
-    fieldName: 'Field A',
-    status: 'Active',
-    startDate: '01 Jan 2026',
-    endDate: null
-  },
-  {
-    id: 2,
-    cropName: 'Wheat',
-    farmName: 'Green Farm',
-    fieldName: 'Field B',
-    status: 'Completed',
-    startDate: '15 Oct 2025',
-    endDate: '10 Jan 2026'
-  },
-  {
-    id: 3,
-    cropName: 'Maize',
-    farmName: 'Sunrise Farm',
-    fieldName: 'Field C',
-    status: 'Active',
-    startDate: '20 Dec 2025',
-    endDate: null
+export class CropListComponent implements OnInit {
+
+  cropsList: any[] = [];
+
+  constructor(
+    private router: Router,
+    private cropService: CropService
+  ) {}
+
+  ngOnInit(): void {
+    this.loadCrops();
   }
-];
 
+  loadCrops() {
+    this.cropService.getCrops().subscribe({
+      next: (res) => {
+        this.cropsList = res;
+      },
+      error: (err) => {
+        console.error('Error loading crops', err);
+      }
+    });
+  }
 
-      constructor(private router: Router) {}
-    addCrop() {
+  addCrop() {
     this.router.navigate(['/agri/crops/add']);
   }
-    editCrop(id: number) {
+
+  editCrop(id: number) {
     this.router.navigate(['/agri/crops/edit', id]);
   }
+
+  viewCrop(id: number) {
+    this.router.navigate(['/agri/crops/view', id]);
+  }
+
+deleteCrop(id: number, event?: Event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  if (!confirm('Are you sure you want to delete this crop?')) return;
+
+  this.cropService.deleteCrop(id).subscribe({
+    next: () => {
+      // 🔥 THIS LINE IS CRITICAL
+      this.cropsList = this.cropsList.filter(c => c.cropId !== id);
+    },
+    error: (err) => {
+      console.error('Delete failed', err);
+    }
+  });
+}
+
+
 }
