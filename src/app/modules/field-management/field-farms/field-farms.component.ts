@@ -51,12 +51,12 @@ export class FieldFarmsComponent implements OnInit {
 
   // ✅ Load field for edit
   loadField(id: number): void {
-    this.fieldService.getFieldById(id).subscribe(res => {
+    this.fieldService.getFieldById(id).subscribe((res: any) => {
       this.fieldForm.patchValue({
-        farmId: res.farmId,
-        fieldName: res.fieldName,
-        area: res.area,
-        notes: res.notes
+        farmId: res.data.farmId,
+        fieldName: res.data.fieldName,
+        area: res.data.area,
+        notes: res.data.notes
       });
     });
   }

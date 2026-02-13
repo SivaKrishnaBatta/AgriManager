@@ -1,30 +1,29 @@
-import { Component,OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ExpenseCategoryService } from 'src/app/services/expanse-categorie/expanse-categorie.service';
+
 @Component({
   selector: 'app-expense-category-form',
   templateUrl: './expense-category-form.component.html',
   styleUrls: ['./expense-category-form.component.scss']
 })
 export class ExpenseCategoryFormComponent implements OnInit {
+
   categoryForm!: FormGroup;
   isEdit = false;
   categoryId!: number;
 
-  categories = [
-    { id: 1, name: 'Seeds' },
-    { id: 2, name: 'Fertilizers' }
-  ];
-
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private categoryService: ExpenseCategoryService
   ) {}
 
   ngOnInit(): void {
     this.categoryForm = this.fb.group({
-      name: ['', Validators.required]
+      categoryName: ['', Validators.required]
     });
 
     this.categoryId = Number(this.route.snapshot.paramMap.get('id'));
@@ -35,21 +34,31 @@ export class ExpenseCategoryFormComponent implements OnInit {
   }
 
   loadCategory(id: number) {
-    const category = this.categories.find(c => c.id === id);
-    if (category) {
-      this.categoryForm.patchValue({ name: category.name });
-    }
+    this.categoryService.getById(id).subscribe(res => {
+      this.categoryForm.patchValue({
+        categoryName: res.categoryName
+      });
+    });
   }
 
   save() {
     if (this.categoryForm.invalid) return;
 
-    console.log(
-      this.isEdit ? 'Update Category' : 'Create Category',
-      this.categoryForm.value
-    );
+    const payload = {
+      categoryName: this.categoryForm.value.categoryName
+    };
 
-    this.router.navigate(['/agri/expenses/category']);
+    if (this.isEdit) {
+      this.categoryService.update(this.categoryId, payload)
+        .subscribe(() => {
+          this.router.navigate(['/agri/expenses/category']);
+        });
+    } else {
+      this.categoryService.create(payload)
+        .subscribe(() => {
+          this.router.navigate(['/agri/expenses/category']);
+        });
+    }
   }
 
   cancel() {

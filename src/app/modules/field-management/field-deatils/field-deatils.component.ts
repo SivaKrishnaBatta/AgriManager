@@ -25,8 +25,8 @@ export class FieldDeatilsComponent implements OnInit {
 
   loadFieldDetails(): void {
     this.fieldService.getFieldById(this.fieldId).subscribe({
-      next: (res) => {
-        this.field = res;
+      next: (res: any) => {
+        this.field = res.data;
       },
       error: () => {
         this.router.navigate(['/agri/fields/list']);

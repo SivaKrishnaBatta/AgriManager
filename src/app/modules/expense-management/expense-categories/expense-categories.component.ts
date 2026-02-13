@@ -1,21 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ExpenseCategory } from 'src/app/models/expense-category.model';
+import { ExpenseCategoryService } from 'src/app/services/expanse-categorie/expanse-categorie.service';
+
 @Component({
   selector: 'app-expense-categories',
   templateUrl: './expense-categories.component.html',
   styleUrls: ['./expense-categories.component.scss']
 })
-export class ExpenseCategoriesComponent {
-  constructor(private router: Router) {}
-   categories = [
-    { id: 1, name: 'Seeds', enabled: true },
-    { id: 2, name: 'Fertilizers', enabled: true },
-    { id: 3, name: 'Pesticides', enabled: true },
-    { id: 4, name: 'Labor', enabled: true },
-    { id: 5, name: 'Irrigation', enabled: true },
-    { id: 6, name: 'Machinery', enabled: false },
-    { id: 7, name: 'Others', enabled: true }
-  ];
+export class ExpenseCategoriesComponent implements OnInit {
+
+  categories: ExpenseCategory[] = [];
+
+  constructor(
+    private router: Router,
+    private categoryService: ExpenseCategoryService
+  ) {}
+
+  ngOnInit(): void {
+    this.loadCategories();
+  }
+
+  loadCategories() {
+    this.categoryService.getAll().subscribe(res => {
+      this.categories = res;
+    });
+  }
 
   addCategory() {
     this.router.navigate(['/agri/expenses/categories/add']);
@@ -25,8 +35,10 @@ export class ExpenseCategoriesComponent {
     this.router.navigate(['/agri/expenses/categories/edit', id]);
   }
 
-  toggleStatus(category: any) {
-    category.enabled = !category.enabled;
+  toggleStatus(category: ExpenseCategory) {
+    this.categoryService.toggleStatus(category.categoryId)
+      .subscribe(() => {
+        category.isActive = !category.isActive;
+      });
   }
-
 }
