@@ -1,42 +1,35 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ExpenseService } from 'src/app/services/expense/expense.service';
+
 @Component({
   selector: 'app-add-expense',
   templateUrl: './add-expense.component.html',
   styleUrls: ['./add-expense.component.scss']
 })
 export class AddExpenseComponent implements OnInit {
+
   expenseForm!: FormGroup;
   isEdit = false;
   expenseId!: number;
 
-  crops = ['Rice', 'Wheat', 'Maize'];
-  categories = ['Fertilizer', 'Labor', 'Pesticide', 'Seeds'];
-
-  expenses = [
-    {
-      id: 1,
-      crop: 'Rice',
-      category: 'Fertilizer',
-      amount: 2500,
-      date: '2026-01-05',
-      notes: 'Urea'
-    }
-  ];
+  crops: any[] = [];
+  categories: any[] = [];
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private expenseService: ExpenseService
   ) {}
 
   ngOnInit(): void {
     this.expenseForm = this.fb.group({
-      crop: ['', Validators.required],
-      category: ['', Validators.required],
+      cropId: ['', Validators.required],
+      categoryId: ['', Validators.required],
       amount: ['', Validators.required],
-      date: ['', Validators.required],
+      expenseDate: ['', Validators.required],
       notes: ['']
     });
 
@@ -45,23 +38,54 @@ export class AddExpenseComponent implements OnInit {
       this.isEdit = true;
       this.loadExpense(this.expenseId);
     }
+
+    // TODO: replace with Crop & Category API calls
+    this.loadMockDropdowns();
   }
 
   loadExpense(id: number) {
-    const exp = this.expenses.find(e => e.id === id);
-    if (exp) {
-      this.expenseForm.patchValue(exp);
-    }
+    this.expenseService.getById(id).subscribe(res => {
+      this.expenseForm.patchValue({
+        cropId: res.cropId,
+        categoryId: res.categoryId,
+        amount: res.amount,
+        expenseDate: res.expenseDate.substring(0, 10),
+        notes: res.notes
+      });
+    });
   }
 
   save() {
     if (this.expenseForm.invalid) return;
-    console.log(this.isEdit ? 'Update Expense' : 'Create Expense', this.expenseForm.value);
-    this.router.navigate(['/agri/expenses/list']);
+
+    const payload = this.expenseForm.value;
+
+    if (this.isEdit) {
+      this.expenseService.update(this.expenseId, payload)
+        .subscribe(() => {
+          this.router.navigate(['/agri/expenses/list']);
+        });
+    } else {
+      this.expenseService.create(payload)
+        .subscribe(() => {
+          this.router.navigate(['/agri/expenses/list']);
+        });
+    }
   }
 
   cancel() {
     this.router.navigate(['/agri/expenses/list']);
   }
 
+  loadMockDropdowns() {
+    this.crops = [
+      { cropId: 1, cropName: 'Rice' },
+      { cropId: 2, cropName: 'Wheat' }
+    ];
+
+    this.categories = [
+      { categoryId: 1, categoryName: 'Fertilizer' },
+      { categoryId: 2, categoryName: 'Labor' }
+    ];
+  }
 }

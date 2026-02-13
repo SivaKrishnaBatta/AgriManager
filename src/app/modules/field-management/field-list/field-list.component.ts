@@ -21,8 +21,8 @@ export class FieldListComponent implements OnInit {
   }
 
   loadFields(): void {
-    this.fieldService.getFields().subscribe(res => {
-      this.groupByFarm(res);
+    this.fieldService.getFields().subscribe((res:any) => {
+      this.groupByFarm(res.data);
     });
   }
 
@@ -59,6 +59,7 @@ export class FieldListComponent implements OnInit {
   deleteField(id: number): void {
     if (confirm('Are you sure you want to delete this field?')) {
       this.fieldService.deleteField(id).subscribe(() => {
+        console.log('Field deleted successfully');
         this.loadFields();
       });
     }

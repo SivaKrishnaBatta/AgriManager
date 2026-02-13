@@ -70,32 +70,32 @@ export class AddCropComponent implements OnInit {
 
 loadDropdowns() {
   this.cropService.getFarms().subscribe(res => this.farms = res);
-  this.cropService.getFields().subscribe(res => this.fields = res);
+
+  this.cropService.getFields().subscribe((res:any) => this.fields = res.data);
 
   this.cropService.getCropStatuses().subscribe(res => {
-  this.statuses = res;
+    this.statuses = res;
 
-  this.cropForm.get('cropStatusId')?.valueChanges.subscribe(value => {
-    const statusId = Number(value);
-
-    const completed = this.statuses.find(
-      s => s.cropStatusName.toLowerCase() === 'completed'
-    );
-
-    if (!completed || statusId !== completed.cropStatusId) {
-      this.cropForm.patchValue({ expectedEndDate: null });
+    //  PATCH AFTER statuses loaded
+    if (this.isEdit) {
+      this.loadCropById(this.cropId);
     }
   });
-});
-
 }
 
 
-  loadCropById(id: number) {
-    this.cropService.getCropById(id).subscribe(res => {
+
+loadCropById(id: number) {
+  this.cropService.getCropById(id).subscribe({
+    next: (res: any) => {
       this.cropForm.patchValue(res);
-    });
-  }
+    },
+    error: (err) => {
+      console.error('Error loading crop', err);
+    }
+  });
+}
+
 
   // 👁 Show End Date only if status = Completed
     get showEndDate(): boolean {
@@ -132,7 +132,7 @@ loadDropdowns() {
     this.router.navigate(['/agri/crops/list']);
   }
 
-  // 🔴 Helper for HTML
+  // Helper for HTML
   isInvalid(controlName: string): boolean {
     const control = this.cropForm.get(controlName);
     return !!(control && control.invalid && control.touched);

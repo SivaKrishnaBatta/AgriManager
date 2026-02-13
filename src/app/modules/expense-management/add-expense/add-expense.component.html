@@ -1,50 +1,89 @@
 <div class="card-wrapper">
 
+  <!-- Header -->
   <h2 class="card-heading">
     {{ isEdit ? 'Edit Expense' : 'Add Expense' }}
   </h2>
 
   <hr />
 
+  <!-- Form -->
   <form [formGroup]="expenseForm" class="cor-form">
 
+    <!-- Crop -->
     <div class="input-box">
       <label class="details">Crop *</label>
-      <select formControlName="crop">
+      <select formControlName="cropId">
         <option value="">Select Crop</option>
-        <option *ngFor="let c of crops">{{ c }}</option>
+        <option *ngFor="let c of crops" [value]="c.cropId">
+          {{ c.cropName }}
+        </option>
       </select>
+
+      <small class="text-danger"
+        *ngIf="expenseForm.get('cropId')?.touched && expenseForm.get('cropId')?.invalid">
+        Crop is required
+      </small>
     </div>
 
+    <!-- Category -->
     <div class="input-box">
       <label class="details">Expense Category *</label>
-      <select formControlName="category">
+      <select formControlName="categoryId">
         <option value="">Select Category</option>
-        <option *ngFor="let c of categories">{{ c }}</option>
+        <option *ngFor="let c of categories" [value]="c.categoryId">
+          {{ c.categoryName }}
+        </option>
       </select>
+
+      <small class="text-danger"
+        *ngIf="expenseForm.get('categoryId')?.touched && expenseForm.get('categoryId')?.invalid">
+        Category is required
+      </small>
     </div>
 
+    <!-- Amount -->
     <div class="input-box">
       <label class="details">Amount *</label>
       <input type="number" formControlName="amount" />
+
+      <small class="text-danger"
+        *ngIf="expenseForm.get('amount')?.touched && expenseForm.get('amount')?.invalid">
+        Amount is required
+      </small>
     </div>
 
+    <!-- Expense Date -->
     <div class="input-box">
       <label class="details">Expense Date *</label>
-      <input type="date" formControlName="date" />
+      <input type="date" formControlName="expenseDate" />
+
+      <small class="text-danger"
+        *ngIf="expenseForm.get('expenseDate')?.touched && expenseForm.get('expenseDate')?.invalid">
+        Expense date is required
+      </small>
     </div>
 
+    <!-- Notes -->
     <div class="textarea-box">
       <label class="details">Notes</label>
-      <textarea formControlName="notes"></textarea>
+      <textarea formControlName="notes" placeholder="Optional notes"></textarea>
     </div>
 
+    <!-- Buttons -->
     <div class="d-flex gap-2 mt-3">
-      <button class="submit-button" type="button" (click)="save()">
+      <button
+        type="button"
+        class="submit-button"
+        [disabled]="expenseForm.invalid"
+        (click)="save()">
         {{ isEdit ? 'Update' : 'Save' }}
       </button>
 
-      <button class="close-button" type="button" (click)="cancel()">
+      <button
+        type="button"
+        class="close-button"
+        (click)="cancel()">
         Cancel
       </button>
     </div>
@@ -52,4 +91,3 @@
   </form>
 
 </div>
-
