@@ -1,43 +1,68 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ExpenseService } from 'src/app/services/expense/expense.service';
+import { Expense } from 'src/app/models/expense.model';
 
 @Component({
   selector: 'app-expenses-list',
   templateUrl: './expenses-list.component.html',
   styleUrls: ['./expenses-list.component.scss']
 })
-export class ExpensesListComponent {
-  constructor(private router: Router) {}
+export class ExpensesListComponent implements OnInit {
 
-  expenses = [
-    {
-      id: 1,
-      date: '05 Jan 2026',
-      crop: 'Rice',
-      category: 'Fertilizer',
-      amount: 2500,
-      notes: 'Urea purchase'
-    },
-    {
-      id: 2,
-      date: '12 Jan 2026',
-      crop: 'Wheat',
-      category: 'Labor',
-      amount: 1800,
-      notes: 'Field workers'
-    }
-  ];
+  expenses: Expense[] = [];
+  loading = false;
+
+  constructor(
+    private router: Router,
+    private expenseService: ExpenseService
+  ) {}
+
+  ngOnInit(): void {
+    this.loadExpenses();
+  }
+
+  loadExpenses() {
+    this.loading = true;
+
+    this.expenseService.getAll().subscribe({
+      next: (res: any) => {
+        this.expenses = res.data || res;
+
+        // Sort by latest date (frontend only)
+        this.expenses.sort((a, b) =>
+          new Date(b.expenseDate).getTime() -
+          new Date(a.expenseDate).getTime()
+        );
+
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error(err);
+        this.loading = false;
+      }
+    });
+  }
 
   addExpense() {
     this.router.navigate(['/agri/expenses/add']);
   }
 
-  viewExpense(id: number) {
-    this.router.navigate(['/agri/expenses/view', id]);
+  viewExpense(exp: Expense) {
+    this.router.navigate(['/agri/expenses/view', exp.expenseId]);
   }
 
-  editExpense(id: number) {
-    this.router.navigate(['/agri/expenses/edit', id]);
+  editExpense(exp: Expense) {
+    this.router.navigate(['/agri/expenses/edit', exp.expenseId]);
   }
 
+  // ✅ Pure frontend delete (no id usage)
+  deleteExpense(index: number) {
+
+    const confirmDelete = confirm('Are you sure you want to delete this expense?');
+    if (!confirmDelete) return;
+
+    // Remove from frontend only
+    this.expenses.splice(index, 1);
+  }
 }

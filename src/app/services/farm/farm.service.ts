@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../auth/backend-port';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class FarmService {
 

@@ -22,8 +22,8 @@ export class ExpenseCategoriesComponent implements OnInit {
   }
 
   loadCategories() {
-    this.categoryService.getAll().subscribe(res => {
-      this.categories = res;
+    this.categoryService.getAll().subscribe((res:any) => {
+      this.categories = res.data;
     });
   }
 
