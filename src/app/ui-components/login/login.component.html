@@ -25,20 +25,18 @@
 
         <h1>Sign In</h1>
 
-        <input
-          type="number"
-          placeholder="Customer ID"
-          formControlName="customerId" />
+        <input type="number" placeholder="Customer ID" formControlName="customerId" />
 
-        <input
-          type="text"
-          placeholder="User Name"
-          formControlName="userName" />
+        <input type="text" placeholder="User Name" formControlName="userName" />
 
-        <input
-          type="password"
-          placeholder="Password"
-          formControlName="password" />
+        <div class="password-wrapper">
+          <input [type]="showPassword ? 'text' : 'password'" placeholder="Password" formControlName="password" />
+
+          <span class="toggle-password" (click)="togglePassword()">
+            👁
+          </span>
+        </div>
+
 
         <a href="#">Forgot Your Password?</a>
 

@@ -98,3 +98,10 @@
         width: 30px;
     }
 }
+.logo-round {
+  width: 70px;
+  height: 60px;
+  border-radius: 50%;     /* makes it round */
+  object-fit: cover;      /* makes image fit inside circle */
+  display: block;
+}

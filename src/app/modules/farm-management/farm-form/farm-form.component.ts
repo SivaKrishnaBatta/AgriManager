@@ -58,8 +58,8 @@ export class FarmFormComponent implements OnInit{
   loadFarm(): void {
     if (!this.farmId) return;
 
-    this.farmService.getFarmById(this.farmId).subscribe(res => {
-      this.farmForm.patchValue(res);
+    this.farmService.getFarmById(this.farmId).subscribe((res:any) => {
+      this.farmForm.patchValue(res.data);
     });
   }
 
