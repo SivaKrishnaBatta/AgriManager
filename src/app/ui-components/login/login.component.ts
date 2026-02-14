@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -34,6 +34,12 @@ export class LoginComponent implements OnInit {
   showRegister() {
     this.isActive = true;
   }
+  showPassword: boolean = false;
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+
 
   login(): void {
     if (this.loginForm.invalid) return;

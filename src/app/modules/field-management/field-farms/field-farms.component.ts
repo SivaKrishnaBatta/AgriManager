@@ -44,8 +44,8 @@ export class FieldFarmsComponent implements OnInit {
 
   // ✅ Load farms for dropdown
   loadFarms(): void {
-    this.farmService.getFarms().subscribe(res => {
-      this.farms = res;
+    this.farmService.getFarms().subscribe((res:any) => {
+      this.farms = res.data;
     });
   }
 

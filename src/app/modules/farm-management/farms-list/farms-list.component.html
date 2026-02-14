@@ -8,6 +8,7 @@
   <table class="table align-middle table-hover">
     <thead>
       <tr>
+        <th>#</th> <!-- Frontend only index -->
         <th>Farm Name</th>
         <th>Location</th>
         <th>Total Fields</th>
@@ -16,27 +17,36 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let farm of farms">
+      <tr *ngFor="let farm of farms; let i = index">
+        <!-- 👇 UI ID (1,2,3,...) -->
+        <td>{{ i + 1 }}</td>
+
         <td>{{ farm.farmName }}</td>
         <td>{{ farm.location }}</td>
         <td>{{ farm.totalFields }}</td>
         <td>
-            <button
-              class="btn btn-outline-primary btn-sm"
-              (click)="viewFarm(farm.farmId)">
-              View
-            </button>
           <button
-             class="btn btn-outline-secondary btn-sm mx-1"
+            class="btn btn-outline-primary btn-sm"
+            (click)="viewFarm(farm.farmId)">
+            View
+          </button>
+
+          <button
+            class="btn btn-outline-secondary btn-sm mx-1"
             (click)="editFarm(farm.farmId)">
             Edit
           </button>
 
+          <button
+            class="btn btn-outline-danger btn-sm"
+            (click)="deleteFarm(farm.farmId)">
+            Delete
+          </button>
         </td>
       </tr>
 
       <tr *ngIf="farms.length === 0">
-        <td colspan="4" class="text-center">No farms found</td>
+        <td colspan="5" class="text-center">No farms found</td>
       </tr>
     </tbody>
   </table>

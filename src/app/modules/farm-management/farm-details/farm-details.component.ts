@@ -22,8 +22,8 @@ export class FarmDetailsComponent implements OnInit {
   }
 
   loadFarm(id: number) {
-    this.farmService.getFarmById(id).subscribe(res => {
-      this.farm = res;
+    this.farmService.getFarmById(id).subscribe((res:any) => {
+      this.farm = res.data;
     });
   }
 
