@@ -69,7 +69,7 @@ export class AddCropComponent implements OnInit {
   }
 
 loadDropdowns() {
-  this.cropService.getFarms().subscribe(res => this.farms = res);
+  this.cropService.getFarms().subscribe((res:any) => this.farms = res.data);
 
   this.cropService.getFields().subscribe((res:any) => this.fields = res.data);
 

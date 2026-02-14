@@ -53,7 +53,7 @@ deleteCrop(id: number, event?: Event) {
 
   this.cropService.deleteCrop(id).subscribe({
     next: () => {
-      // 🔥 THIS LINE IS CRITICAL
+      //  THIS LINE IS CRITICAL
       this.cropsList = this.cropsList.filter(c => c.cropId !== id);
     },
     error: (err) => {
