@@ -1,5 +1,7 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ExpenseService } from 'src/app/services/expense/expense.service';
+import { Expense } from 'src/app/models/expense.model';
 
 @Component({
   selector: 'app-expense-details',
@@ -7,28 +9,36 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./expense-details.component.scss']
 })
 export class ExpenseDetailsComponent implements OnInit {
-  expense: any;
 
-  expenses = [
-    {
-      id: 1,
-      crop: 'Rice',
-      category: 'Fertilizer',
-      amount: 2500,
-      date: '05 Jan 2026',
-      notes: 'Urea'
-    }
-  ];
+  expense!: Expense;
+  loading = false;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private expenseService: ExpenseService
+  ) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.expense = this.expenses.find(e => e.id === id);
+
+    if (id) {
+      this.loading = true;
+
+      this.expenseService.getById(id).subscribe({
+        next: (res: any) => {
+          this.expense = res.data || res;
+          this.loading = false;
+        },
+        error: (err) => {
+          console.error('Failed to load expense', err);
+          this.loading = false;
+        }
+      });
+    }
   }
 
   goBack() {
     this.router.navigate(['/agri/expenses/list']);
   }
-
 }

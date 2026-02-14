@@ -73,8 +73,8 @@ loadDropdowns() {
 
   this.cropService.getFields().subscribe((res:any) => this.fields = res.data);
 
-  this.cropService.getCropStatuses().subscribe(res => {
-    this.statuses = res;
+  this.cropService.getCropStatuses().subscribe((res:any) => {
+    this.statuses = res.data;
 
     //  PATCH AFTER statuses loaded
     if (this.isEdit) {

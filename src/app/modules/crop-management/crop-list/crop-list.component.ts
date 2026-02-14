@@ -22,8 +22,8 @@ export class CropListComponent implements OnInit {
 
   loadCrops() {
     this.cropService.getCrops().subscribe({
-      next: (res) => {
-        this.cropsList = res;
+      next: (res:any) => {
+        this.cropsList = res.data;
       },
       error: (err) => {
         console.error('Error loading crops', err);
