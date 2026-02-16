@@ -25,8 +25,8 @@ export class CropDetailsComponent implements OnInit {
 
   loadCropDetails(id: number) {
     this.cropService.getCropById(id).subscribe({
-      next: (res) => {
-        this.crop = res;
+      next: (res:any) => {
+        this.crop = res.data;
       },
       error: (err) => {
         console.error('Error loading crop details', err);
