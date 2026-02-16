@@ -83,10 +83,11 @@
         Edit
       </button>
 
-      <button class="btn btn-outline-danger btn-sm"
-              (click)="deleteExpense(i)">
-        Delete
-      </button>
+      <button
+  class="btn btn-outline-danger btn-sm"
+  (click)="openDeletePopup(exp.expenseId)">
+  Delete
+</button>
 
     </td>
 
@@ -105,3 +106,10 @@
   </div>
 
 </div>
+<app-confirm-dialog
+  [visible]="showDeletePopup"
+  title="Delete Expense"
+  message="This action cannot be undone. Are you sure you want to delete this expense?"
+  (confirm)="confirmDelete()"
+  (cancel)="closeDeletePopup()">
+</app-confirm-dialog>

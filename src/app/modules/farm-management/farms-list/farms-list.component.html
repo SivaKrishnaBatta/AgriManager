@@ -8,7 +8,7 @@
   <table class="table align-middle table-hover">
     <thead>
       <tr>
-        <th>#</th> <!-- Frontend only index -->
+        <th>#</th>
         <th>Farm Name</th>
         <th>Location</th>
         <th>Total Fields</th>
@@ -18,30 +18,26 @@
 
     <tbody>
       <tr *ngFor="let farm of farms; let i = index">
-        
         <td>{{ i + 1 }}</td>
-
         <td>{{ farm.farmName }}</td>
         <td>{{ farm.location }}</td>
         <td>{{ farm.totalFields }}</td>
+
         <td>
-          <button class="btn btn-outline-primary btn-sm" (click)="viewFarm(farm.farmId)">
+          <button class="btn btn-outline-primary btn-sm"
+                  (click)="viewFarm(farm.farmId)">
             View
           </button>
 
-          <button class="btn btn-outline-secondary btn-sm mx-1" (click)="editFarm(farm.farmId)">
+          <button class="btn btn-outline-secondary btn-sm mx-1"
+                  (click)="editFarm(farm.farmId)">
             Edit
           </button>
-          <!-- <button class="btn btn-outline-danger btn-sm" (click)="openDeletePopup(farm.farmId)">
-            Delete
-          </button> -->
-          <button class="btn btn-outline-danger btn-sm" (click)="openDeletePopup(farm.farmId)">
+
+          <button class="btn btn-outline-danger btn-sm"
+                  (click)="openDeletePopup(farm.farmId)">
             Delete
           </button>
-
-
-
-
         </td>
       </tr>
 
@@ -53,16 +49,11 @@
 
 </div>
 
-<!-- Custom Delete Popup -->
-<div class="glass-backdrop" *ngIf="showDeletePopup">
-  <div class="glass-modal">
-    <div class="icon-wrap">🗑️</div>
-    <h3>Delete Farm?</h3>
-    <p>This action cannot be undone. Are you sure you want to continue?</p>
-
-    <div class="actions">
-      <button class="btn-cancel" (click)="closeDeletePopup()">Cancel</button>
-      <button class="btn-delete" (click)="confirmDelete()">Yes, Delete</button>
-    </div>
-  </div>
-</div>
+<!-- Shared Confirm Dialog -->
+<app-confirm-dialog
+  [visible]="showDeletePopup"
+  title="Delete Farm"
+  message="This action cannot be undone. Are you sure you want to delete this farm?"
+  (confirm)="confirmDelete()"
+  (cancel)="closeDeletePopup()">
+</app-confirm-dialog>

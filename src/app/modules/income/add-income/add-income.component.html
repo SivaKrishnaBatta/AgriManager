@@ -12,32 +12,33 @@
     <div class="input-box">
       <label class="details">Crop *</label>
       <select formControlName="cropId">
-        <option value="">Select Crop</option>
-        <option *ngFor="let c of crops" [value]="c.cropId">
-          {{ c.cropName }}
-        </option>
-      </select>
+  <option value="">Select Crop</option>
+  <option *ngFor="let c of crops" [value]="c.cropId">
+    {{ c.cropName }}
+  </option>
+</select>
+
     </div>
 
-    <!-- Quantity Sold -->
+    <!-- Quantity -->
     <div class="input-box">
       <label class="details">Quantity Sold *</label>
       <input type="number" formControlName="quantity" />
     </div>
 
-    <!-- Price Per Unit -->
+    <!-- Price -->
     <div class="input-box">
       <label class="details">Price per Unit *</label>
       <input type="number" formControlName="pricePerUnit" />
     </div>
 
-    <!-- Total Amount -->
+    <!-- Total -->
     <div class="input-box">
       <label class="details">Total Amount</label>
       <input type="number" formControlName="totalAmount" readonly />
     </div>
 
-    <!-- Sale Date -->
+    <!-- Date -->
     <div class="input-box">
       <label class="details">Sale Date *</label>
       <input type="date" formControlName="saleDate" />

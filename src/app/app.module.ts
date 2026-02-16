@@ -47,6 +47,7 @@ import { DashboardManufacturingMetricsComponent } from './modules/dashboard/Dash
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth/auth.interceptor';
 import { DashboardBarchartComponent } from './modules/dashboard/dashboard-barchart/dashboard-barchart.component';
+
 // import { AddCropComponent } from './modules/crop-management/add-crop/add-crop.component';
 // import { ExpensesListComponent } from './modules/expense-management/expenses-list/expenses-list.component';
 // import { AddExpenseComponent } from './modules/expense-management/add-expense/add-expense.component';
@@ -103,6 +104,7 @@ import { DashboardBarchartComponent } from './modules/dashboard/dashboard-barcha
     TopCustomersSuppliersComponent,
     
     Page404Component,
+          
           // ExpensesListComponent,
           // AddExpenseComponent,
           // ExpenseCategoriesComponent,

@@ -60,13 +60,13 @@ export class FieldListComponent implements OnInit {
     this.router.navigate(['/agri/fields/edit', id]);
   }
 
-  // ✅ Open popup
+  //  Open popup
   openDeletePopup(id: number): void {
     this.selectedFieldId = id;
     this.showDeletePopup = true;
   }
 
-  // ❌ Close popup
+  //  Close popup
   closeDeletePopup(): void {
     this.showDeletePopup = false;
     this.selectedFieldId = null;
