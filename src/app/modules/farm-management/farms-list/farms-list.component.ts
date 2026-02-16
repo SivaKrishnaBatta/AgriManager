@@ -23,10 +23,12 @@ export class FarmsListComponent implements OnInit {
   loadFarms() {
     this.farmService.getFarms().subscribe((res: any) => {
       // Get data from backend
-      this.farms = res.data || [];
+      this.farms = res.data ;
+     
 
-      // ✅ Sort by real backend ID (or change to any field you want)
+      //  Sort by real backend ID (or change to any field you want)
       this.farms.sort((a, b) => a.farmId - b.farmId);
+  
     });
   }
 
@@ -46,7 +48,7 @@ export class FarmsListComponent implements OnInit {
     if (confirm('Are you sure you want to delete this farm?')) {
       this.farmService.deleteFarm(id).subscribe({
         next: () => {
-          // ✅ Reload list → sorted → UI re-indexed automatically
+          // Reload list → sorted → UI re-indexed automatically
           this.loadFarms();
         },
         error: (err) => {

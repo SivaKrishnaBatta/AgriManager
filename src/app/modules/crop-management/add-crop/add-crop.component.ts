@@ -23,7 +23,7 @@ export class AddCropComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private cropService: CropService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -68,49 +68,51 @@ export class AddCropComponent implements OnInit {
     return null;
   }
 
-loadDropdowns() {
-  this.cropService.getFarms().subscribe((res:any) => this.farms = res.data);
+  loadDropdowns() {
+    this.cropService.getFarms().subscribe((res: any) => this.farms = res.data);
 
-  this.cropService.getFields().subscribe((res:any) => this.fields = res.data);
+    this.cropService.getFields().subscribe((res: any) => this.fields = res.data);
 
-  this.cropService.getCropStatuses().subscribe((res:any) => {
-    this.statuses = res.data;
+    this.cropService.getCropStatuses().subscribe((res: any) => {
+      this.statuses = res.data;
 
-    //  PATCH AFTER statuses loaded
-    if (this.isEdit) {
-      this.loadCropById(this.cropId);
-    }
-  });
-}
+      //  PATCH AFTER statuses loaded
+      if (this.isEdit) {
+        this.loadCropById(this.cropId);
+      }
+    });
+  }
 
 
 
-loadCropById(id: number) {
-  this.cropService.getCropById(id).subscribe({
-    next: (res: any) => {
-      this.cropForm.patchValue(res);
-    },
-    error: (err) => {
-      console.error('Error loading crop', err);
-    }
-  });
-}
+  loadCropById(id: number) {
+    this.cropService.getCropById(id).subscribe({
+      next: (res: any) => {
+        this.cropForm.patchValue(res.data);
+      },
+      error: (err) => {
+        console.error('Error loading crop', err);
+      }
+    });
+  }
 
 
   // 👁 Show End Date only if status = Completed
-    get showEndDate(): boolean {
-  if (!this.statuses || this.statuses.length === 0) {
-    return false;
+  get showEndDate(): boolean {
+    if (!this.statuses || this.statuses.length === 0) {
+      return false;
+    }
+
+    const statusId = Number(this.cropForm.get('cropStatusId')?.value);
+    console.log(this.statuses)
+    const completedStatus = this.statuses.find(
+      s => s.cropStatusName.toLowerCase() === 'completed'
+    );
+    console.log(statusId,"statusId")
+    console.log(completedStatus,"completedStatus")
+
+    return !!completedStatus && statusId === completedStatus.cropStatusId;
   }
-
-  const statusId = Number(this.cropForm.get('cropStatusId')?.value);
-
-  const completedStatus = this.statuses.find(
-    s => s.cropStatusName.toLowerCase() === 'completed'
-  );
-
-  return !!completedStatus && statusId === completedStatus.cropStatusId;
-}
 
 
   save() {
