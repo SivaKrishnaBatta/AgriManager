@@ -58,13 +58,11 @@
             </button>
 
            <button
-              type="button"
-              class="btn btn-outline-danger btn-sm"
-              (click)="deleteCrop(crop.cropId, $event)">
-              Delete
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            (click)="openDeletePopup(crop.cropId)">
+            Delete
             </button>
-          </td>
-        </tr>
 
         <tr *ngIf="cropsList.length === 0">
           <td colspan="7" class="text-center">
@@ -75,3 +73,10 @@
     </table>
   
 </div>
+<app-confirm-dialog
+  [visible]="showDeletePopup"
+  title="Delete Crop"
+  message="This action cannot be undone. Are you sure you want to delete this crop?"
+  (confirm)="confirmDelete()"
+  (cancel)="closeDeletePopup()">
+</app-confirm-dialog>

@@ -25,7 +25,8 @@
           <!-- Frontend index -->
           <td>{{ i + 1 }}</td>
 
-          <td>{{ income.saleDate }}</td>
+           <td>{{ income.saleDate | date:'dd MMM yyyy' }}</td>
+
           <td>{{ income.cropName }}</td>
           <td>{{ income.quantity }}</td>
           <td>₹ {{income.totalAmount }}</td>

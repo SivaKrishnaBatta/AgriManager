@@ -11,21 +11,8 @@ export class FarmsListComponent implements OnInit {
 
   farms: any[] = [];
 
-  // Popup state
-showDeletePopup: boolean = false;
-selectedFarmId: number | null = null;
-
-// Open popup
-openDeletePopup(id: number): void {
-  this.selectedFarmId = id;
-  this.showDeletePopup = true;
-}
-
-// Close popup
-closeDeletePopup(): void {
-  this.showDeletePopup = false;
-  this.selectedFarmId = null;
-}
+  showDeletePopup: boolean = false;
+  selectedFarmId: number | null = null;
 
   constructor(
     private farmService: FarmService,
@@ -36,58 +23,52 @@ closeDeletePopup(): void {
     this.loadFarms();
   }
 
-  loadFarms() {
-    this.farmService.getFarms().subscribe((res: any) => {
-      // Get data from backend
-      this.farms = res.data ;
-     
-
-      //  Sort by real backend ID (or change to any field you want)
-      this.farms.sort((a, b) => a.farmId - b.farmId);
-  
+  loadFarms(): void {
+    this.farmService.getFarms().subscribe({
+      next: (res: any) => {
+        this.farms = res.data || [];
+        this.farms.sort((a, b) => a.farmId - b.farmId);
+      },
+      error: (err) => {
+        console.error('Failed to load farms', err);
+      }
     });
   }
 
-  addFarm() {
+  addFarm(): void {
     this.router.navigate(['/agri/farms/add']);
   }
 
-  editFarm(id: number) {
+  editFarm(id: number): void {
     this.router.navigate(['/agri/farms/edit', id]);
   }
 
-  viewFarm(id: number) {
+  viewFarm(id: number): void {
     this.router.navigate(['/agri/farms/view', id]);
   }
 
-  deleteFarm(id: number) {
-    if (confirm('Are you sure you want to delete this farm?')) {
-      this.farmService.deleteFarm(id).subscribe({
-        next: () => {
-          // Reload list → sorted → UI re-indexed automatically
-          this.loadFarms();
-        },
-        error: (err) => {
-          console.error('Delete failed', err);
-          alert('Failed to delete farm');
-        }
-      });
-    }
+  openDeletePopup(id: number): void {
+    this.selectedFarmId = id;
+    this.showDeletePopup = true;
   }
+
+  closeDeletePopup(): void {
+    this.showDeletePopup = false;
+    this.selectedFarmId = null;
+  }
+
   confirmDelete(): void {
-  if (this.selectedFarmId != null) {
+    if (!this.selectedFarmId) return;
+
     this.farmService.deleteFarm(this.selectedFarmId).subscribe({
       next: () => {
         this.closeDeletePopup();
-        this.loadFarms(); // reload list
+        this.loadFarms();
       },
-      error: () => {
-        alert('Failed to delete farm');
+      error: (err) => {
+        console.error('Delete failed', err);
         this.closeDeletePopup();
       }
     });
   }
-}
-  
-
 }

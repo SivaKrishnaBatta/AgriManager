@@ -8,6 +8,7 @@ import { ExpenseCategoriesComponent } from './expense-categories/expense-categor
 import { ExpensesListComponent } from './expenses-list/expenses-list.component';
 import { ExpenseDetailsComponent } from './expense-details/expense-details.component';
 import { ExpenseCategoryFormComponent } from './expense-category-form/expense-category-form.component';
+import { SharedModule } from 'src/app/shared/shared/shared.module';
 @NgModule({
   declarations: [
    AddExpenseComponent,
@@ -22,7 +23,8 @@ import { ExpenseCategoryFormComponent } from './expense-category-form/expense-ca
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ExpenseManagementRoutingModule
+    ExpenseManagementRoutingModule,
+    SharedModule
     
   ]
 })

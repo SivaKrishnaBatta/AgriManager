@@ -29,7 +29,7 @@ export class ExpenseService {
     return this.http.put(`${this.baseUrl}api/expenses/${id}`, payload);
   }
 
-  delete(id: number) {
+  deleteExpense(id: number) {
     return this.http.delete(`${this.baseUrl}api/expenses/${id}`);
   }
 }

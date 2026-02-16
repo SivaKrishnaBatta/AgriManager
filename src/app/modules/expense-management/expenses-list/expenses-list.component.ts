@@ -13,6 +13,9 @@ export class ExpensesListComponent implements OnInit {
   expenses: Expense[] = [];
   loading = false;
 
+  showDeletePopup: boolean = false;
+  selectedExpenseId: number | null = null;
+
   constructor(
     private router: Router,
     private expenseService: ExpenseService
@@ -22,14 +25,13 @@ export class ExpensesListComponent implements OnInit {
     this.loadExpenses();
   }
 
-  loadExpenses() {
+  loadExpenses(): void {
     this.loading = true;
 
     this.expenseService.getAll().subscribe({
       next: (res: any) => {
         this.expenses = res.data || res;
 
-        // Sort by latest date (frontend only)
         this.expenses.sort((a, b) =>
           new Date(b.expenseDate).getTime() -
           new Date(a.expenseDate).getTime()
@@ -44,25 +46,42 @@ export class ExpensesListComponent implements OnInit {
     });
   }
 
-  addExpense() {
+  addExpense(): void {
     this.router.navigate(['/agri/expenses/add']);
   }
 
-  viewExpense(exp: Expense) {
+  viewExpense(exp: Expense): void {
     this.router.navigate(['/agri/expenses/view', exp.expenseId]);
   }
 
-  editExpense(exp: Expense) {
+  editExpense(exp: Expense): void {
     this.router.navigate(['/agri/expenses/edit', exp.expenseId]);
   }
 
-  // ✅ Pure frontend delete (no id usage)
-  deleteExpense(index: number) {
+  openDeletePopup(id: number): void {
+    this.selectedExpenseId = id;
+    this.showDeletePopup = true;
+  }
 
-    const confirmDelete = confirm('Are you sure you want to delete this expense?');
-    if (!confirmDelete) return;
+  closeDeletePopup(): void {
+    this.selectedExpenseId = null;
+    this.showDeletePopup = false;
+  }
 
-    // Remove from frontend only
-    this.expenses.splice(index, 1);
+  confirmDelete(): void {
+    if (!this.selectedExpenseId) return;
+
+    this.expenseService.deleteExpense(this.selectedExpenseId).subscribe({
+      next: () => {
+        this.expenses = this.expenses.filter(
+          e => e.expenseId !== this.selectedExpenseId
+        );
+        this.closeDeletePopup();
+      },
+      error: (err) => {
+        console.error('Delete failed', err);
+        this.closeDeletePopup();
+      }
+    });
   }
 }

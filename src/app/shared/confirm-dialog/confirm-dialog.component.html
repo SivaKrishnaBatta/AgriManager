@@ -1,0 +1,17 @@
+<div class="backdrop" *ngIf="visible" (click)="onBackdropClick($event)">
+  <div class="modal-card">
+
+    <div class="modal-icon">
+      <i class="bi bi-exclamation-triangle-fill"></i>
+    </div>
+
+    <h3 class="modal-title">{{ title }}</h3>
+    <p class="modal-message">{{ message }}</p>
+
+    <div class="modal-actions">
+      <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      <button class="btn btn-danger" (click)="onConfirm()">Delete</button>
+    </div>
+
+  </div>
+</div>

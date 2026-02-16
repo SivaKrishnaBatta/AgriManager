@@ -6,7 +6,7 @@ import { CropListComponent } from './crop-list/crop-list.component';
 import { CropManagementRoutingModule } from './crop-management-routing.module';
 import { CropDetailsComponent } from './crop-details/crop-details.component';
 import { FormsModule } from '@angular/forms';
-
+import { SharedModule } from 'src/app/shared/shared/shared.module';
 @NgModule({
   declarations: [
     AddCropComponent, 
@@ -17,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     CropManagementRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
     
   ]
 })

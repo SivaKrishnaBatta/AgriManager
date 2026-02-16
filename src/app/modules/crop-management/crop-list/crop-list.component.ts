@@ -11,6 +11,9 @@ export class CropListComponent implements OnInit {
 
   cropsList: any[] = [];
 
+  showDeletePopup:boolean=false;
+  selectedCropId:number | null=null;
+
   constructor(
     private router: Router,
     private cropService: CropService
@@ -43,23 +46,32 @@ export class CropListComponent implements OnInit {
     this.router.navigate(['/agri/crops/view', id]);
   }
 
-deleteCrop(id: number, event?: Event) {
-  if (event) {
-    event.preventDefault();
-    event.stopPropagation();
+  openDeletePopup(id:number):void{
+    this.selectedCropId=id;
+    this.showDeletePopup=true
   }
 
-  if (!confirm('Are you sure you want to delete this crop?')) return;
+  closeDeletePopup():void{
+    this.selectedCropId= null;
+    this.showDeletePopup= false
+  }
 
-  this.cropService.deleteCrop(id).subscribe({
-    next: () => {
-      this.cropsList = this.cropsList.filter(c => c.cropId !== id);
-    },
-    error: (err) => {
-      console.error('Delete failed', err);
-    }
-  });
-}
+confirmDelete(): void {
+    if (!this.selectedCropId) return;
+
+    this.cropService.deleteCrop(this.selectedCropId).subscribe({
+      next: () => {
+        this.cropsList = this.cropsList.filter(
+          c => c.cropId !== this.selectedCropId
+        );
+        this.closeDeletePopup();
+      },
+      error: (err) => {
+        console.error('Delete failed', err);
+        this.closeDeletePopup();
+      }
+    });
+  }
 
 
 }
