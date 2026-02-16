@@ -11,6 +11,7 @@
     <table class="table align-middle table-hover">
       <thead>
         <tr>
+          <th>ID</th>
           <th>Date</th>
           <th>Crop</th>
           <th>Quantity</th>
@@ -20,28 +21,32 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let income of incomes">
-          <td>{{ income.date }}</td>
-          <td>{{ income.crop }}</td>
+        <tr *ngFor="let income of incomes; let i = index">
+          <!-- Frontend index -->
+          <td>{{ i + 1 }}</td>
+
+          <td>{{ income.saleDate }}</td>
+          <td>{{ income.cropName }}</td>
           <td>{{ income.quantity }}</td>
-          <td>₹ {{ income.amount }}</td>
+          <td>₹ {{income.totalAmount }}</td>
+
           <td class="text-center">
-            <button
-              class="btn btn-outline-primary btn-sm"
-              (click)="viewIncome(income.id)">
+            <button class="btn btn-outline-primary btn-sm" (click)="viewIncome(income.incomeId)">
               View
             </button>
 
-            <button
-              class="btn btn-outline-secondary btn-sm mx-1"
-              (click)="editIncome(income.id)">
+            <button class="btn btn-outline-secondary btn-sm mx-1" (click)="editIncome(income.incomeId)">
               Edit
+            </button>
+
+            <button class="btn btn-outline-danger btn-sm" (click)="openDeletePopup(income.incomeId)">
+              Delete
             </button>
           </td>
         </tr>
 
         <tr *ngIf="incomes.length === 0">
-          <td colspan="5" class="text-center text-muted">
+          <td colspan="6" class="text-center text-muted">
             No income records found
           </td>
         </tr>
@@ -49,4 +54,18 @@
     </table>
   </div>
 
+</div>
+
+<!-- Custom Delete Popup -->
+<div class="glass-backdrop" *ngIf="showDeletePopup">
+  <div class="glass-modal">
+    <div class="icon-wrap">🗑️</div>
+    <h3>Delete Income?</h3>
+    <p>This action cannot be undone. Are you sure you want to continue?</p>
+
+    <div class="actions">
+      <button class="btn-cancel" (click)="closeDeletePopup()">Cancel</button>
+      <button class="btn-delete" (click)="confirmDelete()">Yes, Delete</button>
+    </div>
+  </div>
 </div>

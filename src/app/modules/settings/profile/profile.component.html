@@ -1,54 +1,93 @@
-<div class="card-wrapper">
+<div class="profile-wrapper" *ngIf="user">
 
   <!-- Header -->
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <h2 class="card-heading m-0">Profile</h2>
+  <div class="profile-header">
+    <div>
+      <h2 class="user-name">{{ user.fullName }}</h2>
+      <div class="user-meta">
+        <div><b>Role :</b> {{ user.roleName }}</div>
+        <div><b>Username :</b> {{ user.username }}</div>
+        <div><b>Phone Number :</b> {{ user.mobile }}</div>
+        <div><b>Email ID :</b> {{ user.email }}</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-outline" (click)="editUser()">✏️ Edit</button>
+      <button class="btn-primary" (click)="openReset()">✔ Reset Password</button>
+    </div>
   </div>
 
   <hr />
 
-  <form [formGroup]="profileForm" class="cor-form">
-
-    <!-- Full Name -->
-    <div class="input-box">
-      <label class="details">Full Name *</label>
-      <input type="text" formControlName="fullName" />
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab" [class.active]="activeTab === 'details'" (click)="switchTab('details')">
+      User Details
     </div>
-
-    <!-- Email -->
-    <div class="input-box">
-      <label class="details">Email *</label>
-      <input type="email" formControlName="email" />
+    <div class="tab" [class.active]="activeTab === 'roles'" (click)="switchTab('roles')">
+      User Roles
     </div>
+  </div>
 
-    <!-- Mobile -->
-    <div class="input-box">
-      <label class="details">Mobile</label>
-      <input type="text" formControlName="mobile" />
+  <!-- User Details Tab -->
+  <div class="details-card" *ngIf="activeTab === 'details'">
+    <h4 class="section-title">User Details</h4>
+
+    <div class="details-grid">
+      <div class="label">Customer Type</div>
+      <div class="value">{{ user.customerType }}</div>
+
+      <div class="label">Default Currency</div>
+      <div class="value">{{ user.currency }}</div>
+
+      <div class="label">Portal Language</div>
+      <div class="value">{{ user.language }}</div>
+
+      <div class="label">Email</div>
+      <div class="value">{{ user.email }}</div>
+
+      <div class="label">Mobile number</div>
+      <div class="value">{{ user.mobile }}</div>
     </div>
+  </div>
 
-    <!-- Address -->
-    <div class="textarea-box">
-      <label class="details">Address</label>
-      <textarea formControlName="address"></textarea>
+  <!-- User Roles Tab -->
+  <div class="details-card" *ngIf="activeTab === 'roles'">
+    <h4 class="section-title">User Roles</h4>
+
+    <ul>
+      <li *ngFor="let r of roles">
+        {{ r.roleName }}
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- Edit Popup -->
+<div class="glass-backdrop" *ngIf="showEditPopup">
+  <div class="glass-modal">
+    <h3>Edit Profile</h3>
+
+    <!-- <input [(ngModel)]="user.fullName" placeholder="Full Name" />
+    <input [(ngModel)]="user.mobile" placeholder="Mobile" /> -->
+
+    <div class="actions">
+      <button class="btn-primary" (click)="saveProfile(user)">Save</button>
     </div>
+  </div>
+</div>
 
-    <!-- Notes -->
-    <div class="textarea-box">
-      <label class="details">Notes</label>
-      <textarea formControlName="notes"></textarea>
+<!-- Reset Password Popup -->
+<div class="glass-backdrop" *ngIf="showResetPopup">
+  <div class="glass-modal">
+    <h3>Reset Password?</h3>
+    <p>Are you sure you want to reset password?</p>
+
+    <div class="actions">
+      <button class="btn-outline" (click)="closeReset()">Cancel</button>
+      <button class="btn-primary" (click)="resetPassword()">Yes, Reset</button>
     </div>
-
-    <!-- Buttons -->
-    <div class="w-100 d-flex gap-2 mt-3">
-      <button
-        type="button"
-        class="submit-button"
-        (click)="updateProfile()">
-        Update Profile
-      </button>
-    </div>
-
-  </form>
-
+  </div>
 </div>

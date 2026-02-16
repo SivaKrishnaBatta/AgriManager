@@ -68,7 +68,7 @@ export class SideMenuComponent {
     {
       name: "Crop Management",
       icon: "fa-solid fa-leaf",
-      url: "crop",
+      url: "crops",
       submenus: [
         {
           name: "Crops List",

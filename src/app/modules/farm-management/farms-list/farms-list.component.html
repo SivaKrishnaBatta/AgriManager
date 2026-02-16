@@ -25,23 +25,23 @@
         <td>{{ farm.location }}</td>
         <td>{{ farm.totalFields }}</td>
         <td>
-          <button
-            class="btn btn-outline-primary btn-sm"
-            (click)="viewFarm(farm.farmId)">
+          <button class="btn btn-outline-primary btn-sm" (click)="viewFarm(farm.farmId)">
             View
           </button>
 
-          <button
-            class="btn btn-outline-secondary btn-sm mx-1"
-            (click)="editFarm(farm.farmId)">
+          <button class="btn btn-outline-secondary btn-sm mx-1" (click)="editFarm(farm.farmId)">
             Edit
           </button>
-
-          <button
-            class="btn btn-outline-danger btn-sm"
-            (click)="deleteFarm(farm.farmId)">
+          <!-- <button class="btn btn-outline-danger btn-sm" (click)="openDeletePopup(farm.farmId)">
+            Delete
+          </button> -->
+          <button class="btn btn-outline-danger btn-sm" (click)="openDeletePopup(farm.farmId)">
             Delete
           </button>
+
+
+
+
         </td>
       </tr>
 
@@ -51,4 +51,18 @@
     </tbody>
   </table>
 
+</div>
+
+<!-- Custom Delete Popup -->
+<div class="glass-backdrop" *ngIf="showDeletePopup">
+  <div class="glass-modal">
+    <div class="icon-wrap">🗑️</div>
+    <h3>Delete Farm?</h3>
+    <p>This action cannot be undone. Are you sure you want to continue?</p>
+
+    <div class="actions">
+      <button class="btn-cancel" (click)="closeDeletePopup()">Cancel</button>
+      <button class="btn-delete" (click)="confirmDelete()">Yes, Delete</button>
+    </div>
+  </div>
 </div>

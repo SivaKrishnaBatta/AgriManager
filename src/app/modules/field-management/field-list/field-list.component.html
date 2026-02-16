@@ -28,9 +28,7 @@
             <td>{{ field.fieldId }}</td>
 
             <td>
-              <a
-                class="highlighted-row"
-                (click)="viewField(field.fieldId)">
+              <a class="highlighted-row" (click)="viewField(field.fieldId)">
                 {{ field.fieldName }}
               </a>
             </td>
@@ -39,23 +37,26 @@
             <td>{{ field.area || '-' }}</td>
 
             <td class="text-center">
-              <button
-                class="btn btn-outline-primary btn-sm"
-                (click)="viewField(field.fieldId)">
+              <button class="btn btn-outline-primary btn-sm" (click)="viewField(field.fieldId)">
                 View
               </button>
 
-              <button
-                class="btn btn-outline-secondary btn-sm mx-1"
-                (click)="editField(field.fieldId)">
+              <button class="btn btn-outline-secondary btn-sm mx-1" (click)="editField(field.fieldId)">
                 Edit
               </button>
 
-              <button
+              <!-- <button
                 class="btn btn-outline-danger btn-sm"
                 (click)="deleteField(field.fieldId)">
                 Delete
+              </button> -->
+              <!-- Delete Button -->
+              <button class="btn btn-outline-danger btn-sm" (click)="openDeletePopup(field.fieldId)">
+                Delete
               </button>
+
+
+
             </td>
           </tr>
 
@@ -70,4 +71,16 @@
 
   </div>
 
+</div>
+
+<div class="modal-backdrop-custom" *ngIf="showDeletePopup">
+  <div class="modal-custom">
+    <h5>Confirm Delete</h5>
+    <p>Are you sure you want to delete this field?</p>
+
+    <div class="modal-actions">
+      <button class="btn btn-secondary btn-sm" (click)="closeDeletePopup()">Cancel</button>
+      <button class="btn btn-danger btn-sm" (click)="confirmDelete()">Yes, Delete</button>
+    </div>
+  </div>
 </div>
