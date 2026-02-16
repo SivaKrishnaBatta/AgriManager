@@ -1,5 +1,6 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IncomeService } from 'src/app/services/income/income.service';
 
 @Component({
   selector: 'app-income-details',
@@ -7,24 +8,35 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./income-details.component.scss']
 })
 export class IncomeDetailsComponent implements OnInit {
-  income: any;
 
-  incomes = [
-    {
-      id: 1,
-      crop: 'Rice',
-      quantity: 1200,
-      amount: 36000,
-      date: '10 Jan 2026',
-      notes: 'Local market sale'
-    }
-  ];
+  income: any = null;
+  incomeId!: number;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private incomeService: IncomeService
+  ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.income = this.incomes.find(i => i.id === id);
+    this.incomeId = Number(this.route.snapshot.paramMap.get('id'));
+
+    if (this.incomeId) {
+      this.loadIncome(this.incomeId);
+    }
+  }
+
+  loadIncome(id: number) {
+    this.incomeService.getIncomeById(id).subscribe({
+      next: (res: any) => {
+        console.log('Income details response:', res);
+        this.income = res.data;   // ✅ IMPORTANT
+      },
+      error: (err) => {
+        console.error('Failed to load income', err);
+        alert('Failed to load income details');
+      }
+    });
   }
 
   goBack() {

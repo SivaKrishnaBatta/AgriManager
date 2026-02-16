@@ -7,8 +7,8 @@ import { CropDetailsComponent } from './crop-details/crop-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
-{path:'list', component:CropListComponent},
- { path: 'add', component: AddCropComponent },        // create
+  {path:'list', component:CropListComponent},
+  { path: 'add', component: AddCropComponent },        // create
   { path: 'edit/:id', component: AddCropComponent },  // edit
   { path: 'view/:id', component: CropDetailsComponent  }
  

@@ -1,3 +1,4 @@
+// import { Component, OnInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FieldService } from 'src/app/services/field/field.service';
@@ -10,6 +11,10 @@ import { FieldService } from 'src/app/services/field/field.service';
 export class FieldListComponent implements OnInit {
 
   farms: any[] = [];
+
+  // ✅ Popup state
+  showDeletePopup: boolean = false;
+  selectedFieldId: number | null = null;
 
   constructor(
     private router: Router,
@@ -37,7 +42,6 @@ export class FieldListComponent implements OnInit {
           fields: []
         };
       }
-
       grouped[field.farmId].fields.push(field);
     });
 
@@ -56,11 +60,30 @@ export class FieldListComponent implements OnInit {
     this.router.navigate(['/agri/fields/edit', id]);
   }
 
-  deleteField(id: number): void {
-    if (confirm('Are you sure you want to delete this field?')) {
-      this.fieldService.deleteField(id).subscribe(() => {
-        console.log('Field deleted successfully');
-        this.loadFields();
+  // ✅ Open popup
+  openDeletePopup(id: number): void {
+    this.selectedFieldId = id;
+    this.showDeletePopup = true;
+  }
+
+  // ❌ Close popup
+  closeDeletePopup(): void {
+    this.showDeletePopup = false;
+    this.selectedFieldId = null;
+  }
+
+  // ✅ Confirm delete
+  confirmDelete(): void {
+    if (this.selectedFieldId != null) {
+      this.fieldService.deleteField(this.selectedFieldId).subscribe({
+        next: () => {
+          this.closeDeletePopup();
+          this.loadFields();
+        },
+        error: () => {
+          alert('Failed to delete field');
+          this.closeDeletePopup();
+        }
       });
     }
   }

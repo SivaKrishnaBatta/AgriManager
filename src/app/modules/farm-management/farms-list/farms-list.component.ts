@@ -11,6 +11,22 @@ export class FarmsListComponent implements OnInit {
 
   farms: any[] = [];
 
+  // Popup state
+showDeletePopup: boolean = false;
+selectedFarmId: number | null = null;
+
+// Open popup
+openDeletePopup(id: number): void {
+  this.selectedFarmId = id;
+  this.showDeletePopup = true;
+}
+
+// Close popup
+closeDeletePopup(): void {
+  this.showDeletePopup = false;
+  this.selectedFarmId = null;
+}
+
   constructor(
     private farmService: FarmService,
     private router: Router
@@ -58,4 +74,20 @@ export class FarmsListComponent implements OnInit {
       });
     }
   }
+  confirmDelete(): void {
+  if (this.selectedFarmId != null) {
+    this.farmService.deleteFarm(this.selectedFarmId).subscribe({
+      next: () => {
+        this.closeDeletePopup();
+        this.loadFarms(); // reload list
+      },
+      error: () => {
+        alert('Failed to delete farm');
+        this.closeDeletePopup();
+      }
+    });
+  }
+}
+  
+
 }

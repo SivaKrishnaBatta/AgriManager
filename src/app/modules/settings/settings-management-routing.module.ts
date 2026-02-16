@@ -7,7 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'list', pathMatch: 'full' },
+{ path: '', redirectTo: 'list', pathMatch: 'full' },
 {path:'change-password', component:ChangePasswordComponent},
 {path:'expense-categories', component:ExpenseCategorySetupComponent},
 {path:'profile', component:ProfileComponent}
